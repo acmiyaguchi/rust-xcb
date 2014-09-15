@@ -13,11 +13,13 @@ use ffi;
 pub static XCMISC_MAJOR_VERSION : c_uint = 1;
 pub static XCMISC_MINOR_VERSION : c_uint = 1;
 
+#[repr(C)]
 pub struct get_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -27,6 +29,7 @@ pub struct get_version_request {
 }
 
 
+#[repr(C)]
 pub struct get_version_reply {
      pub response_type :          u8,
      pub pad0 :                   u8,
@@ -37,11 +40,13 @@ pub struct get_version_reply {
 }
 
 
+#[repr(C)]
 pub struct get_xid_range_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_xid_range_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -49,6 +54,7 @@ pub struct get_xid_range_request {
 }
 
 
+#[repr(C)]
 pub struct get_xid_range_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -59,11 +65,13 @@ pub struct get_xid_range_reply {
 }
 
 
+#[repr(C)]
 pub struct get_xid_list_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_xid_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -72,6 +80,7 @@ pub struct get_xid_list_request {
 }
 
 
+#[repr(C)]
 pub struct get_xid_list_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

@@ -19,6 +19,7 @@ pub type port = u32;
 /**
  * @brief port_iterator
  **/
+#[repr(C)]
 pub struct port_iterator {
     pub data : *mut port,
     pub rem  : c_int,
@@ -30,6 +31,7 @@ pub type encoding = u32;
 /**
  * @brief encoding_iterator
  **/
+#[repr(C)]
 pub struct encoding_iterator {
     pub data : *mut encoding,
     pub rem  : c_int,
@@ -37,6 +39,7 @@ pub struct encoding_iterator {
 }
 
 
+#[repr(C)]
 pub struct rational {
      pub numerator :     i32,
      pub denominator :   i32
@@ -45,6 +48,7 @@ pub struct rational {
 /**
  * @brief rational_iterator
  **/
+#[repr(C)]
 pub struct rational_iterator {
     pub data : *mut rational,
     pub rem  : c_int,
@@ -52,6 +56,7 @@ pub struct rational_iterator {
 }
 
 
+#[repr(C)]
 pub struct format {
      pub visual :   ffi::xproto::visualid,
      pub depth :    u8,
@@ -61,6 +66,7 @@ pub struct format {
 /**
  * @brief format_iterator
  **/
+#[repr(C)]
 pub struct format_iterator {
     pub data : *mut format,
     pub rem  : c_int,
@@ -68,6 +74,7 @@ pub struct format_iterator {
 }
 
 
+#[repr(C)]
 pub struct adaptor_info {
      pub base_id :       port,
      pub name_size :     u16,
@@ -80,6 +87,7 @@ pub struct adaptor_info {
 /**
  * @brief adaptor_info_iterator
  **/
+#[repr(C)]
 pub struct adaptor_info_iterator {
     pub data : *mut adaptor_info,
     pub rem  : c_int,
@@ -87,6 +95,7 @@ pub struct adaptor_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct encoding_info {
      pub encoding :    encoding,
      pub name_size :   u16,
@@ -99,6 +108,7 @@ pub struct encoding_info {
 /**
  * @brief encoding_info_iterator
  **/
+#[repr(C)]
 pub struct encoding_info_iterator {
     pub data : *mut encoding_info,
     pub rem  : c_int,
@@ -106,6 +116,7 @@ pub struct encoding_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct image {
      pub id :           u32,
      pub width :        u16,
@@ -117,6 +128,7 @@ pub struct image {
 /**
  * @brief image_iterator
  **/
+#[repr(C)]
 pub struct image_iterator {
     pub data : *mut image,
     pub rem  : c_int,
@@ -124,6 +136,7 @@ pub struct image_iterator {
 }
 
 
+#[repr(C)]
 pub struct attribute_info {
      pub flags :   u32,
      pub min :     i32,
@@ -134,6 +147,7 @@ pub struct attribute_info {
 /**
  * @brief attribute_info_iterator
  **/
+#[repr(C)]
 pub struct attribute_info_iterator {
     pub data : *mut attribute_info,
     pub rem  : c_int,
@@ -141,6 +155,7 @@ pub struct attribute_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct image_format_info {
      pub id :                u32,
      pub type_ :             u8,
@@ -174,6 +189,7 @@ pub struct image_format_info {
 /**
  * @brief image_format_info_iterator
  **/
+#[repr(C)]
 pub struct image_format_info_iterator {
     pub data : *mut image_format_info,
     pub rem  : c_int,
@@ -182,6 +198,7 @@ pub struct image_format_info_iterator {
 
 
 
+#[repr(C)]
 pub struct bad_port_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -190,6 +207,7 @@ pub struct bad_port_error {
 
 
 
+#[repr(C)]
 pub struct bad_encoding_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -198,6 +216,7 @@ pub struct bad_encoding_error {
 
 
 
+#[repr(C)]
 pub struct bad_control_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -206,6 +225,7 @@ pub struct bad_control_error {
 
 
 
+#[repr(C)]
 pub struct video_notify_event {
      pub response_type :   u8,
      pub reason :          u8,
@@ -217,6 +237,7 @@ pub struct video_notify_event {
 
 
 
+#[repr(C)]
 pub struct port_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -228,11 +249,13 @@ pub struct port_notify_event {
 }
 
 
+#[repr(C)]
 pub struct query_extension_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_extension_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -240,6 +263,7 @@ pub struct query_extension_request {
 }
 
 
+#[repr(C)]
 pub struct query_extension_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -250,11 +274,13 @@ pub struct query_extension_reply {
 }
 
 
+#[repr(C)]
 pub struct query_adaptors_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_adaptors_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -263,6 +289,7 @@ pub struct query_adaptors_request {
 }
 
 
+#[repr(C)]
 pub struct query_adaptors_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -273,11 +300,13 @@ pub struct query_adaptors_reply {
 }
 
 
+#[repr(C)]
 pub struct query_encodings_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_encodings_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -286,6 +315,7 @@ pub struct query_encodings_request {
 }
 
 
+#[repr(C)]
 pub struct query_encodings_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -296,11 +326,13 @@ pub struct query_encodings_reply {
 }
 
 
+#[repr(C)]
 pub struct grab_port_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct grab_port_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -310,6 +342,7 @@ pub struct grab_port_request {
 }
 
 
+#[repr(C)]
 pub struct grab_port_reply {
      pub response_type :   u8,
      pub result :          u8,
@@ -319,6 +352,7 @@ pub struct grab_port_reply {
 
 
 
+#[repr(C)]
 pub struct ungrab_port_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -329,6 +363,7 @@ pub struct ungrab_port_request {
 
 
 
+#[repr(C)]
 pub struct put_video_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -348,6 +383,7 @@ pub struct put_video_request {
 
 
 
+#[repr(C)]
 pub struct put_still_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -367,6 +403,7 @@ pub struct put_still_request {
 
 
 
+#[repr(C)]
 pub struct get_video_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -386,6 +423,7 @@ pub struct get_video_request {
 
 
 
+#[repr(C)]
 pub struct get_still_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -405,6 +443,7 @@ pub struct get_still_request {
 
 
 
+#[repr(C)]
 pub struct stop_video_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -415,6 +454,7 @@ pub struct stop_video_request {
 
 
 
+#[repr(C)]
 pub struct select_video_notify_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -426,6 +466,7 @@ pub struct select_video_notify_request {
 
 
 
+#[repr(C)]
 pub struct select_port_notify_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -436,11 +477,13 @@ pub struct select_port_notify_request {
 }
 
 
+#[repr(C)]
 pub struct query_best_size_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_best_size_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -455,6 +498,7 @@ pub struct query_best_size_request {
 }
 
 
+#[repr(C)]
 pub struct query_best_size_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -466,6 +510,7 @@ pub struct query_best_size_reply {
 
 
 
+#[repr(C)]
 pub struct set_port_attribute_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -476,11 +521,13 @@ pub struct set_port_attribute_request {
 }
 
 
+#[repr(C)]
 pub struct get_port_attribute_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_port_attribute_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -490,6 +537,7 @@ pub struct get_port_attribute_request {
 }
 
 
+#[repr(C)]
 pub struct get_port_attribute_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -499,11 +547,13 @@ pub struct get_port_attribute_reply {
 }
 
 
+#[repr(C)]
 pub struct query_port_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_port_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -512,6 +562,7 @@ pub struct query_port_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct query_port_attributes_reply {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -523,11 +574,13 @@ pub struct query_port_attributes_reply {
 }
 
 
+#[repr(C)]
 pub struct list_image_formats_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_image_formats_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -536,6 +589,7 @@ pub struct list_image_formats_request {
 }
 
 
+#[repr(C)]
 pub struct list_image_formats_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -546,11 +600,13 @@ pub struct list_image_formats_reply {
 }
 
 
+#[repr(C)]
 pub struct query_image_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_image_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -562,6 +618,7 @@ pub struct query_image_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct query_image_attributes_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -576,6 +633,7 @@ pub struct query_image_attributes_reply {
 
 
 
+#[repr(C)]
 pub struct put_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -598,6 +656,7 @@ pub struct put_image_request {
 
 
 
+#[repr(C)]
 pub struct shm_put_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,

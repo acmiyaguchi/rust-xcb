@@ -17,11 +17,13 @@ use ffi::xfixes;
 pub static COMPOSITE_MAJOR_VERSION : c_uint = 0;
 pub static COMPOSITE_MINOR_VERSION : c_uint = 3;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -31,6 +33,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -43,6 +46,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct redirect_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -54,6 +58,7 @@ pub struct redirect_window_request {
 
 
 
+#[repr(C)]
 pub struct redirect_subwindows_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -65,6 +70,7 @@ pub struct redirect_subwindows_request {
 
 
 
+#[repr(C)]
 pub struct unredirect_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -76,6 +82,7 @@ pub struct unredirect_window_request {
 
 
 
+#[repr(C)]
 pub struct unredirect_subwindows_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -87,6 +94,7 @@ pub struct unredirect_subwindows_request {
 
 
 
+#[repr(C)]
 pub struct create_region_from_border_clip_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -97,6 +105,7 @@ pub struct create_region_from_border_clip_request {
 
 
 
+#[repr(C)]
 pub struct name_window_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -106,11 +115,13 @@ pub struct name_window_pixmap_request {
 }
 
 
+#[repr(C)]
 pub struct get_overlay_window_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_overlay_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -119,6 +130,7 @@ pub struct get_overlay_window_request {
 }
 
 
+#[repr(C)]
 pub struct get_overlay_window_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -130,6 +142,7 @@ pub struct get_overlay_window_reply {
 
 
 
+#[repr(C)]
 pub struct release_overlay_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,

@@ -19,6 +19,7 @@ pub type mode = u32;
 /**
  * @brief mode_iterator
  **/
+#[repr(C)]
 pub struct mode_iterator {
     pub data : *mut mode,
     pub rem  : c_int,
@@ -30,6 +31,7 @@ pub type crtc = u32;
 /**
  * @brief crtc_iterator
  **/
+#[repr(C)]
 pub struct crtc_iterator {
     pub data : *mut crtc,
     pub rem  : c_int,
@@ -41,6 +43,7 @@ pub type output = u32;
 /**
  * @brief output_iterator
  **/
+#[repr(C)]
 pub struct output_iterator {
     pub data : *mut output,
     pub rem  : c_int,
@@ -49,6 +52,7 @@ pub struct output_iterator {
 
 
 
+#[repr(C)]
 pub struct bad_output_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -57,6 +61,7 @@ pub struct bad_output_error {
 
 
 
+#[repr(C)]
 pub struct bad_crtc_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -65,6 +70,7 @@ pub struct bad_crtc_error {
 
 
 
+#[repr(C)]
 pub struct bad_mode_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -72,6 +78,7 @@ pub struct bad_mode_error {
 }
 
 
+#[repr(C)]
 pub struct screen_size {
      pub width :     u16,
      pub height :    u16,
@@ -82,6 +89,7 @@ pub struct screen_size {
 /**
  * @brief screen_size_iterator
  **/
+#[repr(C)]
 pub struct screen_size_iterator {
     pub data : *mut screen_size,
     pub rem  : c_int,
@@ -89,6 +97,7 @@ pub struct screen_size_iterator {
 }
 
 
+#[repr(C)]
 pub struct refresh_rates {
      pub nRates :   u16
 }
@@ -96,6 +105,7 @@ pub struct refresh_rates {
 /**
  * @brief refresh_rates_iterator
  **/
+#[repr(C)]
 pub struct refresh_rates_iterator {
     pub data : *mut refresh_rates,
     pub rem  : c_int,
@@ -103,11 +113,13 @@ pub struct refresh_rates_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -117,6 +129,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -128,11 +141,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct set_screen_config_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_screen_config_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -147,6 +162,7 @@ pub struct set_screen_config_request {
 }
 
 
+#[repr(C)]
 pub struct set_screen_config_reply {
      pub response_type :      u8,
      pub status :             u8,
@@ -161,6 +177,7 @@ pub struct set_screen_config_reply {
 
 
 
+#[repr(C)]
 pub struct select_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -171,11 +188,13 @@ pub struct select_input_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_info_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -184,6 +203,7 @@ pub struct get_screen_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_info_reply {
      pub response_type :      u8,
      pub rotations :          u8,
@@ -201,11 +221,13 @@ pub struct get_screen_info_reply {
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_range_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_range_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -214,6 +236,7 @@ pub struct get_screen_size_range_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_range_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -228,6 +251,7 @@ pub struct get_screen_size_range_reply {
 
 
 
+#[repr(C)]
 pub struct set_screen_size_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -240,6 +264,7 @@ pub struct set_screen_size_request {
 }
 
 
+#[repr(C)]
 pub struct mode_info {
      pub id :            u32,
      pub width :         u16,
@@ -259,6 +284,7 @@ pub struct mode_info {
 /**
  * @brief mode_info_iterator
  **/
+#[repr(C)]
 pub struct mode_info_iterator {
     pub data : *mut mode_info,
     pub rem  : c_int,
@@ -266,11 +292,13 @@ pub struct mode_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -279,6 +307,7 @@ pub struct get_screen_resources_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_reply {
      pub response_type :      u8,
      pub pad0 :               u8,
@@ -294,11 +323,13 @@ pub struct get_screen_resources_reply {
 }
 
 
+#[repr(C)]
 pub struct get_output_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_output_info_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -308,6 +339,7 @@ pub struct get_output_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_output_info_reply {
      pub response_type :    u8,
      pub status :           u8,
@@ -327,11 +359,13 @@ pub struct get_output_info_reply {
 }
 
 
+#[repr(C)]
 pub struct list_output_properties_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_output_properties_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -340,6 +374,7 @@ pub struct list_output_properties_request {
 }
 
 
+#[repr(C)]
 pub struct list_output_properties_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -350,11 +385,13 @@ pub struct list_output_properties_reply {
 }
 
 
+#[repr(C)]
 pub struct query_output_property_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_output_property_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -364,6 +401,7 @@ pub struct query_output_property_request {
 }
 
 
+#[repr(C)]
 pub struct query_output_property_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -377,6 +415,7 @@ pub struct query_output_property_reply {
 
 
 
+#[repr(C)]
 pub struct configure_output_property_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -390,6 +429,7 @@ pub struct configure_output_property_request {
 
 
 
+#[repr(C)]
 pub struct change_output_property_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -405,6 +445,7 @@ pub struct change_output_property_request {
 
 
 
+#[repr(C)]
 pub struct delete_output_property_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -414,11 +455,13 @@ pub struct delete_output_property_request {
 }
 
 
+#[repr(C)]
 pub struct get_output_property_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_output_property_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -434,6 +477,7 @@ pub struct get_output_property_request {
 }
 
 
+#[repr(C)]
 pub struct get_output_property_reply {
      pub response_type :   u8,
      pub format :          u8,
@@ -446,11 +490,13 @@ pub struct get_output_property_reply {
 }
 
 
+#[repr(C)]
 pub struct create_mode_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -460,6 +506,7 @@ pub struct create_mode_request {
 }
 
 
+#[repr(C)]
 pub struct create_mode_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -471,6 +518,7 @@ pub struct create_mode_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -480,6 +528,7 @@ pub struct destroy_mode_request {
 
 
 
+#[repr(C)]
 pub struct add_output_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -490,6 +539,7 @@ pub struct add_output_mode_request {
 
 
 
+#[repr(C)]
 pub struct delete_output_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -499,11 +549,13 @@ pub struct delete_output_mode_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_crtc_info_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -513,6 +565,7 @@ pub struct get_crtc_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_info_reply {
      pub response_type :          u8,
      pub status :                 u8,
@@ -531,11 +584,13 @@ pub struct get_crtc_info_reply {
 }
 
 
+#[repr(C)]
 pub struct set_crtc_config_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_crtc_config_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -551,6 +606,7 @@ pub struct set_crtc_config_request {
 }
 
 
+#[repr(C)]
 pub struct set_crtc_config_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -561,11 +617,13 @@ pub struct set_crtc_config_reply {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_size_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_size_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -574,6 +632,7 @@ pub struct get_crtc_gamma_size_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_size_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -584,11 +643,13 @@ pub struct get_crtc_gamma_size_reply {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -597,6 +658,7 @@ pub struct get_crtc_gamma_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_gamma_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -608,6 +670,7 @@ pub struct get_crtc_gamma_reply {
 
 
 
+#[repr(C)]
 pub struct set_crtc_gamma_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -618,11 +681,13 @@ pub struct set_crtc_gamma_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_current_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_current_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -631,6 +696,7 @@ pub struct get_screen_resources_current_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_resources_current_reply {
      pub response_type :      u8,
      pub pad0 :               u8,
@@ -647,6 +713,7 @@ pub struct get_screen_resources_current_reply {
 
 
 
+#[repr(C)]
 pub struct set_crtc_transform_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -658,11 +725,13 @@ pub struct set_crtc_transform_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_transform_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_crtc_transform_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -671,6 +740,7 @@ pub struct get_crtc_transform_request {
 }
 
 
+#[repr(C)]
 pub struct get_crtc_transform_reply {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -688,11 +758,13 @@ pub struct get_crtc_transform_reply {
 }
 
 
+#[repr(C)]
 pub struct get_panning_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_panning_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -701,6 +773,7 @@ pub struct get_panning_request {
 }
 
 
+#[repr(C)]
 pub struct get_panning_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -722,11 +795,13 @@ pub struct get_panning_reply {
 }
 
 
+#[repr(C)]
 pub struct set_panning_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_panning_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -748,6 +823,7 @@ pub struct set_panning_request {
 }
 
 
+#[repr(C)]
 pub struct set_panning_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -758,6 +834,7 @@ pub struct set_panning_reply {
 
 
 
+#[repr(C)]
 pub struct set_output_primary_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -767,11 +844,13 @@ pub struct set_output_primary_request {
 }
 
 
+#[repr(C)]
 pub struct get_output_primary_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_output_primary_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -780,6 +859,7 @@ pub struct get_output_primary_request {
 }
 
 
+#[repr(C)]
 pub struct get_output_primary_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -790,6 +870,7 @@ pub struct get_output_primary_reply {
 
 
 
+#[repr(C)]
 pub struct screen_change_notify_event {
      pub response_type :      u8,
      pub rotation :           u8,
@@ -807,6 +888,7 @@ pub struct screen_change_notify_event {
 }
 
 
+#[repr(C)]
 pub struct crtc_change {
      pub timestamp :   ffi::xproto::timestamp,
      pub window :      ffi::xproto::window,
@@ -823,6 +905,7 @@ pub struct crtc_change {
 /**
  * @brief crtc_change_iterator
  **/
+#[repr(C)]
 pub struct crtc_change_iterator {
     pub data : *mut crtc_change,
     pub rem  : c_int,
@@ -830,6 +913,7 @@ pub struct crtc_change_iterator {
 }
 
 
+#[repr(C)]
 pub struct output_change {
      pub timestamp :          ffi::xproto::timestamp,
      pub config_timestamp :   ffi::xproto::timestamp,
@@ -845,6 +929,7 @@ pub struct output_change {
 /**
  * @brief output_change_iterator
  **/
+#[repr(C)]
 pub struct output_change_iterator {
     pub data : *mut output_change,
     pub rem  : c_int,
@@ -852,6 +937,7 @@ pub struct output_change_iterator {
 }
 
 
+#[repr(C)]
 pub struct output_property {
      pub window :      ffi::xproto::window,
      pub output :      output,
@@ -864,6 +950,7 @@ pub struct output_property {
 /**
  * @brief output_property_iterator
  **/
+#[repr(C)]
 pub struct output_property_iterator {
     pub data : *mut output_property,
     pub rem  : c_int,
@@ -871,12 +958,14 @@ pub struct output_property_iterator {
 }
 
 
+#[repr(C)]
 pub struct notify_data {
     data : [u8,..28]
 }
 /**
  * @brief notify_data_iterator
  **/
+#[repr(C)]
 pub struct notify_data_iterator {
     pub data : *mut notify_data,
     pub rem  : c_int,
@@ -885,6 +974,7 @@ pub struct notify_data_iterator {
 
 
 
+#[repr(C)]
 pub struct notify_event {
      pub response_type :   u8,
      pub subCode :         u8,

@@ -13,11 +13,13 @@ use ffi;
 pub static GENERICEVENT_MAJOR_VERSION : c_uint = 1;
 pub static GENERICEVENT_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -27,6 +29,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

@@ -10,6 +10,7 @@ use std;
 use libc::*;
 use ffi;
 
+#[repr(C)]
 pub struct char2b {
      pub byte1 :   u8,
      pub byte2 :   u8
@@ -18,6 +19,7 @@ pub struct char2b {
 /**
  * @brief char2b_iterator
  **/
+#[repr(C)]
 pub struct char2b_iterator {
     pub data : *mut char2b,
     pub rem  : c_int,
@@ -29,6 +31,7 @@ pub type window = u32;
 /**
  * @brief window_iterator
  **/
+#[repr(C)]
 pub struct window_iterator {
     pub data : *mut window,
     pub rem  : c_int,
@@ -40,6 +43,7 @@ pub type pixmap = u32;
 /**
  * @brief pixmap_iterator
  **/
+#[repr(C)]
 pub struct pixmap_iterator {
     pub data : *mut pixmap,
     pub rem  : c_int,
@@ -51,6 +55,7 @@ pub type cursor = u32;
 /**
  * @brief cursor_iterator
  **/
+#[repr(C)]
 pub struct cursor_iterator {
     pub data : *mut cursor,
     pub rem  : c_int,
@@ -62,6 +67,7 @@ pub type font = u32;
 /**
  * @brief font_iterator
  **/
+#[repr(C)]
 pub struct font_iterator {
     pub data : *mut font,
     pub rem  : c_int,
@@ -73,6 +79,7 @@ pub type gcontext = u32;
 /**
  * @brief gcontext_iterator
  **/
+#[repr(C)]
 pub struct gcontext_iterator {
     pub data : *mut gcontext,
     pub rem  : c_int,
@@ -84,6 +91,7 @@ pub type colormap = u32;
 /**
  * @brief colormap_iterator
  **/
+#[repr(C)]
 pub struct colormap_iterator {
     pub data : *mut colormap,
     pub rem  : c_int,
@@ -95,6 +103,7 @@ pub type atom = u32;
 /**
  * @brief atom_iterator
  **/
+#[repr(C)]
 pub struct atom_iterator {
     pub data : *mut atom,
     pub rem  : c_int,
@@ -106,6 +115,7 @@ pub type drawable = u32;
 /**
  * @brief drawable_iterator
  **/
+#[repr(C)]
 pub struct drawable_iterator {
     pub data : *mut drawable,
     pub rem  : c_int,
@@ -117,6 +127,7 @@ pub type fontable = u32;
 /**
  * @brief fontable_iterator
  **/
+#[repr(C)]
 pub struct fontable_iterator {
     pub data : *mut fontable,
     pub rem  : c_int,
@@ -128,6 +139,7 @@ pub type visualid = u32;
 /**
  * @brief visualid_iterator
  **/
+#[repr(C)]
 pub struct visualid_iterator {
     pub data : *mut visualid,
     pub rem  : c_int,
@@ -139,6 +151,7 @@ pub type timestamp = u32;
 /**
  * @brief timestamp_iterator
  **/
+#[repr(C)]
 pub struct timestamp_iterator {
     pub data : *mut timestamp,
     pub rem  : c_int,
@@ -150,6 +163,7 @@ pub type keysym = u32;
 /**
  * @brief keysym_iterator
  **/
+#[repr(C)]
 pub struct keysym_iterator {
     pub data : *mut keysym,
     pub rem  : c_int,
@@ -161,6 +175,7 @@ pub type keycode = u8;
 /**
  * @brief keycode_iterator
  **/
+#[repr(C)]
 pub struct keycode_iterator {
     pub data : *mut keycode,
     pub rem  : c_int,
@@ -172,6 +187,7 @@ pub type button = u8;
 /**
  * @brief button_iterator
  **/
+#[repr(C)]
 pub struct button_iterator {
     pub data : *mut button,
     pub rem  : c_int,
@@ -179,6 +195,7 @@ pub struct button_iterator {
 }
 
 
+#[repr(C)]
 pub struct point {
      pub x :   i16,
      pub y :   i16
@@ -187,6 +204,7 @@ pub struct point {
 /**
  * @brief point_iterator
  **/
+#[repr(C)]
 pub struct point_iterator {
     pub data : *mut point,
     pub rem  : c_int,
@@ -194,6 +212,7 @@ pub struct point_iterator {
 }
 
 
+#[repr(C)]
 pub struct rectangle {
      pub x :        i16,
      pub y :        i16,
@@ -204,6 +223,7 @@ pub struct rectangle {
 /**
  * @brief rectangle_iterator
  **/
+#[repr(C)]
 pub struct rectangle_iterator {
     pub data : *mut rectangle,
     pub rem  : c_int,
@@ -211,6 +231,7 @@ pub struct rectangle_iterator {
 }
 
 
+#[repr(C)]
 pub struct arc {
      pub x :        i16,
      pub y :        i16,
@@ -223,6 +244,7 @@ pub struct arc {
 /**
  * @brief arc_iterator
  **/
+#[repr(C)]
 pub struct arc_iterator {
     pub data : *mut arc,
     pub rem  : c_int,
@@ -230,6 +252,7 @@ pub struct arc_iterator {
 }
 
 
+#[repr(C)]
 pub struct format {
      pub depth :            u8,
      pub bits_per_pixel :   u8,
@@ -240,6 +263,7 @@ pub struct format {
 /**
  * @brief format_iterator
  **/
+#[repr(C)]
 pub struct format_iterator {
     pub data : *mut format,
     pub rem  : c_int,
@@ -247,6 +271,7 @@ pub struct format_iterator {
 }
 
 
+#[repr(C)]
 pub struct visualtype {
      pub visual_id :            visualid,
      pub class :                u8,
@@ -261,6 +286,7 @@ pub struct visualtype {
 /**
  * @brief visualtype_iterator
  **/
+#[repr(C)]
 pub struct visualtype_iterator {
     pub data : *mut visualtype,
     pub rem  : c_int,
@@ -268,6 +294,7 @@ pub struct visualtype_iterator {
 }
 
 
+#[repr(C)]
 pub struct depth {
      pub depth :         u8,
      pub pad0 :          u8,
@@ -278,6 +305,7 @@ pub struct depth {
 /**
  * @brief depth_iterator
  **/
+#[repr(C)]
 pub struct depth_iterator {
     pub data : *mut depth,
     pub rem  : c_int,
@@ -285,6 +313,7 @@ pub struct depth_iterator {
 }
 
 
+#[repr(C)]
 pub struct screen {
      pub root :                    window,
      pub default_colormap :        colormap,
@@ -307,6 +336,7 @@ pub struct screen {
 /**
  * @brief screen_iterator
  **/
+#[repr(C)]
 pub struct screen_iterator {
     pub data : *mut screen,
     pub rem  : c_int,
@@ -314,6 +344,7 @@ pub struct screen_iterator {
 }
 
 
+#[repr(C)]
 pub struct setup_request {
      pub byte_order :                        u8,
      pub pad0 :                              u8,
@@ -327,6 +358,7 @@ pub struct setup_request {
 /**
  * @brief setup_request_iterator
  **/
+#[repr(C)]
 pub struct setup_request_iterator {
     pub data : *mut setup_request,
     pub rem  : c_int,
@@ -334,6 +366,7 @@ pub struct setup_request_iterator {
 }
 
 
+#[repr(C)]
 pub struct setup_failed {
      pub status :                   u8,
      pub reason_len :               u8,
@@ -345,6 +378,7 @@ pub struct setup_failed {
 /**
  * @brief setup_failed_iterator
  **/
+#[repr(C)]
 pub struct setup_failed_iterator {
     pub data : *mut setup_failed,
     pub rem  : c_int,
@@ -352,6 +386,7 @@ pub struct setup_failed_iterator {
 }
 
 
+#[repr(C)]
 pub struct setup_authenticate {
      pub status :   u8,
      pub pad0 :     [u8,..5],
@@ -361,6 +396,7 @@ pub struct setup_authenticate {
 /**
  * @brief setup_authenticate_iterator
  **/
+#[repr(C)]
 pub struct setup_authenticate_iterator {
     pub data : *mut setup_authenticate,
     pub rem  : c_int,
@@ -368,6 +404,7 @@ pub struct setup_authenticate_iterator {
 }
 
 
+#[repr(C)]
 pub struct setup {
      pub status :                        u8,
      pub pad0 :                          u8,
@@ -394,6 +431,7 @@ pub struct setup {
 /**
  * @brief setup_iterator
  **/
+#[repr(C)]
 pub struct setup_iterator {
     pub data : *mut setup,
     pub rem  : c_int,
@@ -402,6 +440,7 @@ pub struct setup_iterator {
 
 
 
+#[repr(C)]
 pub struct key_press_event {
      pub response_type :   u8,
      pub detail :          keycode,
@@ -424,6 +463,7 @@ pub struct key_press_event {
 pub type key_release_event = key_press_event;
 
 
+#[repr(C)]
 pub struct button_press_event {
      pub response_type :   u8,
      pub detail :          button,
@@ -446,6 +486,7 @@ pub struct button_press_event {
 pub type button_release_event = button_press_event;
 
 
+#[repr(C)]
 pub struct motion_notify_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -465,6 +506,7 @@ pub struct motion_notify_event {
 
 
 
+#[repr(C)]
 pub struct enter_notify_event {
      pub response_type :       u8,
      pub detail :              u8,
@@ -487,6 +529,7 @@ pub struct enter_notify_event {
 pub type leave_notify_event = enter_notify_event;
 
 
+#[repr(C)]
 pub struct focus_in_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -501,6 +544,7 @@ pub struct focus_in_event {
 pub type focus_out_event = focus_in_event;
 
 
+#[repr(C)]
 pub struct keymap_notify_event {
      pub response_type :   u8,
      pub keys :            [u8,..31]
@@ -508,6 +552,7 @@ pub struct keymap_notify_event {
 
 
 
+#[repr(C)]
 pub struct expose_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -523,6 +568,7 @@ pub struct expose_event {
 
 
 
+#[repr(C)]
 pub struct graphics_exposure_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -540,6 +586,7 @@ pub struct graphics_exposure_event {
 
 
 
+#[repr(C)]
 pub struct no_exposure_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -552,6 +599,7 @@ pub struct no_exposure_event {
 
 
 
+#[repr(C)]
 pub struct visibility_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -563,6 +611,7 @@ pub struct visibility_notify_event {
 
 
 
+#[repr(C)]
 pub struct create_notify_event {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -580,6 +629,7 @@ pub struct create_notify_event {
 
 
 
+#[repr(C)]
 pub struct destroy_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -590,6 +640,7 @@ pub struct destroy_notify_event {
 
 
 
+#[repr(C)]
 pub struct unmap_notify_event {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -602,6 +653,7 @@ pub struct unmap_notify_event {
 
 
 
+#[repr(C)]
 pub struct map_notify_event {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -614,6 +666,7 @@ pub struct map_notify_event {
 
 
 
+#[repr(C)]
 pub struct map_request_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -624,6 +677,7 @@ pub struct map_request_event {
 
 
 
+#[repr(C)]
 pub struct reparent_notify_event {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -639,6 +693,7 @@ pub struct reparent_notify_event {
 
 
 
+#[repr(C)]
 pub struct configure_notify_event {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -657,6 +712,7 @@ pub struct configure_notify_event {
 
 
 
+#[repr(C)]
 pub struct configure_request_event {
      pub response_type :   u8,
      pub stack_mode :      u8,
@@ -674,6 +730,7 @@ pub struct configure_request_event {
 
 
 
+#[repr(C)]
 pub struct gravity_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -686,6 +743,7 @@ pub struct gravity_notify_event {
 
 
 
+#[repr(C)]
 pub struct resize_request_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -697,6 +755,7 @@ pub struct resize_request_event {
 
 
 
+#[repr(C)]
 pub struct circulate_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -713,6 +772,7 @@ pub struct circulate_notify_event {
 pub type circulate_request_event = circulate_notify_event;
 
 
+#[repr(C)]
 pub struct property_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -726,6 +786,7 @@ pub struct property_notify_event {
 
 
 
+#[repr(C)]
 pub struct selection_clear_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -737,6 +798,7 @@ pub struct selection_clear_event {
 
 
 
+#[repr(C)]
 pub struct selection_request_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -751,6 +813,7 @@ pub struct selection_request_event {
 
 
 
+#[repr(C)]
 pub struct selection_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -764,6 +827,7 @@ pub struct selection_notify_event {
 
 
 
+#[repr(C)]
 pub struct colormap_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -776,12 +840,14 @@ pub struct colormap_notify_event {
 }
 
 
+#[repr(C)]
 pub struct client_message_data {
     data : [u8,..20]
 }
 /**
  * @brief client_message_data_iterator
  **/
+#[repr(C)]
 pub struct client_message_data_iterator {
     pub data : *mut client_message_data,
     pub rem  : c_int,
@@ -790,6 +856,7 @@ pub struct client_message_data_iterator {
 
 
 
+#[repr(C)]
 pub struct client_message_event {
      pub response_type :   u8,
      pub format :          u8,
@@ -801,6 +868,7 @@ pub struct client_message_event {
 
 
 
+#[repr(C)]
 pub struct mapping_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -813,6 +881,7 @@ pub struct mapping_notify_event {
 
 
 
+#[repr(C)]
 pub struct request_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -825,6 +894,7 @@ pub struct request_error {
 
 
 
+#[repr(C)]
 pub struct value_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -882,6 +952,7 @@ pub type length_error  = request_error;
 pub type implementation_error  = request_error;
 
 
+#[repr(C)]
 pub struct create_window_request {
      pub major_opcode :   u8,
      pub depth :          u8,
@@ -900,6 +971,7 @@ pub struct create_window_request {
 
 
 
+#[repr(C)]
 pub struct change_window_attributes_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -909,11 +981,13 @@ pub struct change_window_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct get_window_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_window_attributes_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -922,6 +996,7 @@ pub struct get_window_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct get_window_attributes_reply {
      pub response_type :           u8,
      pub backing_store :           u8,
@@ -946,6 +1021,7 @@ pub struct get_window_attributes_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_window_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -955,6 +1031,7 @@ pub struct destroy_window_request {
 
 
 
+#[repr(C)]
 pub struct destroy_subwindows_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -964,6 +1041,7 @@ pub struct destroy_subwindows_request {
 
 
 
+#[repr(C)]
 pub struct change_save_set_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -973,6 +1051,7 @@ pub struct change_save_set_request {
 
 
 
+#[repr(C)]
 pub struct reparent_window_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -985,6 +1064,7 @@ pub struct reparent_window_request {
 
 
 
+#[repr(C)]
 pub struct map_window_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -994,6 +1074,7 @@ pub struct map_window_request {
 
 
 
+#[repr(C)]
 pub struct map_subwindows_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1003,6 +1084,7 @@ pub struct map_subwindows_request {
 
 
 
+#[repr(C)]
 pub struct unmap_window_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1012,6 +1094,7 @@ pub struct unmap_window_request {
 
 
 
+#[repr(C)]
 pub struct unmap_subwindows_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1021,6 +1104,7 @@ pub struct unmap_subwindows_request {
 
 
 
+#[repr(C)]
 pub struct configure_window_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1032,6 +1116,7 @@ pub struct configure_window_request {
 
 
 
+#[repr(C)]
 pub struct circulate_window_request {
      pub major_opcode :   u8,
      pub direction :      u8,
@@ -1040,11 +1125,13 @@ pub struct circulate_window_request {
 }
 
 
+#[repr(C)]
 pub struct get_geometry_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_geometry_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1053,6 +1140,7 @@ pub struct get_geometry_request {
 }
 
 
+#[repr(C)]
 pub struct get_geometry_reply {
      pub response_type :   u8,
      pub depth :           u8,
@@ -1068,11 +1156,13 @@ pub struct get_geometry_reply {
 }
 
 
+#[repr(C)]
 pub struct query_tree_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_tree_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1081,6 +1171,7 @@ pub struct query_tree_request {
 }
 
 
+#[repr(C)]
 pub struct query_tree_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1093,11 +1184,13 @@ pub struct query_tree_reply {
 }
 
 
+#[repr(C)]
 pub struct intern_atom_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct intern_atom_request {
      pub major_opcode :     u8,
      pub only_if_exists :   u8,
@@ -1107,6 +1200,7 @@ pub struct intern_atom_request {
 }
 
 
+#[repr(C)]
 pub struct intern_atom_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1116,11 +1210,13 @@ pub struct intern_atom_reply {
 }
 
 
+#[repr(C)]
 pub struct get_atom_name_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_atom_name_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1129,6 +1225,7 @@ pub struct get_atom_name_request {
 }
 
 
+#[repr(C)]
 pub struct get_atom_name_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1140,6 +1237,7 @@ pub struct get_atom_name_reply {
 
 
 
+#[repr(C)]
 pub struct change_property_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -1154,6 +1252,7 @@ pub struct change_property_request {
 
 
 
+#[repr(C)]
 pub struct delete_property_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1163,11 +1262,13 @@ pub struct delete_property_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_property_request {
      pub major_opcode :   u8,
      pub delete :         u8,
@@ -1180,6 +1281,7 @@ pub struct get_property_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_reply {
      pub response_type :   u8,
      pub format :          u8,
@@ -1192,11 +1294,13 @@ pub struct get_property_reply {
 }
 
 
+#[repr(C)]
 pub struct list_properties_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_properties_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1205,6 +1309,7 @@ pub struct list_properties_request {
 }
 
 
+#[repr(C)]
 pub struct list_properties_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1216,6 +1321,7 @@ pub struct list_properties_reply {
 
 
 
+#[repr(C)]
 pub struct set_selection_owner_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1226,11 +1332,13 @@ pub struct set_selection_owner_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_owner_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selection_owner_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1239,6 +1347,7 @@ pub struct get_selection_owner_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_owner_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1249,6 +1358,7 @@ pub struct get_selection_owner_reply {
 
 
 
+#[repr(C)]
 pub struct convert_selection_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1262,6 +1372,7 @@ pub struct convert_selection_request {
 
 
 
+#[repr(C)]
 pub struct send_event_request {
      pub major_opcode :   u8,
      pub propagate :      u8,
@@ -1272,11 +1383,13 @@ pub struct send_event_request {
 }
 
 
+#[repr(C)]
 pub struct grab_pointer_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct grab_pointer_request {
      pub major_opcode :    u8,
      pub owner_events :    u8,
@@ -1291,6 +1404,7 @@ pub struct grab_pointer_request {
 }
 
 
+#[repr(C)]
 pub struct grab_pointer_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -1300,6 +1414,7 @@ pub struct grab_pointer_reply {
 
 
 
+#[repr(C)]
 pub struct ungrab_pointer_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1309,6 +1424,7 @@ pub struct ungrab_pointer_request {
 
 
 
+#[repr(C)]
 pub struct grab_button_request {
      pub major_opcode :    u8,
      pub owner_events :    u8,
@@ -1326,6 +1442,7 @@ pub struct grab_button_request {
 
 
 
+#[repr(C)]
 pub struct ungrab_button_request {
      pub major_opcode :   u8,
      pub button :         u8,
@@ -1337,6 +1454,7 @@ pub struct ungrab_button_request {
 
 
 
+#[repr(C)]
 pub struct change_active_pointer_grab_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1348,11 +1466,13 @@ pub struct change_active_pointer_grab_request {
 }
 
 
+#[repr(C)]
 pub struct grab_keyboard_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct grab_keyboard_request {
      pub major_opcode :    u8,
      pub owner_events :    u8,
@@ -1365,6 +1485,7 @@ pub struct grab_keyboard_request {
 }
 
 
+#[repr(C)]
 pub struct grab_keyboard_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -1374,6 +1495,7 @@ pub struct grab_keyboard_reply {
 
 
 
+#[repr(C)]
 pub struct ungrab_keyboard_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1383,6 +1505,7 @@ pub struct ungrab_keyboard_request {
 
 
 
+#[repr(C)]
 pub struct grab_key_request {
      pub major_opcode :    u8,
      pub owner_events :    u8,
@@ -1397,6 +1520,7 @@ pub struct grab_key_request {
 
 
 
+#[repr(C)]
 pub struct ungrab_key_request {
      pub major_opcode :   u8,
      pub key :            keycode,
@@ -1408,6 +1532,7 @@ pub struct ungrab_key_request {
 
 
 
+#[repr(C)]
 pub struct allow_events_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -1417,6 +1542,7 @@ pub struct allow_events_request {
 
 
 
+#[repr(C)]
 pub struct grab_server_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1425,6 +1551,7 @@ pub struct grab_server_request {
 
 
 
+#[repr(C)]
 pub struct ungrab_server_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1432,11 +1559,13 @@ pub struct ungrab_server_request {
 }
 
 
+#[repr(C)]
 pub struct query_pointer_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_pointer_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1445,6 +1574,7 @@ pub struct query_pointer_request {
 }
 
 
+#[repr(C)]
 pub struct query_pointer_reply {
      pub response_type :   u8,
      pub same_screen :     u8,
@@ -1461,6 +1591,7 @@ pub struct query_pointer_reply {
 }
 
 
+#[repr(C)]
 pub struct timecoord {
      pub time :   timestamp,
      pub x :      i16,
@@ -1470,6 +1601,7 @@ pub struct timecoord {
 /**
  * @brief timecoord_iterator
  **/
+#[repr(C)]
 pub struct timecoord_iterator {
     pub data : *mut timecoord,
     pub rem  : c_int,
@@ -1477,11 +1609,13 @@ pub struct timecoord_iterator {
 }
 
 
+#[repr(C)]
 pub struct get_motion_events_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_motion_events_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1492,6 +1626,7 @@ pub struct get_motion_events_request {
 }
 
 
+#[repr(C)]
 pub struct get_motion_events_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1502,11 +1637,13 @@ pub struct get_motion_events_reply {
 }
 
 
+#[repr(C)]
 pub struct translate_coordinates_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct translate_coordinates_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1518,6 +1655,7 @@ pub struct translate_coordinates_request {
 }
 
 
+#[repr(C)]
 pub struct translate_coordinates_reply {
      pub response_type :   u8,
      pub same_screen :     u8,
@@ -1530,6 +1668,7 @@ pub struct translate_coordinates_reply {
 
 
 
+#[repr(C)]
 pub struct warp_pointer_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1546,6 +1685,7 @@ pub struct warp_pointer_request {
 
 
 
+#[repr(C)]
 pub struct set_input_focus_request {
      pub major_opcode :   u8,
      pub revert_to :      u8,
@@ -1555,11 +1695,13 @@ pub struct set_input_focus_request {
 }
 
 
+#[repr(C)]
 pub struct get_input_focus_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_input_focus_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1567,6 +1709,7 @@ pub struct get_input_focus_request {
 }
 
 
+#[repr(C)]
 pub struct get_input_focus_reply {
      pub response_type :   u8,
      pub revert_to :       u8,
@@ -1576,11 +1719,13 @@ pub struct get_input_focus_reply {
 }
 
 
+#[repr(C)]
 pub struct query_keymap_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_keymap_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1588,6 +1733,7 @@ pub struct query_keymap_request {
 }
 
 
+#[repr(C)]
 pub struct query_keymap_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1598,6 +1744,7 @@ pub struct query_keymap_reply {
 
 
 
+#[repr(C)]
 pub struct open_font_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1609,6 +1756,7 @@ pub struct open_font_request {
 
 
 
+#[repr(C)]
 pub struct close_font_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1617,6 +1765,7 @@ pub struct close_font_request {
 }
 
 
+#[repr(C)]
 pub struct fontprop {
      pub name :    atom,
      pub value :   u32
@@ -1625,6 +1774,7 @@ pub struct fontprop {
 /**
  * @brief fontprop_iterator
  **/
+#[repr(C)]
 pub struct fontprop_iterator {
     pub data : *mut fontprop,
     pub rem  : c_int,
@@ -1632,6 +1782,7 @@ pub struct fontprop_iterator {
 }
 
 
+#[repr(C)]
 pub struct charinfo {
      pub left_side_bearing :    i16,
      pub right_side_bearing :   i16,
@@ -1644,6 +1795,7 @@ pub struct charinfo {
 /**
  * @brief charinfo_iterator
  **/
+#[repr(C)]
 pub struct charinfo_iterator {
     pub data : *mut charinfo,
     pub rem  : c_int,
@@ -1651,11 +1803,13 @@ pub struct charinfo_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_font_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_font_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1664,6 +1818,7 @@ pub struct query_font_request {
 }
 
 
+#[repr(C)]
 pub struct query_font_reply {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -1687,11 +1842,13 @@ pub struct query_font_reply {
 }
 
 
+#[repr(C)]
 pub struct query_text_extents_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_text_extents_request {
      pub major_opcode :   u8,
      pub odd_length :     u8,
@@ -1700,6 +1857,7 @@ pub struct query_text_extents_request {
 }
 
 
+#[repr(C)]
 pub struct query_text_extents_reply {
      pub response_type :     u8,
      pub draw_direction :    u8,
@@ -1715,6 +1873,7 @@ pub struct query_text_extents_reply {
 }
 
 
+#[repr(C)]
 pub struct str_ {
      pub name_len :   u8
 }
@@ -1722,6 +1881,7 @@ pub struct str_ {
 /**
  * @brief str_iterator
  **/
+#[repr(C)]
 pub struct str_iterator {
     pub data : *mut str_,
     pub rem  : c_int,
@@ -1729,11 +1889,13 @@ pub struct str_iterator {
 }
 
 
+#[repr(C)]
 pub struct list_fonts_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_fonts_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1743,6 +1905,7 @@ pub struct list_fonts_request {
 }
 
 
+#[repr(C)]
 pub struct list_fonts_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1753,11 +1916,13 @@ pub struct list_fonts_reply {
 }
 
 
+#[repr(C)]
 pub struct list_fonts_with_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_fonts_with_info_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1767,6 +1932,7 @@ pub struct list_fonts_with_info_request {
 }
 
 
+#[repr(C)]
 pub struct list_fonts_with_info_reply {
      pub response_type :       u8,
      pub name_len :            u8,
@@ -1791,6 +1957,7 @@ pub struct list_fonts_with_info_reply {
 
 
 
+#[repr(C)]
 pub struct set_font_path_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1800,11 +1967,13 @@ pub struct set_font_path_request {
 }
 
 
+#[repr(C)]
 pub struct get_font_path_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_font_path_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1812,6 +1981,7 @@ pub struct get_font_path_request {
 }
 
 
+#[repr(C)]
 pub struct get_font_path_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1823,6 +1993,7 @@ pub struct get_font_path_reply {
 
 
 
+#[repr(C)]
 pub struct create_pixmap_request {
      pub major_opcode :   u8,
      pub depth :          u8,
@@ -1835,6 +2006,7 @@ pub struct create_pixmap_request {
 
 
 
+#[repr(C)]
 pub struct free_pixmap_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1844,6 +2016,7 @@ pub struct free_pixmap_request {
 
 
 
+#[repr(C)]
 pub struct create_gc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1855,6 +2028,7 @@ pub struct create_gc_request {
 
 
 
+#[repr(C)]
 pub struct change_gc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1865,6 +2039,7 @@ pub struct change_gc_request {
 
 
 
+#[repr(C)]
 pub struct copy_gc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1876,6 +2051,7 @@ pub struct copy_gc_request {
 
 
 
+#[repr(C)]
 pub struct set_dashes_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1887,6 +2063,7 @@ pub struct set_dashes_request {
 
 
 
+#[repr(C)]
 pub struct set_clip_rectangles_request {
      pub major_opcode :    u8,
      pub ordering :        u8,
@@ -1898,6 +2075,7 @@ pub struct set_clip_rectangles_request {
 
 
 
+#[repr(C)]
 pub struct free_gc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1907,6 +2085,7 @@ pub struct free_gc_request {
 
 
 
+#[repr(C)]
 pub struct clear_area_request {
      pub major_opcode :   u8,
      pub exposures :      u8,
@@ -1920,6 +2099,7 @@ pub struct clear_area_request {
 
 
 
+#[repr(C)]
 pub struct copy_area_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1937,6 +2117,7 @@ pub struct copy_area_request {
 
 
 
+#[repr(C)]
 pub struct copy_plane_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -1955,6 +2136,7 @@ pub struct copy_plane_request {
 
 
 
+#[repr(C)]
 pub struct poly_point_request {
      pub major_opcode :      u8,
      pub coordinate_mode :   u8,
@@ -1965,6 +2147,7 @@ pub struct poly_point_request {
 
 
 
+#[repr(C)]
 pub struct poly_line_request {
      pub major_opcode :      u8,
      pub coordinate_mode :   u8,
@@ -1974,6 +2157,7 @@ pub struct poly_line_request {
 }
 
 
+#[repr(C)]
 pub struct segment {
      pub x1 :   i16,
      pub y1 :   i16,
@@ -1984,6 +2168,7 @@ pub struct segment {
 /**
  * @brief segment_iterator
  **/
+#[repr(C)]
 pub struct segment_iterator {
     pub data : *mut segment,
     pub rem  : c_int,
@@ -1992,6 +2177,7 @@ pub struct segment_iterator {
 
 
 
+#[repr(C)]
 pub struct poly_segment_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2002,6 +2188,7 @@ pub struct poly_segment_request {
 
 
 
+#[repr(C)]
 pub struct poly_rectangle_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2012,6 +2199,7 @@ pub struct poly_rectangle_request {
 
 
 
+#[repr(C)]
 pub struct poly_arc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2022,6 +2210,7 @@ pub struct poly_arc_request {
 
 
 
+#[repr(C)]
 pub struct fill_poly_request {
      pub major_opcode :      u8,
      pub pad0 :              u8,
@@ -2035,6 +2224,7 @@ pub struct fill_poly_request {
 
 
 
+#[repr(C)]
 pub struct poly_fill_rectangle_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2045,6 +2235,7 @@ pub struct poly_fill_rectangle_request {
 
 
 
+#[repr(C)]
 pub struct poly_fill_arc_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2055,6 +2246,7 @@ pub struct poly_fill_arc_request {
 
 
 
+#[repr(C)]
 pub struct put_image_request {
      pub major_opcode :   u8,
      pub format :         u8,
@@ -2071,11 +2263,13 @@ pub struct put_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_image_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_image_request {
      pub major_opcode :   u8,
      pub format :         u8,
@@ -2089,6 +2283,7 @@ pub struct get_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_image_reply {
      pub response_type :   u8,
      pub depth :           u8,
@@ -2100,6 +2295,7 @@ pub struct get_image_reply {
 
 
 
+#[repr(C)]
 pub struct poly_text_8_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2112,6 +2308,7 @@ pub struct poly_text_8_request {
 
 
 
+#[repr(C)]
 pub struct poly_text_16_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2124,6 +2321,7 @@ pub struct poly_text_16_request {
 
 
 
+#[repr(C)]
 pub struct image_text_8_request {
      pub major_opcode :   u8,
      pub string_len :     u8,
@@ -2136,6 +2334,7 @@ pub struct image_text_8_request {
 
 
 
+#[repr(C)]
 pub struct image_text_16_request {
      pub major_opcode :   u8,
      pub string_len :     u8,
@@ -2148,6 +2347,7 @@ pub struct image_text_16_request {
 
 
 
+#[repr(C)]
 pub struct create_colormap_request {
      pub major_opcode :   u8,
      pub alloc :          u8,
@@ -2159,6 +2359,7 @@ pub struct create_colormap_request {
 
 
 
+#[repr(C)]
 pub struct free_colormap_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2168,6 +2369,7 @@ pub struct free_colormap_request {
 
 
 
+#[repr(C)]
 pub struct copy_colormap_and_free_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2178,6 +2380,7 @@ pub struct copy_colormap_and_free_request {
 
 
 
+#[repr(C)]
 pub struct install_colormap_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2187,6 +2390,7 @@ pub struct install_colormap_request {
 
 
 
+#[repr(C)]
 pub struct uninstall_colormap_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2195,11 +2399,13 @@ pub struct uninstall_colormap_request {
 }
 
 
+#[repr(C)]
 pub struct list_installed_colormaps_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_installed_colormaps_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2208,6 +2414,7 @@ pub struct list_installed_colormaps_request {
 }
 
 
+#[repr(C)]
 pub struct list_installed_colormaps_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2218,11 +2425,13 @@ pub struct list_installed_colormaps_reply {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct alloc_color_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2235,6 +2444,7 @@ pub struct alloc_color_request {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2248,11 +2458,13 @@ pub struct alloc_color_reply {
 }
 
 
+#[repr(C)]
 pub struct alloc_named_color_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct alloc_named_color_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2263,6 +2475,7 @@ pub struct alloc_named_color_request {
 }
 
 
+#[repr(C)]
 pub struct alloc_named_color_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2278,11 +2491,13 @@ pub struct alloc_named_color_reply {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_cells_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct alloc_color_cells_request {
      pub major_opcode :   u8,
      pub contiguous :     u8,
@@ -2293,6 +2508,7 @@ pub struct alloc_color_cells_request {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_cells_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2304,11 +2520,13 @@ pub struct alloc_color_cells_reply {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_planes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct alloc_color_planes_request {
      pub major_opcode :   u8,
      pub contiguous :     u8,
@@ -2321,6 +2539,7 @@ pub struct alloc_color_planes_request {
 }
 
 
+#[repr(C)]
 pub struct alloc_color_planes_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2336,6 +2555,7 @@ pub struct alloc_color_planes_reply {
 
 
 
+#[repr(C)]
 pub struct free_colors_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2345,6 +2565,7 @@ pub struct free_colors_request {
 }
 
 
+#[repr(C)]
 pub struct coloritem {
      pub pixel :   u32,
      pub red :     u16,
@@ -2357,6 +2578,7 @@ pub struct coloritem {
 /**
  * @brief coloritem_iterator
  **/
+#[repr(C)]
 pub struct coloritem_iterator {
     pub data : *mut coloritem,
     pub rem  : c_int,
@@ -2365,6 +2587,7 @@ pub struct coloritem_iterator {
 
 
 
+#[repr(C)]
 pub struct store_colors_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2374,6 +2597,7 @@ pub struct store_colors_request {
 
 
 
+#[repr(C)]
 pub struct store_named_color_request {
      pub major_opcode :   u8,
      pub flags :          u8,
@@ -2385,6 +2609,7 @@ pub struct store_named_color_request {
 }
 
 
+#[repr(C)]
 pub struct rgb {
      pub red :     u16,
      pub green :   u16,
@@ -2395,6 +2620,7 @@ pub struct rgb {
 /**
  * @brief rgb_iterator
  **/
+#[repr(C)]
 pub struct rgb_iterator {
     pub data : *mut rgb,
     pub rem  : c_int,
@@ -2402,11 +2628,13 @@ pub struct rgb_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_colors_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_colors_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2415,6 +2643,7 @@ pub struct query_colors_request {
 }
 
 
+#[repr(C)]
 pub struct query_colors_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2425,11 +2654,13 @@ pub struct query_colors_reply {
 }
 
 
+#[repr(C)]
 pub struct lookup_color_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct lookup_color_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2440,6 +2671,7 @@ pub struct lookup_color_request {
 }
 
 
+#[repr(C)]
 pub struct lookup_color_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2455,6 +2687,7 @@ pub struct lookup_color_reply {
 
 
 
+#[repr(C)]
 pub struct create_cursor_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2474,6 +2707,7 @@ pub struct create_cursor_request {
 
 
 
+#[repr(C)]
 pub struct create_glyph_cursor_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2493,6 +2727,7 @@ pub struct create_glyph_cursor_request {
 
 
 
+#[repr(C)]
 pub struct free_cursor_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2502,6 +2737,7 @@ pub struct free_cursor_request {
 
 
 
+#[repr(C)]
 pub struct recolor_cursor_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2516,11 +2752,13 @@ pub struct recolor_cursor_request {
 }
 
 
+#[repr(C)]
 pub struct query_best_size_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_best_size_request {
      pub major_opcode :   u8,
      pub class :          u8,
@@ -2531,6 +2769,7 @@ pub struct query_best_size_request {
 }
 
 
+#[repr(C)]
 pub struct query_best_size_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2541,11 +2780,13 @@ pub struct query_best_size_reply {
 }
 
 
+#[repr(C)]
 pub struct query_extension_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_extension_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2555,6 +2796,7 @@ pub struct query_extension_request {
 }
 
 
+#[repr(C)]
 pub struct query_extension_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2567,11 +2809,13 @@ pub struct query_extension_reply {
 }
 
 
+#[repr(C)]
 pub struct list_extensions_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_extensions_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2579,6 +2823,7 @@ pub struct list_extensions_request {
 }
 
 
+#[repr(C)]
 pub struct list_extensions_reply {
      pub response_type :   u8,
      pub names_len :       u8,
@@ -2589,6 +2834,7 @@ pub struct list_extensions_reply {
 
 
 
+#[repr(C)]
 pub struct change_keyboard_mapping_request {
      pub major_opcode :          u8,
      pub keycode_count :         u8,
@@ -2599,11 +2845,13 @@ pub struct change_keyboard_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_mapping_request {
      pub major_opcode :    u8,
      pub pad0 :            u8,
@@ -2613,6 +2861,7 @@ pub struct get_keyboard_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_mapping_reply {
      pub response_type :         u8,
      pub keysyms_per_keycode :   u8,
@@ -2623,6 +2872,7 @@ pub struct get_keyboard_mapping_reply {
 
 
 
+#[repr(C)]
 pub struct change_keyboard_control_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2631,11 +2881,13 @@ pub struct change_keyboard_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_control_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_control_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2643,6 +2895,7 @@ pub struct get_keyboard_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_keyboard_control_reply {
      pub response_type :        u8,
      pub global_auto_repeat :   u8,
@@ -2659,6 +2912,7 @@ pub struct get_keyboard_control_reply {
 
 
 
+#[repr(C)]
 pub struct bell_request {
      pub major_opcode :   u8,
      pub percent :        i8,
@@ -2667,6 +2921,7 @@ pub struct bell_request {
 
 
 
+#[repr(C)]
 pub struct change_pointer_control_request {
      pub major_opcode :               u8,
      pub pad0 :                       u8,
@@ -2679,11 +2934,13 @@ pub struct change_pointer_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_pointer_control_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_pointer_control_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2691,6 +2948,7 @@ pub struct get_pointer_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_pointer_control_reply {
      pub response_type :              u8,
      pub pad0 :                       u8,
@@ -2704,6 +2962,7 @@ pub struct get_pointer_control_reply {
 
 
 
+#[repr(C)]
 pub struct set_screen_saver_request {
      pub major_opcode :      u8,
      pub pad0 :              u8,
@@ -2715,11 +2974,13 @@ pub struct set_screen_saver_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_saver_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_saver_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2727,6 +2988,7 @@ pub struct get_screen_saver_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_saver_reply {
      pub response_type :     u8,
      pub pad0 :              u8,
@@ -2741,6 +3003,7 @@ pub struct get_screen_saver_reply {
 
 
 
+#[repr(C)]
 pub struct change_hosts_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -2751,6 +3014,7 @@ pub struct change_hosts_request {
 }
 
 
+#[repr(C)]
 pub struct host {
      pub family :        u8,
      pub pad0 :          u8,
@@ -2760,6 +3024,7 @@ pub struct host {
 /**
  * @brief host_iterator
  **/
+#[repr(C)]
 pub struct host_iterator {
     pub data : *mut host,
     pub rem  : c_int,
@@ -2767,11 +3032,13 @@ pub struct host_iterator {
 }
 
 
+#[repr(C)]
 pub struct list_hosts_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_hosts_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2779,6 +3046,7 @@ pub struct list_hosts_request {
 }
 
 
+#[repr(C)]
 pub struct list_hosts_reply {
      pub response_type :   u8,
      pub mode :            u8,
@@ -2790,6 +3058,7 @@ pub struct list_hosts_reply {
 
 
 
+#[repr(C)]
 pub struct set_access_control_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -2798,6 +3067,7 @@ pub struct set_access_control_request {
 
 
 
+#[repr(C)]
 pub struct set_close_down_mode_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -2806,6 +3076,7 @@ pub struct set_close_down_mode_request {
 
 
 
+#[repr(C)]
 pub struct kill_client_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2815,6 +3086,7 @@ pub struct kill_client_request {
 
 
 
+#[repr(C)]
 pub struct rotate_properties_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2826,6 +3098,7 @@ pub struct rotate_properties_request {
 
 
 
+#[repr(C)]
 pub struct force_screen_saver_request {
      pub major_opcode :   u8,
      pub mode :           u8,
@@ -2833,11 +3106,13 @@ pub struct force_screen_saver_request {
 }
 
 
+#[repr(C)]
 pub struct set_pointer_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_pointer_mapping_request {
      pub major_opcode :   u8,
      pub map_len :        u8,
@@ -2845,6 +3120,7 @@ pub struct set_pointer_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct set_pointer_mapping_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -2853,11 +3129,13 @@ pub struct set_pointer_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct get_pointer_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_pointer_mapping_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2865,6 +3143,7 @@ pub struct get_pointer_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_pointer_mapping_reply {
      pub response_type :   u8,
      pub map_len :         u8,
@@ -2874,11 +3153,13 @@ pub struct get_pointer_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct set_modifier_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_modifier_mapping_request {
      pub major_opcode :            u8,
      pub keycodes_per_modifier :   u8,
@@ -2886,6 +3167,7 @@ pub struct set_modifier_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct set_modifier_mapping_reply {
      pub response_type :   u8,
      pub status :          u8,
@@ -2894,11 +3176,13 @@ pub struct set_modifier_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct get_modifier_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_modifier_mapping_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,
@@ -2906,6 +3190,7 @@ pub struct get_modifier_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_modifier_mapping_reply {
      pub response_type :           u8,
      pub keycodes_per_modifier :   u8,
@@ -2916,6 +3201,7 @@ pub struct get_modifier_mapping_reply {
 
 
 
+#[repr(C)]
 pub struct no_operation_request {
      pub major_opcode :   u8,
      pub pad0 :           u8,

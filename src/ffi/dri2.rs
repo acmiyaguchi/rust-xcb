@@ -14,6 +14,7 @@ use ffi::xproto;
 pub static DRI2_MAJOR_VERSION : c_uint = 1;
 pub static DRI2_MINOR_VERSION : c_uint = 4;
 
+#[repr(C)]
 pub struct dri2_buffer {
      pub attachment :   u32,
      pub name :         u32,
@@ -25,6 +26,7 @@ pub struct dri2_buffer {
 /**
  * @brief dri2_buffer_iterator
  **/
+#[repr(C)]
 pub struct dri2_buffer_iterator {
     pub data : *mut dri2_buffer,
     pub rem  : c_int,
@@ -32,6 +34,7 @@ pub struct dri2_buffer_iterator {
 }
 
 
+#[repr(C)]
 pub struct attach_format {
      pub attachment :   u32,
      pub format :       u32
@@ -40,6 +43,7 @@ pub struct attach_format {
 /**
  * @brief attach_format_iterator
  **/
+#[repr(C)]
 pub struct attach_format_iterator {
     pub data : *mut attach_format,
     pub rem  : c_int,
@@ -47,11 +51,13 @@ pub struct attach_format_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -61,6 +67,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -71,11 +78,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct connect_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct connect_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -85,6 +94,7 @@ pub struct connect_request {
 }
 
 
+#[repr(C)]
 pub struct connect_reply {
      pub response_type :        u8,
      pub pad0 :                 u8,
@@ -96,11 +106,13 @@ pub struct connect_reply {
 }
 
 
+#[repr(C)]
 pub struct authenticate_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct authenticate_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -110,6 +122,7 @@ pub struct authenticate_request {
 }
 
 
+#[repr(C)]
 pub struct authenticate_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -120,6 +133,7 @@ pub struct authenticate_reply {
 
 
 
+#[repr(C)]
 pub struct create_drawable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -129,6 +143,7 @@ pub struct create_drawable_request {
 
 
 
+#[repr(C)]
 pub struct destroy_drawable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -137,11 +152,13 @@ pub struct destroy_drawable_request {
 }
 
 
+#[repr(C)]
 pub struct get_buffers_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_buffers_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -151,6 +168,7 @@ pub struct get_buffers_request {
 }
 
 
+#[repr(C)]
 pub struct get_buffers_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -163,11 +181,13 @@ pub struct get_buffers_reply {
 }
 
 
+#[repr(C)]
 pub struct copy_region_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct copy_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -179,6 +199,7 @@ pub struct copy_region_request {
 }
 
 
+#[repr(C)]
 pub struct copy_region_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -187,11 +208,13 @@ pub struct copy_region_reply {
 }
 
 
+#[repr(C)]
 pub struct get_buffers_with_format_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_buffers_with_format_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -201,6 +224,7 @@ pub struct get_buffers_with_format_request {
 }
 
 
+#[repr(C)]
 pub struct get_buffers_with_format_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -213,11 +237,13 @@ pub struct get_buffers_with_format_reply {
 }
 
 
+#[repr(C)]
 pub struct swap_buffers_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct swap_buffers_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -232,6 +258,7 @@ pub struct swap_buffers_request {
 }
 
 
+#[repr(C)]
 pub struct swap_buffers_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -242,11 +269,13 @@ pub struct swap_buffers_reply {
 }
 
 
+#[repr(C)]
 pub struct get_msc_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_msc_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -255,6 +284,7 @@ pub struct get_msc_request {
 }
 
 
+#[repr(C)]
 pub struct get_msc_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -269,11 +299,13 @@ pub struct get_msc_reply {
 }
 
 
+#[repr(C)]
 pub struct wait_msc_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct wait_msc_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -288,6 +320,7 @@ pub struct wait_msc_request {
 }
 
 
+#[repr(C)]
 pub struct wait_msc_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -302,11 +335,13 @@ pub struct wait_msc_reply {
 }
 
 
+#[repr(C)]
 pub struct wait_sbc_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct wait_sbc_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -317,6 +352,7 @@ pub struct wait_sbc_request {
 }
 
 
+#[repr(C)]
 pub struct wait_sbc_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -332,6 +368,7 @@ pub struct wait_sbc_reply {
 
 
 
+#[repr(C)]
 pub struct swap_interval_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -341,11 +378,13 @@ pub struct swap_interval_request {
 }
 
 
+#[repr(C)]
 pub struct get_param_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_param_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -355,6 +394,7 @@ pub struct get_param_request {
 }
 
 
+#[repr(C)]
 pub struct get_param_reply {
      pub response_type :         u8,
      pub is_param_recognized :   u8,
@@ -366,6 +406,7 @@ pub struct get_param_reply {
 
 
 
+#[repr(C)]
 pub struct buffer_swap_complete_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -382,6 +423,7 @@ pub struct buffer_swap_complete_event {
 
 
 
+#[repr(C)]
 pub struct invalidate_buffers_event {
      pub response_type :   u8,
      pub pad0 :            u8,

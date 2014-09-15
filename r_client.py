@@ -833,6 +833,7 @@ def _c_iterator(self, name):
     _h('/**')
     _h(' * @brief %s', self.c_iterator_type)
     _h(' **/')
+    _h('#[repr(C)]')
     _h('pub struct %s {', self.c_iterator_type)
     _h('    pub data : *mut %s,', self.c_type)
     _h('    pub rem  : c_int,')
@@ -1123,6 +1124,7 @@ def _c_complex(self):
 
     _h_setlevel(0)
     _h('')
+    _h('#[repr(C)]')
     _h('pub struct %s {', self.c_type)
 
 
@@ -1211,6 +1213,7 @@ def c_union(self, name):
 
     _h_setlevel(0)
     _h('')
+    _h('#[repr(C)]')
     _h('pub struct %s {', self.c_type)
     _h('    data : [u8,..%d]', field_size)
     _h('}')
@@ -1524,6 +1527,7 @@ def _c_cookie(self, name):
     _h_setlevel(0)
     _r_setlevel(0)
     _h('')
+    _h('#[repr(C)]')
     _h('pub struct %s {', self.c_cookie_type)
     _h('    sequence : c_uint')
     _h('}')

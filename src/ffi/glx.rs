@@ -18,6 +18,7 @@ pub type pixmap = u32;
 /**
  * @brief pixmap_iterator
  **/
+#[repr(C)]
 pub struct pixmap_iterator {
     pub data : *mut pixmap,
     pub rem  : c_int,
@@ -29,6 +30,7 @@ pub type context = u32;
 /**
  * @brief context_iterator
  **/
+#[repr(C)]
 pub struct context_iterator {
     pub data : *mut context,
     pub rem  : c_int,
@@ -40,6 +42,7 @@ pub type pbuffer = u32;
 /**
  * @brief pbuffer_iterator
  **/
+#[repr(C)]
 pub struct pbuffer_iterator {
     pub data : *mut pbuffer,
     pub rem  : c_int,
@@ -51,6 +54,7 @@ pub type window = u32;
 /**
  * @brief window_iterator
  **/
+#[repr(C)]
 pub struct window_iterator {
     pub data : *mut window,
     pub rem  : c_int,
@@ -62,6 +66,7 @@ pub type fbconfig = u32;
 /**
  * @brief fbconfig_iterator
  **/
+#[repr(C)]
 pub struct fbconfig_iterator {
     pub data : *mut fbconfig,
     pub rem  : c_int,
@@ -73,6 +78,7 @@ pub type drawable = u32;
 /**
  * @brief drawable_iterator
  **/
+#[repr(C)]
 pub struct drawable_iterator {
     pub data : *mut drawable,
     pub rem  : c_int,
@@ -84,6 +90,7 @@ pub type float32 = f32;
 /**
  * @brief float32_iterator
  **/
+#[repr(C)]
 pub struct float32_iterator {
     pub data : *mut float32,
     pub rem  : c_int,
@@ -95,6 +102,7 @@ pub type float64 = f64;
 /**
  * @brief float64_iterator
  **/
+#[repr(C)]
 pub struct float64_iterator {
     pub data : *mut float64,
     pub rem  : c_int,
@@ -106,6 +114,7 @@ pub type bool32 = u32;
 /**
  * @brief bool32_iterator
  **/
+#[repr(C)]
 pub struct bool32_iterator {
     pub data : *mut bool32,
     pub rem  : c_int,
@@ -117,6 +126,7 @@ pub type context_tag = u32;
 /**
  * @brief context_tag_iterator
  **/
+#[repr(C)]
 pub struct context_tag_iterator {
     pub data : *mut context_tag,
     pub rem  : c_int,
@@ -125,6 +135,7 @@ pub struct context_tag_iterator {
 
 
 
+#[repr(C)]
 pub struct generic_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -179,6 +190,7 @@ pub type bad_window_error  = generic_error;
 pub type glx_bad_profile_arb_error  = generic_error;
 
 
+#[repr(C)]
 pub struct pbuffer_clobber_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -198,6 +210,7 @@ pub struct pbuffer_clobber_event {
 
 
 
+#[repr(C)]
 pub struct render_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -207,6 +220,7 @@ pub struct render_request {
 
 
 
+#[repr(C)]
 pub struct render_large_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -219,6 +233,7 @@ pub struct render_large_request {
 
 
 
+#[repr(C)]
 pub struct create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -233,6 +248,7 @@ pub struct create_context_request {
 
 
 
+#[repr(C)]
 pub struct destroy_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -241,11 +257,13 @@ pub struct destroy_context_request {
 }
 
 
+#[repr(C)]
 pub struct make_current_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct make_current_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -256,6 +274,7 @@ pub struct make_current_request {
 }
 
 
+#[repr(C)]
 pub struct make_current_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -266,11 +285,13 @@ pub struct make_current_reply {
 }
 
 
+#[repr(C)]
 pub struct is_direct_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct is_direct_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -279,6 +300,7 @@ pub struct is_direct_request {
 }
 
 
+#[repr(C)]
 pub struct is_direct_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -289,11 +311,13 @@ pub struct is_direct_reply {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -303,6 +327,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -315,6 +340,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct wait_gl_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -324,6 +350,7 @@ pub struct wait_gl_request {
 
 
 
+#[repr(C)]
 pub struct wait_x_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -333,6 +360,7 @@ pub struct wait_x_request {
 
 
 
+#[repr(C)]
 pub struct copy_context_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -345,6 +373,7 @@ pub struct copy_context_request {
 
 
 
+#[repr(C)]
 pub struct swap_buffers_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -355,6 +384,7 @@ pub struct swap_buffers_request {
 
 
 
+#[repr(C)]
 pub struct use_x_font_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -368,6 +398,7 @@ pub struct use_x_font_request {
 
 
 
+#[repr(C)]
 pub struct create_glx_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -379,11 +410,13 @@ pub struct create_glx_pixmap_request {
 }
 
 
+#[repr(C)]
 pub struct get_visual_configs_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_visual_configs_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -392,6 +425,7 @@ pub struct get_visual_configs_request {
 }
 
 
+#[repr(C)]
 pub struct get_visual_configs_reply {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -404,6 +438,7 @@ pub struct get_visual_configs_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_glx_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -413,6 +448,7 @@ pub struct destroy_glx_pixmap_request {
 
 
 
+#[repr(C)]
 pub struct vendor_private_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -422,11 +458,13 @@ pub struct vendor_private_request {
 }
 
 
+#[repr(C)]
 pub struct vendor_private_with_reply_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct vendor_private_with_reply_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -436,6 +474,7 @@ pub struct vendor_private_with_reply_request {
 }
 
 
+#[repr(C)]
 pub struct vendor_private_with_reply_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -446,11 +485,13 @@ pub struct vendor_private_with_reply_reply {
 }
 
 
+#[repr(C)]
 pub struct query_extensions_string_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_extensions_string_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -459,6 +500,7 @@ pub struct query_extensions_string_request {
 }
 
 
+#[repr(C)]
 pub struct query_extensions_string_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -470,11 +512,13 @@ pub struct query_extensions_string_reply {
 }
 
 
+#[repr(C)]
 pub struct query_server_string_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_server_string_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -484,6 +528,7 @@ pub struct query_server_string_request {
 }
 
 
+#[repr(C)]
 pub struct query_server_string_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -496,6 +541,7 @@ pub struct query_server_string_reply {
 
 
 
+#[repr(C)]
 pub struct client_info_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -506,11 +552,13 @@ pub struct client_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_fb_configs_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_fb_configs_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -519,6 +567,7 @@ pub struct get_fb_configs_request {
 }
 
 
+#[repr(C)]
 pub struct get_fb_configs_reply {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -531,6 +580,7 @@ pub struct get_fb_configs_reply {
 
 
 
+#[repr(C)]
 pub struct create_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -544,6 +594,7 @@ pub struct create_pixmap_request {
 
 
 
+#[repr(C)]
 pub struct destroy_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -553,6 +604,7 @@ pub struct destroy_pixmap_request {
 
 
 
+#[repr(C)]
 pub struct create_new_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -567,11 +619,13 @@ pub struct create_new_context_request {
 }
 
 
+#[repr(C)]
 pub struct query_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -580,6 +634,7 @@ pub struct query_context_request {
 }
 
 
+#[repr(C)]
 pub struct query_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -590,11 +645,13 @@ pub struct query_context_reply {
 }
 
 
+#[repr(C)]
 pub struct make_context_current_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct make_context_current_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -606,6 +663,7 @@ pub struct make_context_current_request {
 }
 
 
+#[repr(C)]
 pub struct make_context_current_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -617,6 +675,7 @@ pub struct make_context_current_reply {
 
 
 
+#[repr(C)]
 pub struct create_pbuffer_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -629,6 +688,7 @@ pub struct create_pbuffer_request {
 
 
 
+#[repr(C)]
 pub struct destroy_pbuffer_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -637,11 +697,13 @@ pub struct destroy_pbuffer_request {
 }
 
 
+#[repr(C)]
 pub struct get_drawable_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_drawable_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -650,6 +712,7 @@ pub struct get_drawable_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct get_drawable_attributes_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -661,6 +724,7 @@ pub struct get_drawable_attributes_reply {
 
 
 
+#[repr(C)]
 pub struct change_drawable_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -671,6 +735,7 @@ pub struct change_drawable_attributes_request {
 
 
 
+#[repr(C)]
 pub struct create_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -684,6 +749,7 @@ pub struct create_window_request {
 
 
 
+#[repr(C)]
 pub struct delete_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -693,6 +759,7 @@ pub struct delete_window_request {
 
 
 
+#[repr(C)]
 pub struct set_client_info_arb_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -706,6 +773,7 @@ pub struct set_client_info_arb_request {
 
 
 
+#[repr(C)]
 pub struct create_context_attribs_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -721,6 +789,7 @@ pub struct create_context_attribs_arb_request {
 
 
 
+#[repr(C)]
 pub struct set_client_info_2arb_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -734,6 +803,7 @@ pub struct set_client_info_2arb_request {
 
 
 
+#[repr(C)]
 pub struct new_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -745,6 +815,7 @@ pub struct new_list_request {
 
 
 
+#[repr(C)]
 pub struct end_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -754,6 +825,7 @@ pub struct end_list_request {
 
 
 
+#[repr(C)]
 pub struct delete_lists_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -764,11 +836,13 @@ pub struct delete_lists_request {
 }
 
 
+#[repr(C)]
 pub struct gen_lists_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct gen_lists_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -778,6 +852,7 @@ pub struct gen_lists_request {
 }
 
 
+#[repr(C)]
 pub struct gen_lists_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -788,6 +863,7 @@ pub struct gen_lists_reply {
 
 
 
+#[repr(C)]
 pub struct feedback_buffer_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -799,6 +875,7 @@ pub struct feedback_buffer_request {
 
 
 
+#[repr(C)]
 pub struct select_buffer_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -808,11 +885,13 @@ pub struct select_buffer_request {
 }
 
 
+#[repr(C)]
 pub struct render_mode_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct render_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -822,6 +901,7 @@ pub struct render_mode_request {
 }
 
 
+#[repr(C)]
 pub struct render_mode_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -834,11 +914,13 @@ pub struct render_mode_reply {
 }
 
 
+#[repr(C)]
 pub struct finish_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct finish_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -847,6 +929,7 @@ pub struct finish_request {
 }
 
 
+#[repr(C)]
 pub struct finish_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -856,6 +939,7 @@ pub struct finish_reply {
 
 
 
+#[repr(C)]
 pub struct pixel_storef_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -867,6 +951,7 @@ pub struct pixel_storef_request {
 
 
 
+#[repr(C)]
 pub struct pixel_storei_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -877,11 +962,13 @@ pub struct pixel_storei_request {
 }
 
 
+#[repr(C)]
 pub struct read_pixels_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct read_pixels_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -898,6 +985,7 @@ pub struct read_pixels_request {
 }
 
 
+#[repr(C)]
 pub struct read_pixels_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -907,11 +995,13 @@ pub struct read_pixels_reply {
 }
 
 
+#[repr(C)]
 pub struct get_booleanv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_booleanv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -921,6 +1011,7 @@ pub struct get_booleanv_request {
 }
 
 
+#[repr(C)]
 pub struct get_booleanv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -933,11 +1024,13 @@ pub struct get_booleanv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_clip_plane_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_clip_plane_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -947,6 +1040,7 @@ pub struct get_clip_plane_request {
 }
 
 
+#[repr(C)]
 pub struct get_clip_plane_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -956,11 +1050,13 @@ pub struct get_clip_plane_reply {
 }
 
 
+#[repr(C)]
 pub struct get_doublev_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_doublev_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -970,6 +1066,7 @@ pub struct get_doublev_request {
 }
 
 
+#[repr(C)]
 pub struct get_doublev_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -982,11 +1079,13 @@ pub struct get_doublev_reply {
 }
 
 
+#[repr(C)]
 pub struct get_error_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_error_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -995,6 +1094,7 @@ pub struct get_error_request {
 }
 
 
+#[repr(C)]
 pub struct get_error_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1004,11 +1104,13 @@ pub struct get_error_reply {
 }
 
 
+#[repr(C)]
 pub struct get_floatv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_floatv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1018,6 +1120,7 @@ pub struct get_floatv_request {
 }
 
 
+#[repr(C)]
 pub struct get_floatv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1030,11 +1133,13 @@ pub struct get_floatv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_integerv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_integerv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1044,6 +1149,7 @@ pub struct get_integerv_request {
 }
 
 
+#[repr(C)]
 pub struct get_integerv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1056,11 +1162,13 @@ pub struct get_integerv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_lightfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_lightfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1071,6 +1179,7 @@ pub struct get_lightfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_lightfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1083,11 +1192,13 @@ pub struct get_lightfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_lightiv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_lightiv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1098,6 +1209,7 @@ pub struct get_lightiv_request {
 }
 
 
+#[repr(C)]
 pub struct get_lightiv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1110,11 +1222,13 @@ pub struct get_lightiv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_mapdv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_mapdv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1125,6 +1239,7 @@ pub struct get_mapdv_request {
 }
 
 
+#[repr(C)]
 pub struct get_mapdv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1137,11 +1252,13 @@ pub struct get_mapdv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_mapfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_mapfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1152,6 +1269,7 @@ pub struct get_mapfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_mapfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1164,11 +1282,13 @@ pub struct get_mapfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_mapiv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_mapiv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1179,6 +1299,7 @@ pub struct get_mapiv_request {
 }
 
 
+#[repr(C)]
 pub struct get_mapiv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1191,11 +1312,13 @@ pub struct get_mapiv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_materialfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_materialfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1206,6 +1329,7 @@ pub struct get_materialfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_materialfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1218,11 +1342,13 @@ pub struct get_materialfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_materialiv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_materialiv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1233,6 +1359,7 @@ pub struct get_materialiv_request {
 }
 
 
+#[repr(C)]
 pub struct get_materialiv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1245,11 +1372,13 @@ pub struct get_materialiv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1259,6 +1388,7 @@ pub struct get_pixel_mapfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1271,11 +1401,13 @@ pub struct get_pixel_mapfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapuiv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapuiv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1285,6 +1417,7 @@ pub struct get_pixel_mapuiv_request {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapuiv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1297,11 +1430,13 @@ pub struct get_pixel_mapuiv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapusv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapusv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1311,6 +1446,7 @@ pub struct get_pixel_mapusv_request {
 }
 
 
+#[repr(C)]
 pub struct get_pixel_mapusv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1323,11 +1459,13 @@ pub struct get_pixel_mapusv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_polygon_stipple_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_polygon_stipple_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1337,6 +1475,7 @@ pub struct get_polygon_stipple_request {
 }
 
 
+#[repr(C)]
 pub struct get_polygon_stipple_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1346,11 +1485,13 @@ pub struct get_polygon_stipple_reply {
 }
 
 
+#[repr(C)]
 pub struct get_string_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_string_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1360,6 +1501,7 @@ pub struct get_string_request {
 }
 
 
+#[repr(C)]
 pub struct get_string_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1371,11 +1513,13 @@ pub struct get_string_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_envfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_envfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1386,6 +1530,7 @@ pub struct get_tex_envfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_envfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1398,11 +1543,13 @@ pub struct get_tex_envfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_enviv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_enviv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1413,6 +1560,7 @@ pub struct get_tex_enviv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_enviv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1425,11 +1573,13 @@ pub struct get_tex_enviv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_gendv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_gendv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1440,6 +1590,7 @@ pub struct get_tex_gendv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_gendv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1452,11 +1603,13 @@ pub struct get_tex_gendv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_genfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_genfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1467,6 +1620,7 @@ pub struct get_tex_genfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_genfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1479,11 +1633,13 @@ pub struct get_tex_genfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_geniv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_geniv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1494,6 +1650,7 @@ pub struct get_tex_geniv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_geniv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1506,11 +1663,13 @@ pub struct get_tex_geniv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_image_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1524,6 +1683,7 @@ pub struct get_tex_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_image_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1537,11 +1697,13 @@ pub struct get_tex_image_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1552,6 +1714,7 @@ pub struct get_tex_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1564,11 +1727,13 @@ pub struct get_tex_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1579,6 +1744,7 @@ pub struct get_tex_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1591,11 +1757,13 @@ pub struct get_tex_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1607,6 +1775,7 @@ pub struct get_tex_level_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1619,11 +1788,13 @@ pub struct get_tex_level_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1635,6 +1806,7 @@ pub struct get_tex_level_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_tex_level_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1647,11 +1819,13 @@ pub struct get_tex_level_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct is_list_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct is_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1661,6 +1835,7 @@ pub struct is_list_request {
 }
 
 
+#[repr(C)]
 pub struct is_list_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1671,6 +1846,7 @@ pub struct is_list_reply {
 
 
 
+#[repr(C)]
 pub struct flush_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1679,11 +1855,13 @@ pub struct flush_request {
 }
 
 
+#[repr(C)]
 pub struct are_textures_resident_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct are_textures_resident_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1693,6 +1871,7 @@ pub struct are_textures_resident_request {
 }
 
 
+#[repr(C)]
 pub struct are_textures_resident_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1704,6 +1883,7 @@ pub struct are_textures_resident_reply {
 
 
 
+#[repr(C)]
 pub struct delete_textures_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1713,11 +1893,13 @@ pub struct delete_textures_request {
 }
 
 
+#[repr(C)]
 pub struct gen_textures_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct gen_textures_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1727,6 +1909,7 @@ pub struct gen_textures_request {
 }
 
 
+#[repr(C)]
 pub struct gen_textures_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1736,11 +1919,13 @@ pub struct gen_textures_reply {
 }
 
 
+#[repr(C)]
 pub struct is_texture_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct is_texture_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1750,6 +1935,7 @@ pub struct is_texture_request {
 }
 
 
+#[repr(C)]
 pub struct is_texture_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1759,11 +1945,13 @@ pub struct is_texture_reply {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_color_table_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1776,6 +1964,7 @@ pub struct get_color_table_request {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1787,11 +1976,13 @@ pub struct get_color_table_reply {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1802,6 +1993,7 @@ pub struct get_color_table_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1814,11 +2006,13 @@ pub struct get_color_table_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1829,6 +2023,7 @@ pub struct get_color_table_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_color_table_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1841,11 +2036,13 @@ pub struct get_color_table_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_filter_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_convolution_filter_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1858,6 +2055,7 @@ pub struct get_convolution_filter_request {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_filter_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1870,11 +2068,13 @@ pub struct get_convolution_filter_reply {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1885,6 +2085,7 @@ pub struct get_convolution_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1897,11 +2098,13 @@ pub struct get_convolution_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1912,6 +2115,7 @@ pub struct get_convolution_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_convolution_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1924,11 +2128,13 @@ pub struct get_convolution_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_separable_filter_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_separable_filter_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1941,6 +2147,7 @@ pub struct get_separable_filter_request {
 }
 
 
+#[repr(C)]
 pub struct get_separable_filter_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1953,11 +2160,13 @@ pub struct get_separable_filter_reply {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_histogram_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1971,6 +2180,7 @@ pub struct get_histogram_request {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1982,11 +2192,13 @@ pub struct get_histogram_reply {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1997,6 +2209,7 @@ pub struct get_histogram_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2009,11 +2222,13 @@ pub struct get_histogram_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2024,6 +2239,7 @@ pub struct get_histogram_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_histogram_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2036,11 +2252,13 @@ pub struct get_histogram_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_minmax_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2054,6 +2272,7 @@ pub struct get_minmax_request {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2063,11 +2282,13 @@ pub struct get_minmax_reply {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameterfv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameterfv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2078,6 +2299,7 @@ pub struct get_minmax_parameterfv_request {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameterfv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2090,11 +2312,13 @@ pub struct get_minmax_parameterfv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameteriv_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameteriv_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2105,6 +2329,7 @@ pub struct get_minmax_parameteriv_request {
 }
 
 
+#[repr(C)]
 pub struct get_minmax_parameteriv_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2117,11 +2342,13 @@ pub struct get_minmax_parameteriv_reply {
 }
 
 
+#[repr(C)]
 pub struct get_compressed_tex_image_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_compressed_tex_image_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2132,6 +2359,7 @@ pub struct get_compressed_tex_image_arb_request {
 }
 
 
+#[repr(C)]
 pub struct get_compressed_tex_image_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2144,6 +2372,7 @@ pub struct get_compressed_tex_image_arb_reply {
 
 
 
+#[repr(C)]
 pub struct delete_queries_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2153,11 +2382,13 @@ pub struct delete_queries_arb_request {
 }
 
 
+#[repr(C)]
 pub struct gen_queries_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct gen_queries_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2167,6 +2398,7 @@ pub struct gen_queries_arb_request {
 }
 
 
+#[repr(C)]
 pub struct gen_queries_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2176,11 +2408,13 @@ pub struct gen_queries_arb_reply {
 }
 
 
+#[repr(C)]
 pub struct is_query_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct is_query_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2190,6 +2424,7 @@ pub struct is_query_arb_request {
 }
 
 
+#[repr(C)]
 pub struct is_query_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2199,11 +2434,13 @@ pub struct is_query_arb_reply {
 }
 
 
+#[repr(C)]
 pub struct get_queryiv_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_queryiv_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2214,6 +2451,7 @@ pub struct get_queryiv_arb_request {
 }
 
 
+#[repr(C)]
 pub struct get_queryiv_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2226,11 +2464,13 @@ pub struct get_queryiv_arb_reply {
 }
 
 
+#[repr(C)]
 pub struct get_query_objectiv_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_query_objectiv_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2241,6 +2481,7 @@ pub struct get_query_objectiv_arb_request {
 }
 
 
+#[repr(C)]
 pub struct get_query_objectiv_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -2253,11 +2494,13 @@ pub struct get_query_objectiv_arb_reply {
 }
 
 
+#[repr(C)]
 pub struct get_query_objectuiv_arb_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_query_objectuiv_arb_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -2268,6 +2511,7 @@ pub struct get_query_objectuiv_arb_request {
 }
 
 
+#[repr(C)]
 pub struct get_query_objectuiv_arb_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

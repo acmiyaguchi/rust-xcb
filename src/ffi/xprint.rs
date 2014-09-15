@@ -18,6 +18,7 @@ pub type string8 = c_char;
 /**
  * @brief string8_iterator
  **/
+#[repr(C)]
 pub struct string8_iterator {
     pub data : *mut string8,
     pub rem  : c_int,
@@ -25,6 +26,7 @@ pub struct string8_iterator {
 }
 
 
+#[repr(C)]
 pub struct printer {
      pub nameLen :   u32,
      pub descLen :   u32
@@ -33,6 +35,7 @@ pub struct printer {
 /**
  * @brief printer_iterator
  **/
+#[repr(C)]
 pub struct printer_iterator {
     pub data : *mut printer,
     pub rem  : c_int,
@@ -44,6 +47,7 @@ pub type pcontext = u32;
 /**
  * @brief pcontext_iterator
  **/
+#[repr(C)]
 pub struct pcontext_iterator {
     pub data : *mut pcontext,
     pub rem  : c_int,
@@ -51,11 +55,13 @@ pub struct pcontext_iterator {
 }
 
 
+#[repr(C)]
 pub struct print_query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -63,6 +69,7 @@ pub struct print_query_version_request {
 }
 
 
+#[repr(C)]
 pub struct print_query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -73,11 +80,13 @@ pub struct print_query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct print_get_printer_list_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_printer_list_request {
      pub major_opcode :     u8,
      pub minor_opcode :     u8,
@@ -87,6 +96,7 @@ pub struct print_get_printer_list_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_printer_list_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -98,6 +108,7 @@ pub struct print_get_printer_list_reply {
 
 
 
+#[repr(C)]
 pub struct print_rehash_printer_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -106,6 +117,7 @@ pub struct print_rehash_printer_list_request {
 
 
 
+#[repr(C)]
 pub struct create_context_request {
      pub major_opcode :     u8,
      pub minor_opcode :     u8,
@@ -117,6 +129,7 @@ pub struct create_context_request {
 
 
 
+#[repr(C)]
 pub struct print_set_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -125,11 +138,13 @@ pub struct print_set_context_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -137,6 +152,7 @@ pub struct print_get_context_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -147,6 +163,7 @@ pub struct print_get_context_reply {
 
 
 
+#[repr(C)]
 pub struct print_destroy_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -155,11 +172,13 @@ pub struct print_destroy_context_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_screen_of_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_screen_of_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -167,6 +186,7 @@ pub struct print_get_screen_of_context_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_screen_of_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -177,6 +197,7 @@ pub struct print_get_screen_of_context_reply {
 
 
 
+#[repr(C)]
 pub struct print_start_job_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -186,6 +207,7 @@ pub struct print_start_job_request {
 
 
 
+#[repr(C)]
 pub struct print_end_job_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -195,6 +217,7 @@ pub struct print_end_job_request {
 
 
 
+#[repr(C)]
 pub struct print_start_doc_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -204,6 +227,7 @@ pub struct print_start_doc_request {
 
 
 
+#[repr(C)]
 pub struct print_end_doc_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -213,6 +237,7 @@ pub struct print_end_doc_request {
 
 
 
+#[repr(C)]
 pub struct print_put_document_data_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -224,11 +249,13 @@ pub struct print_put_document_data_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_document_data_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_document_data_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -238,6 +265,7 @@ pub struct print_get_document_data_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_document_data_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -251,6 +279,7 @@ pub struct print_get_document_data_reply {
 
 
 
+#[repr(C)]
 pub struct print_start_page_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -260,6 +289,7 @@ pub struct print_start_page_request {
 
 
 
+#[repr(C)]
 pub struct print_end_page_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -270,6 +300,7 @@ pub struct print_end_page_request {
 
 
 
+#[repr(C)]
 pub struct print_select_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -279,11 +310,13 @@ pub struct print_select_input_request {
 }
 
 
+#[repr(C)]
 pub struct print_input_selected_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_input_selected_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -292,6 +325,7 @@ pub struct print_input_selected_request {
 }
 
 
+#[repr(C)]
 pub struct print_input_selected_reply {
      pub response_type :     u8,
      pub pad0 :              u8,
@@ -302,11 +336,13 @@ pub struct print_input_selected_reply {
 }
 
 
+#[repr(C)]
 pub struct print_get_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -317,6 +353,7 @@ pub struct print_get_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_attributes_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -328,11 +365,13 @@ pub struct print_get_attributes_reply {
 }
 
 
+#[repr(C)]
 pub struct print_get_one_attributes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_one_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -344,6 +383,7 @@ pub struct print_get_one_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_one_attributes_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -355,6 +395,7 @@ pub struct print_get_one_attributes_reply {
 
 
 
+#[repr(C)]
 pub struct print_set_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -367,11 +408,13 @@ pub struct print_set_attributes_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_page_dimensions_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_page_dimensions_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -380,6 +423,7 @@ pub struct print_get_page_dimensions_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_page_dimensions_reply {
      pub response_type :         u8,
      pub pad0 :                  u8,
@@ -394,11 +438,13 @@ pub struct print_get_page_dimensions_reply {
 }
 
 
+#[repr(C)]
 pub struct print_query_screens_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_query_screens_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -406,6 +452,7 @@ pub struct print_query_screens_request {
 }
 
 
+#[repr(C)]
 pub struct print_query_screens_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -416,11 +463,13 @@ pub struct print_query_screens_reply {
 }
 
 
+#[repr(C)]
 pub struct print_set_image_resolution_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_set_image_resolution_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -430,6 +479,7 @@ pub struct print_set_image_resolution_request {
 }
 
 
+#[repr(C)]
 pub struct print_set_image_resolution_reply {
      pub response_type :          u8,
      pub status :                 u8,
@@ -439,11 +489,13 @@ pub struct print_set_image_resolution_reply {
 }
 
 
+#[repr(C)]
 pub struct print_get_image_resolution_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct print_get_image_resolution_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -452,6 +504,7 @@ pub struct print_get_image_resolution_request {
 }
 
 
+#[repr(C)]
 pub struct print_get_image_resolution_reply {
      pub response_type :      u8,
      pub pad0 :               u8,
@@ -462,6 +515,7 @@ pub struct print_get_image_resolution_reply {
 
 
 
+#[repr(C)]
 pub struct notify_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -472,6 +526,7 @@ pub struct notify_event {
 
 
 
+#[repr(C)]
 pub struct attribut_notify_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -481,6 +536,7 @@ pub struct attribut_notify_event {
 
 
 
+#[repr(C)]
 pub struct bad_context_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -489,6 +545,7 @@ pub struct bad_context_error {
 
 
 
+#[repr(C)]
 pub struct bad_sequence_error {
      pub response_type :   u8,
      pub error_code :      u8,

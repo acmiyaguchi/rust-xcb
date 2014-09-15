@@ -14,11 +14,13 @@ use ffi::xproto;
 pub static SELINUX_MAJOR_VERSION : c_uint = 1;
 pub static SELINUX_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -28,6 +30,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -39,6 +42,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct set_device_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -47,11 +51,13 @@ pub struct set_device_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -59,6 +65,7 @@ pub struct get_device_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -70,6 +77,7 @@ pub struct get_device_create_context_reply {
 
 
 
+#[repr(C)]
 pub struct set_device_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -79,11 +87,13 @@ pub struct set_device_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -92,6 +102,7 @@ pub struct get_device_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -103,6 +114,7 @@ pub struct get_device_context_reply {
 
 
 
+#[repr(C)]
 pub struct set_window_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -111,11 +123,13 @@ pub struct set_window_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_window_create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_window_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -123,6 +137,7 @@ pub struct get_window_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_window_create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -133,11 +148,13 @@ pub struct get_window_create_context_reply {
 }
 
 
+#[repr(C)]
 pub struct get_window_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_window_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -146,6 +163,7 @@ pub struct get_window_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_window_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -156,6 +174,7 @@ pub struct get_window_context_reply {
 }
 
 
+#[repr(C)]
 pub struct list_item {
      pub name :                 ffi::xproto::atom,
      pub object_context_len :   u32,
@@ -165,6 +184,7 @@ pub struct list_item {
 /**
  * @brief list_item_iterator
  **/
+#[repr(C)]
 pub struct list_item_iterator {
     pub data : *mut list_item,
     pub rem  : c_int,
@@ -173,6 +193,7 @@ pub struct list_item_iterator {
 
 
 
+#[repr(C)]
 pub struct set_property_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -181,11 +202,13 @@ pub struct set_property_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_property_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -193,6 +216,7 @@ pub struct get_property_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -204,6 +228,7 @@ pub struct get_property_create_context_reply {
 
 
 
+#[repr(C)]
 pub struct set_property_use_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -212,11 +237,13 @@ pub struct set_property_use_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_use_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_property_use_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -224,6 +251,7 @@ pub struct get_property_use_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_use_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -234,11 +262,13 @@ pub struct get_property_use_context_reply {
 }
 
 
+#[repr(C)]
 pub struct get_property_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_property_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -248,6 +278,7 @@ pub struct get_property_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -258,11 +289,13 @@ pub struct get_property_context_reply {
 }
 
 
+#[repr(C)]
 pub struct get_property_data_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_property_data_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -272,6 +305,7 @@ pub struct get_property_data_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_property_data_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -282,11 +316,13 @@ pub struct get_property_data_context_reply {
 }
 
 
+#[repr(C)]
 pub struct list_properties_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_properties_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -295,6 +331,7 @@ pub struct list_properties_request {
 }
 
 
+#[repr(C)]
 pub struct list_properties_reply {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -306,6 +343,7 @@ pub struct list_properties_reply {
 
 
 
+#[repr(C)]
 pub struct set_selection_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -314,11 +352,13 @@ pub struct set_selection_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selection_create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -326,6 +366,7 @@ pub struct get_selection_create_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -337,6 +378,7 @@ pub struct get_selection_create_context_reply {
 
 
 
+#[repr(C)]
 pub struct set_selection_use_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -345,11 +387,13 @@ pub struct set_selection_use_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_use_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selection_use_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -357,6 +401,7 @@ pub struct get_selection_use_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_use_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -367,11 +412,13 @@ pub struct get_selection_use_context_reply {
 }
 
 
+#[repr(C)]
 pub struct get_selection_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selection_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -380,6 +427,7 @@ pub struct get_selection_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -390,11 +438,13 @@ pub struct get_selection_context_reply {
 }
 
 
+#[repr(C)]
 pub struct get_selection_data_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selection_data_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -403,6 +453,7 @@ pub struct get_selection_data_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_selection_data_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -413,11 +464,13 @@ pub struct get_selection_data_context_reply {
 }
 
 
+#[repr(C)]
 pub struct list_selections_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_selections_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -425,6 +478,7 @@ pub struct list_selections_request {
 }
 
 
+#[repr(C)]
 pub struct list_selections_reply {
      pub response_type :    u8,
      pub pad0 :             u8,
@@ -435,11 +489,13 @@ pub struct list_selections_reply {
 }
 
 
+#[repr(C)]
 pub struct get_client_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_client_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -448,6 +504,7 @@ pub struct get_client_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_client_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

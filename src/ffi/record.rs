@@ -17,6 +17,7 @@ pub type context = u32;
 /**
  * @brief context_iterator
  **/
+#[repr(C)]
 pub struct context_iterator {
     pub data : *mut context,
     pub rem  : c_int,
@@ -24,6 +25,7 @@ pub struct context_iterator {
 }
 
 
+#[repr(C)]
 pub struct range_8 {
      pub first :   u8,
      pub last :    u8
@@ -32,6 +34,7 @@ pub struct range_8 {
 /**
  * @brief range_8_iterator
  **/
+#[repr(C)]
 pub struct range_8_iterator {
     pub data : *mut range_8,
     pub rem  : c_int,
@@ -39,6 +42,7 @@ pub struct range_8_iterator {
 }
 
 
+#[repr(C)]
 pub struct range_16 {
      pub first :   u16,
      pub last :    u16
@@ -47,6 +51,7 @@ pub struct range_16 {
 /**
  * @brief range_16_iterator
  **/
+#[repr(C)]
 pub struct range_16_iterator {
     pub data : *mut range_16,
     pub rem  : c_int,
@@ -54,6 +59,7 @@ pub struct range_16_iterator {
 }
 
 
+#[repr(C)]
 pub struct ext_range {
      pub major :   range_8,
      pub minor :   range_16
@@ -62,6 +68,7 @@ pub struct ext_range {
 /**
  * @brief ext_range_iterator
  **/
+#[repr(C)]
 pub struct ext_range_iterator {
     pub data : *mut ext_range,
     pub rem  : c_int,
@@ -69,6 +76,7 @@ pub struct ext_range_iterator {
 }
 
 
+#[repr(C)]
 pub struct range {
      pub core_requests :      range_8,
      pub core_replies :       range_8,
@@ -84,6 +92,7 @@ pub struct range {
 /**
  * @brief range_iterator
  **/
+#[repr(C)]
 pub struct range_iterator {
     pub data : *mut range,
     pub rem  : c_int,
@@ -95,6 +104,7 @@ pub type element_header = u8;
 /**
  * @brief element_header_iterator
  **/
+#[repr(C)]
 pub struct element_header_iterator {
     pub data : *mut element_header,
     pub rem  : c_int,
@@ -106,6 +116,7 @@ pub type client_spec = u32;
 /**
  * @brief client_spec_iterator
  **/
+#[repr(C)]
 pub struct client_spec_iterator {
     pub data : *mut client_spec,
     pub rem  : c_int,
@@ -113,6 +124,7 @@ pub struct client_spec_iterator {
 }
 
 
+#[repr(C)]
 pub struct client_info {
      pub client_resource :   client_spec,
      pub num_ranges :        u32
@@ -121,6 +133,7 @@ pub struct client_info {
 /**
  * @brief client_info_iterator
  **/
+#[repr(C)]
 pub struct client_info_iterator {
     pub data : *mut client_info,
     pub rem  : c_int,
@@ -129,6 +142,7 @@ pub struct client_info_iterator {
 
 
 
+#[repr(C)]
 pub struct bad_context_error {
      pub response_type :    u8,
      pub error_code :       u8,
@@ -137,11 +151,13 @@ pub struct bad_context_error {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -151,6 +167,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -162,6 +179,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct create_context_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -175,6 +193,7 @@ pub struct create_context_request {
 
 
 
+#[repr(C)]
 pub struct register_clients_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -188,6 +207,7 @@ pub struct register_clients_request {
 
 
 
+#[repr(C)]
 pub struct unregister_clients_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -197,11 +217,13 @@ pub struct unregister_clients_request {
 }
 
 
+#[repr(C)]
 pub struct get_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -210,6 +232,7 @@ pub struct get_context_request {
 }
 
 
+#[repr(C)]
 pub struct get_context_reply {
      pub response_type :             u8,
      pub enabled :                   u8,
@@ -222,11 +245,13 @@ pub struct get_context_reply {
 }
 
 
+#[repr(C)]
 pub struct enable_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct enable_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -235,6 +260,7 @@ pub struct enable_context_request {
 }
 
 
+#[repr(C)]
 pub struct enable_context_reply {
      pub response_type :      u8,
      pub category :           u8,
@@ -251,6 +277,7 @@ pub struct enable_context_reply {
 
 
 
+#[repr(C)]
 pub struct disable_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -260,6 +287,7 @@ pub struct disable_context_request {
 
 
 
+#[repr(C)]
 pub struct free_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,

@@ -16,11 +16,13 @@ use ffi::shape;
 pub static XFIXES_MAJOR_VERSION : c_uint = 5;
 pub static XFIXES_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -30,6 +32,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -42,6 +45,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct change_save_set_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -55,6 +59,7 @@ pub struct change_save_set_request {
 
 
 
+#[repr(C)]
 pub struct selection_notify_event {
      pub response_type :         u8,
      pub subtype :               u8,
@@ -69,6 +74,7 @@ pub struct selection_notify_event {
 
 
 
+#[repr(C)]
 pub struct select_selection_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -80,6 +86,7 @@ pub struct select_selection_input_request {
 
 
 
+#[repr(C)]
 pub struct cursor_notify_event {
      pub response_type :   u8,
      pub subtype :         u8,
@@ -93,6 +100,7 @@ pub struct cursor_notify_event {
 
 
 
+#[repr(C)]
 pub struct select_cursor_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -102,11 +110,13 @@ pub struct select_cursor_input_request {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -114,6 +124,7 @@ pub struct get_cursor_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -134,6 +145,7 @@ pub type region = u32;
 /**
  * @brief region_iterator
  **/
+#[repr(C)]
 pub struct region_iterator {
     pub data : *mut region,
     pub rem  : c_int,
@@ -142,6 +154,7 @@ pub struct region_iterator {
 
 
 
+#[repr(C)]
 pub struct bad_region_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -150,6 +163,7 @@ pub struct bad_region_error {
 
 
 
+#[repr(C)]
 pub struct create_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -159,6 +173,7 @@ pub struct create_region_request {
 
 
 
+#[repr(C)]
 pub struct create_region_from_bitmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -169,6 +184,7 @@ pub struct create_region_from_bitmap_request {
 
 
 
+#[repr(C)]
 pub struct create_region_from_window_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -181,6 +197,7 @@ pub struct create_region_from_window_request {
 
 
 
+#[repr(C)]
 pub struct create_region_from_gc_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -191,6 +208,7 @@ pub struct create_region_from_gc_request {
 
 
 
+#[repr(C)]
 pub struct create_region_from_picture_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -201,6 +219,7 @@ pub struct create_region_from_picture_request {
 
 
 
+#[repr(C)]
 pub struct destroy_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -210,6 +229,7 @@ pub struct destroy_region_request {
 
 
 
+#[repr(C)]
 pub struct set_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -219,6 +239,7 @@ pub struct set_region_request {
 
 
 
+#[repr(C)]
 pub struct copy_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -229,6 +250,7 @@ pub struct copy_region_request {
 
 
 
+#[repr(C)]
 pub struct union_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -240,6 +262,7 @@ pub struct union_region_request {
 
 
 
+#[repr(C)]
 pub struct intersect_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -251,6 +274,7 @@ pub struct intersect_region_request {
 
 
 
+#[repr(C)]
 pub struct subtract_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -262,6 +286,7 @@ pub struct subtract_region_request {
 
 
 
+#[repr(C)]
 pub struct invert_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -273,6 +298,7 @@ pub struct invert_region_request {
 
 
 
+#[repr(C)]
 pub struct translate_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -284,6 +310,7 @@ pub struct translate_region_request {
 
 
 
+#[repr(C)]
 pub struct region_extents_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -293,11 +320,13 @@ pub struct region_extents_request {
 }
 
 
+#[repr(C)]
 pub struct fetch_region_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct fetch_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -306,6 +335,7 @@ pub struct fetch_region_request {
 }
 
 
+#[repr(C)]
 pub struct fetch_region_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -317,6 +347,7 @@ pub struct fetch_region_reply {
 
 
 
+#[repr(C)]
 pub struct set_gc_clip_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -329,6 +360,7 @@ pub struct set_gc_clip_region_request {
 
 
 
+#[repr(C)]
 pub struct set_window_shape_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -343,6 +375,7 @@ pub struct set_window_shape_region_request {
 
 
 
+#[repr(C)]
 pub struct set_picture_clip_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -355,6 +388,7 @@ pub struct set_picture_clip_region_request {
 
 
 
+#[repr(C)]
 pub struct set_cursor_name_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -365,11 +399,13 @@ pub struct set_cursor_name_request {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_name_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_cursor_name_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -378,6 +414,7 @@ pub struct get_cursor_name_request {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_name_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -389,11 +426,13 @@ pub struct get_cursor_name_reply {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_and_name_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_and_name_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -401,6 +440,7 @@ pub struct get_cursor_image_and_name_request {
 }
 
 
+#[repr(C)]
 pub struct get_cursor_image_and_name_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -420,6 +460,7 @@ pub struct get_cursor_image_and_name_reply {
 
 
 
+#[repr(C)]
 pub struct change_cursor_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -430,6 +471,7 @@ pub struct change_cursor_request {
 
 
 
+#[repr(C)]
 pub struct change_cursor_by_name_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -441,6 +483,7 @@ pub struct change_cursor_by_name_request {
 
 
 
+#[repr(C)]
 pub struct expand_region_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -455,6 +498,7 @@ pub struct expand_region_request {
 
 
 
+#[repr(C)]
 pub struct hide_cursor_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -464,6 +508,7 @@ pub struct hide_cursor_request {
 
 
 
+#[repr(C)]
 pub struct show_cursor_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,

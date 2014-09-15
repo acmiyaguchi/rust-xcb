@@ -17,6 +17,7 @@ pub type syncrange = u32;
 /**
  * @brief syncrange_iterator
  **/
+#[repr(C)]
 pub struct syncrange_iterator {
     pub data : *mut syncrange,
     pub rem  : c_int,
@@ -28,6 +29,7 @@ pub type dotclock = u32;
 /**
  * @brief dotclock_iterator
  **/
+#[repr(C)]
 pub struct dotclock_iterator {
     pub data : *mut dotclock,
     pub rem  : c_int,
@@ -35,6 +37,7 @@ pub struct dotclock_iterator {
 }
 
 
+#[repr(C)]
 pub struct mode_info {
      pub dotclock :     dotclock,
      pub hdisplay :     u16,
@@ -55,6 +58,7 @@ pub struct mode_info {
 /**
  * @brief mode_info_iterator
  **/
+#[repr(C)]
 pub struct mode_info_iterator {
     pub data : *mut mode_info,
     pub rem  : c_int,
@@ -62,11 +66,13 @@ pub struct mode_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -74,6 +80,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -84,11 +91,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct get_mode_line_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_mode_line_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -98,6 +107,7 @@ pub struct get_mode_line_request {
 }
 
 
+#[repr(C)]
 pub struct get_mode_line_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -121,6 +131,7 @@ pub struct get_mode_line_reply {
 
 
 
+#[repr(C)]
 pub struct mod_mode_line_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -143,6 +154,7 @@ pub struct mod_mode_line_request {
 
 
 
+#[repr(C)]
 pub struct switch_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -152,11 +164,13 @@ pub struct switch_mode_request {
 }
 
 
+#[repr(C)]
 pub struct get_monitor_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_monitor_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -166,6 +180,7 @@ pub struct get_monitor_request {
 }
 
 
+#[repr(C)]
 pub struct get_monitor_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -180,6 +195,7 @@ pub struct get_monitor_reply {
 
 
 
+#[repr(C)]
 pub struct lock_mode_switch_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -189,11 +205,13 @@ pub struct lock_mode_switch_request {
 }
 
 
+#[repr(C)]
 pub struct get_all_mode_lines_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_all_mode_lines_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -203,6 +221,7 @@ pub struct get_all_mode_lines_request {
 }
 
 
+#[repr(C)]
 pub struct get_all_mode_lines_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -214,6 +233,7 @@ pub struct get_all_mode_lines_reply {
 
 
 
+#[repr(C)]
 pub struct add_mode_line_request {
      pub major_opcode :       u8,
      pub minor_opcode :       u8,
@@ -250,6 +270,7 @@ pub struct add_mode_line_request {
 
 
 
+#[repr(C)]
 pub struct delete_mode_line_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -272,11 +293,13 @@ pub struct delete_mode_line_request {
 }
 
 
+#[repr(C)]
 pub struct validate_mode_line_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct validate_mode_line_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -299,6 +322,7 @@ pub struct validate_mode_line_request {
 }
 
 
+#[repr(C)]
 pub struct validate_mode_line_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -310,6 +334,7 @@ pub struct validate_mode_line_reply {
 
 
 
+#[repr(C)]
 pub struct switch_to_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -332,11 +357,13 @@ pub struct switch_to_mode_request {
 }
 
 
+#[repr(C)]
 pub struct get_view_port_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_view_port_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -346,6 +373,7 @@ pub struct get_view_port_request {
 }
 
 
+#[repr(C)]
 pub struct get_view_port_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -358,6 +386,7 @@ pub struct get_view_port_reply {
 
 
 
+#[repr(C)]
 pub struct set_view_port_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -369,11 +398,13 @@ pub struct set_view_port_request {
 }
 
 
+#[repr(C)]
 pub struct get_dot_clocks_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_dot_clocks_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -383,6 +414,7 @@ pub struct get_dot_clocks_request {
 }
 
 
+#[repr(C)]
 pub struct get_dot_clocks_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -396,6 +428,7 @@ pub struct get_dot_clocks_reply {
 
 
 
+#[repr(C)]
 pub struct set_client_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -406,6 +439,7 @@ pub struct set_client_version_request {
 
 
 
+#[repr(C)]
 pub struct set_gamma_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -419,11 +453,13 @@ pub struct set_gamma_request {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_gamma_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -433,6 +469,7 @@ pub struct get_gamma_request {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -445,11 +482,13 @@ pub struct get_gamma_reply {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -459,6 +498,7 @@ pub struct get_gamma_ramp_request {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -470,6 +510,7 @@ pub struct get_gamma_ramp_reply {
 
 
 
+#[repr(C)]
 pub struct set_gamma_ramp_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -479,11 +520,13 @@ pub struct set_gamma_ramp_request {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_size_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_size_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -493,6 +536,7 @@ pub struct get_gamma_ramp_size_request {
 }
 
 
+#[repr(C)]
 pub struct get_gamma_ramp_size_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -503,11 +547,13 @@ pub struct get_gamma_ramp_size_reply {
 }
 
 
+#[repr(C)]
 pub struct get_permissions_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_permissions_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -517,6 +563,7 @@ pub struct get_permissions_request {
 }
 
 
+#[repr(C)]
 pub struct get_permissions_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -528,6 +575,7 @@ pub struct get_permissions_reply {
 
 
 
+#[repr(C)]
 pub struct bad_clock_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -536,6 +584,7 @@ pub struct bad_clock_error {
 
 
 
+#[repr(C)]
 pub struct bad_h_timings_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -544,6 +593,7 @@ pub struct bad_h_timings_error {
 
 
 
+#[repr(C)]
 pub struct bad_v_timings_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -552,6 +602,7 @@ pub struct bad_v_timings_error {
 
 
 
+#[repr(C)]
 pub struct mode_unsuitable_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -560,6 +611,7 @@ pub struct mode_unsuitable_error {
 
 
 
+#[repr(C)]
 pub struct extension_disabled_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -568,6 +620,7 @@ pub struct extension_disabled_error {
 
 
 
+#[repr(C)]
 pub struct client_not_local_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -576,6 +629,7 @@ pub struct client_not_local_error {
 
 
 
+#[repr(C)]
 pub struct zoom_locked_error {
      pub response_type :   u8,
      pub error_code :      u8,

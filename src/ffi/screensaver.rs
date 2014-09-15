@@ -14,11 +14,13 @@ use ffi::xproto;
 pub static SCREENSAVER_MAJOR_VERSION : c_uint = 1;
 pub static SCREENSAVER_MINOR_VERSION : c_uint = 1;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -29,6 +31,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :          u8,
      pub pad0 :                   u8,
@@ -40,11 +43,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct query_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_info_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -53,6 +58,7 @@ pub struct query_info_request {
 }
 
 
+#[repr(C)]
 pub struct query_info_reply {
      pub response_type :         u8,
      pub state :                 u8,
@@ -68,6 +74,7 @@ pub struct query_info_reply {
 
 
 
+#[repr(C)]
 pub struct select_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -78,6 +85,7 @@ pub struct select_input_request {
 
 
 
+#[repr(C)]
 pub struct set_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -96,6 +104,7 @@ pub struct set_attributes_request {
 
 
 
+#[repr(C)]
 pub struct unset_attributes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -105,6 +114,7 @@ pub struct unset_attributes_request {
 
 
 
+#[repr(C)]
 pub struct suspend_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -115,6 +125,7 @@ pub struct suspend_request {
 
 
 
+#[repr(C)]
 pub struct notify_event {
      pub response_type :     u8,
      pub code :              u8,

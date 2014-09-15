@@ -18,6 +18,7 @@ pub type key_code = u8;
 /**
  * @brief key_code_iterator
  **/
+#[repr(C)]
 pub struct key_code_iterator {
     pub data : *mut key_code,
     pub rem  : c_int,
@@ -29,6 +30,7 @@ pub type event_class = u32;
 /**
  * @brief event_class_iterator
  **/
+#[repr(C)]
 pub struct event_class_iterator {
     pub data : *mut event_class,
     pub rem  : c_int,
@@ -36,11 +38,13 @@ pub struct event_class_iterator {
 }
 
 
+#[repr(C)]
 pub struct get_extension_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_extension_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -50,6 +54,7 @@ pub struct get_extension_version_request {
 }
 
 
+#[repr(C)]
 pub struct get_extension_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -62,6 +67,7 @@ pub struct get_extension_version_reply {
 }
 
 
+#[repr(C)]
 pub struct device_info {
      pub device_type :      ffi::xproto::atom,
      pub device_id :        u8,
@@ -73,6 +79,7 @@ pub struct device_info {
 /**
  * @brief device_info_iterator
  **/
+#[repr(C)]
 pub struct device_info_iterator {
     pub data : *mut device_info,
     pub rem  : c_int,
@@ -80,11 +87,13 @@ pub struct device_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct list_input_devices_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_input_devices_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -92,6 +101,7 @@ pub struct list_input_devices_request {
 }
 
 
+#[repr(C)]
 pub struct list_input_devices_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -102,6 +112,7 @@ pub struct list_input_devices_reply {
 }
 
 
+#[repr(C)]
 pub struct input_info {
      pub class_id :   u8,
      pub len :        u8
@@ -110,6 +121,7 @@ pub struct input_info {
 /**
  * @brief input_info_iterator
  **/
+#[repr(C)]
 pub struct input_info_iterator {
     pub data : *mut input_info,
     pub rem  : c_int,
@@ -117,6 +129,7 @@ pub struct input_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct key_info {
      pub class_id :      u8,
      pub len :           u8,
@@ -129,6 +142,7 @@ pub struct key_info {
 /**
  * @brief key_info_iterator
  **/
+#[repr(C)]
 pub struct key_info_iterator {
     pub data : *mut key_info,
     pub rem  : c_int,
@@ -136,6 +150,7 @@ pub struct key_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct button_info {
      pub class_id :      u8,
      pub len :           u8,
@@ -145,6 +160,7 @@ pub struct button_info {
 /**
  * @brief button_info_iterator
  **/
+#[repr(C)]
 pub struct button_info_iterator {
     pub data : *mut button_info,
     pub rem  : c_int,
@@ -152,6 +168,7 @@ pub struct button_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct axis_info {
      pub resolution :   u32,
      pub minimum :      i32,
@@ -161,6 +178,7 @@ pub struct axis_info {
 /**
  * @brief axis_info_iterator
  **/
+#[repr(C)]
 pub struct axis_info_iterator {
     pub data : *mut axis_info,
     pub rem  : c_int,
@@ -168,6 +186,7 @@ pub struct axis_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct valuator_info {
      pub class_id :      u8,
      pub len :           u8,
@@ -179,6 +198,7 @@ pub struct valuator_info {
 /**
  * @brief valuator_info_iterator
  **/
+#[repr(C)]
 pub struct valuator_info_iterator {
     pub data : *mut valuator_info,
     pub rem  : c_int,
@@ -186,6 +206,7 @@ pub struct valuator_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct input_class_info {
      pub class_id :          u8,
      pub event_type_base :   u8
@@ -194,6 +215,7 @@ pub struct input_class_info {
 /**
  * @brief input_class_info_iterator
  **/
+#[repr(C)]
 pub struct input_class_info_iterator {
     pub data : *mut input_class_info,
     pub rem  : c_int,
@@ -201,11 +223,13 @@ pub struct input_class_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct open_device_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct open_device_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -215,6 +239,7 @@ pub struct open_device_request {
 }
 
 
+#[repr(C)]
 pub struct open_device_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -226,6 +251,7 @@ pub struct open_device_reply {
 
 
 
+#[repr(C)]
 pub struct close_device_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -235,11 +261,13 @@ pub struct close_device_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_mode_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_device_mode_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -250,6 +278,7 @@ pub struct set_device_mode_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_mode_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -261,6 +290,7 @@ pub struct set_device_mode_reply {
 
 
 
+#[repr(C)]
 pub struct select_extension_event_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -271,11 +301,13 @@ pub struct select_extension_event_request {
 }
 
 
+#[repr(C)]
 pub struct get_selected_extension_events_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_selected_extension_events_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -284,6 +316,7 @@ pub struct get_selected_extension_events_request {
 }
 
 
+#[repr(C)]
 pub struct get_selected_extension_events_reply {
      pub response_type :      u8,
      pub pad0 :               u8,
@@ -296,6 +329,7 @@ pub struct get_selected_extension_events_reply {
 
 
 
+#[repr(C)]
 pub struct change_device_dont_propagate_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -307,11 +341,13 @@ pub struct change_device_dont_propagate_list_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_dont_propagate_list_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_dont_propagate_list_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -320,6 +356,7 @@ pub struct get_device_dont_propagate_list_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_dont_propagate_list_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -330,11 +367,13 @@ pub struct get_device_dont_propagate_list_reply {
 }
 
 
+#[repr(C)]
 pub struct get_device_motion_events_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_motion_events_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -345,6 +384,7 @@ pub struct get_device_motion_events_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_motion_events_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -357,6 +397,7 @@ pub struct get_device_motion_events_reply {
 }
 
 
+#[repr(C)]
 pub struct device_time_coord {
      pub time :   ffi::xproto::timestamp
 }
@@ -364,6 +405,7 @@ pub struct device_time_coord {
 /**
  * @brief device_time_coord_iterator
  **/
+#[repr(C)]
 pub struct device_time_coord_iterator {
     pub data : *mut device_time_coord,
     pub rem  : c_int,
@@ -371,11 +413,13 @@ pub struct device_time_coord_iterator {
 }
 
 
+#[repr(C)]
 pub struct change_keyboard_device_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct change_keyboard_device_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -385,6 +429,7 @@ pub struct change_keyboard_device_request {
 }
 
 
+#[repr(C)]
 pub struct change_keyboard_device_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -395,11 +440,13 @@ pub struct change_keyboard_device_reply {
 }
 
 
+#[repr(C)]
 pub struct change_pointer_device_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct change_pointer_device_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -411,6 +458,7 @@ pub struct change_pointer_device_request {
 }
 
 
+#[repr(C)]
 pub struct change_pointer_device_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -421,11 +469,13 @@ pub struct change_pointer_device_reply {
 }
 
 
+#[repr(C)]
 pub struct grab_device_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct grab_device_request {
      pub major_opcode :        u8,
      pub minor_opcode :        u8,
@@ -441,6 +491,7 @@ pub struct grab_device_request {
 }
 
 
+#[repr(C)]
 pub struct grab_device_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -452,6 +503,7 @@ pub struct grab_device_reply {
 
 
 
+#[repr(C)]
 pub struct ungrab_device_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -462,6 +514,7 @@ pub struct ungrab_device_request {
 
 
 
+#[repr(C)]
 pub struct grab_device_key_request {
      pub major_opcode :        u8,
      pub minor_opcode :        u8,
@@ -480,6 +533,7 @@ pub struct grab_device_key_request {
 
 
 
+#[repr(C)]
 pub struct ungrab_device_key_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -493,6 +547,7 @@ pub struct ungrab_device_key_request {
 
 
 
+#[repr(C)]
 pub struct grab_device_button_request {
      pub major_opcode :        u8,
      pub minor_opcode :        u8,
@@ -511,6 +566,7 @@ pub struct grab_device_button_request {
 
 
 
+#[repr(C)]
 pub struct ungrab_device_button_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -524,6 +580,7 @@ pub struct ungrab_device_button_request {
 
 
 
+#[repr(C)]
 pub struct allow_device_events_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -534,11 +591,13 @@ pub struct allow_device_events_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_focus_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_focus_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -548,6 +607,7 @@ pub struct get_device_focus_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_focus_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -561,6 +621,7 @@ pub struct get_device_focus_reply {
 
 
 
+#[repr(C)]
 pub struct set_device_focus_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -572,11 +633,13 @@ pub struct set_device_focus_request {
 }
 
 
+#[repr(C)]
 pub struct get_feedback_control_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_feedback_control_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -586,6 +649,7 @@ pub struct get_feedback_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_feedback_control_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -596,6 +660,7 @@ pub struct get_feedback_control_reply {
 }
 
 
+#[repr(C)]
 pub struct feedback_state {
      pub class_id :   u8,
      pub id :         u8,
@@ -605,6 +670,7 @@ pub struct feedback_state {
 /**
  * @brief feedback_state_iterator
  **/
+#[repr(C)]
 pub struct feedback_state_iterator {
     pub data : *mut feedback_state,
     pub rem  : c_int,
@@ -612,6 +678,7 @@ pub struct feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct kbd_feedback_state {
      pub class_id :             u8,
      pub id :                   u8,
@@ -630,6 +697,7 @@ pub struct kbd_feedback_state {
 /**
  * @brief kbd_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct kbd_feedback_state_iterator {
     pub data : *mut kbd_feedback_state,
     pub rem  : c_int,
@@ -637,6 +705,7 @@ pub struct kbd_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct ptr_feedback_state {
      pub class_id :      u8,
      pub id :            u8,
@@ -650,6 +719,7 @@ pub struct ptr_feedback_state {
 /**
  * @brief ptr_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct ptr_feedback_state_iterator {
     pub data : *mut ptr_feedback_state,
     pub rem  : c_int,
@@ -657,6 +727,7 @@ pub struct ptr_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct integer_feedback_state {
      pub class_id :     u8,
      pub id :           u8,
@@ -669,6 +740,7 @@ pub struct integer_feedback_state {
 /**
  * @brief integer_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct integer_feedback_state_iterator {
     pub data : *mut integer_feedback_state,
     pub rem  : c_int,
@@ -676,6 +748,7 @@ pub struct integer_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct string_feedback_state {
      pub class_id :      u8,
      pub id :            u8,
@@ -687,6 +760,7 @@ pub struct string_feedback_state {
 /**
  * @brief string_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct string_feedback_state_iterator {
     pub data : *mut string_feedback_state,
     pub rem  : c_int,
@@ -694,6 +768,7 @@ pub struct string_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct bell_feedback_state {
      pub class_id :   u8,
      pub id :         u8,
@@ -707,6 +782,7 @@ pub struct bell_feedback_state {
 /**
  * @brief bell_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct bell_feedback_state_iterator {
     pub data : *mut bell_feedback_state,
     pub rem  : c_int,
@@ -714,6 +790,7 @@ pub struct bell_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct led_feedback_state {
      pub class_id :     u8,
      pub id :           u8,
@@ -725,6 +802,7 @@ pub struct led_feedback_state {
 /**
  * @brief led_feedback_state_iterator
  **/
+#[repr(C)]
 pub struct led_feedback_state_iterator {
     pub data : *mut led_feedback_state,
     pub rem  : c_int,
@@ -732,6 +810,7 @@ pub struct led_feedback_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct feedback_ctl {
      pub class_id :   u8,
      pub id :         u8,
@@ -741,6 +820,7 @@ pub struct feedback_ctl {
 /**
  * @brief feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct feedback_ctl_iterator {
     pub data : *mut feedback_ctl,
     pub rem  : c_int,
@@ -748,6 +828,7 @@ pub struct feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct kbd_feedback_ctl {
      pub class_id :            u8,
      pub id :                  u8,
@@ -765,6 +846,7 @@ pub struct kbd_feedback_ctl {
 /**
  * @brief kbd_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct kbd_feedback_ctl_iterator {
     pub data : *mut kbd_feedback_ctl,
     pub rem  : c_int,
@@ -772,6 +854,7 @@ pub struct kbd_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct ptr_feedback_ctl {
      pub class_id :    u8,
      pub id :          u8,
@@ -785,6 +868,7 @@ pub struct ptr_feedback_ctl {
 /**
  * @brief ptr_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct ptr_feedback_ctl_iterator {
     pub data : *mut ptr_feedback_ctl,
     pub rem  : c_int,
@@ -792,6 +876,7 @@ pub struct ptr_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct integer_feedback_ctl {
      pub class_id :         u8,
      pub id :               u8,
@@ -802,6 +887,7 @@ pub struct integer_feedback_ctl {
 /**
  * @brief integer_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct integer_feedback_ctl_iterator {
     pub data : *mut integer_feedback_ctl,
     pub rem  : c_int,
@@ -809,6 +895,7 @@ pub struct integer_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct string_feedback_ctl {
      pub class_id :      u8,
      pub id :            u8,
@@ -820,6 +907,7 @@ pub struct string_feedback_ctl {
 /**
  * @brief string_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct string_feedback_ctl_iterator {
     pub data : *mut string_feedback_ctl,
     pub rem  : c_int,
@@ -827,6 +915,7 @@ pub struct string_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct bell_feedback_ctl {
      pub class_id :   u8,
      pub id :         u8,
@@ -840,6 +929,7 @@ pub struct bell_feedback_ctl {
 /**
  * @brief bell_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct bell_feedback_ctl_iterator {
     pub data : *mut bell_feedback_ctl,
     pub rem  : c_int,
@@ -847,6 +937,7 @@ pub struct bell_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct led_feedback_ctl {
      pub class_id :     u8,
      pub id :           u8,
@@ -858,6 +949,7 @@ pub struct led_feedback_ctl {
 /**
  * @brief led_feedback_ctl_iterator
  **/
+#[repr(C)]
 pub struct led_feedback_ctl_iterator {
     pub data : *mut led_feedback_ctl,
     pub rem  : c_int,
@@ -865,11 +957,13 @@ pub struct led_feedback_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct get_device_key_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_key_mapping_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -880,6 +974,7 @@ pub struct get_device_key_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_key_mapping_reply {
      pub response_type :         u8,
      pub pad0 :                  u8,
@@ -891,6 +986,7 @@ pub struct get_device_key_mapping_reply {
 
 
 
+#[repr(C)]
 pub struct change_device_key_mapping_request {
      pub major_opcode :          u8,
      pub minor_opcode :          u8,
@@ -902,11 +998,13 @@ pub struct change_device_key_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_modifier_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_modifier_mapping_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -916,6 +1014,7 @@ pub struct get_device_modifier_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_modifier_mapping_reply {
      pub response_type :           u8,
      pub pad0 :                    u8,
@@ -926,11 +1025,13 @@ pub struct get_device_modifier_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct set_device_modifier_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_device_modifier_mapping_request {
      pub major_opcode :            u8,
      pub minor_opcode :            u8,
@@ -941,6 +1042,7 @@ pub struct set_device_modifier_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_modifier_mapping_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -951,11 +1053,13 @@ pub struct set_device_modifier_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct get_device_button_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_button_mapping_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -965,6 +1069,7 @@ pub struct get_device_button_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_button_mapping_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -975,11 +1080,13 @@ pub struct get_device_button_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct set_device_button_mapping_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_device_button_mapping_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -990,6 +1097,7 @@ pub struct set_device_button_mapping_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_button_mapping_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1000,11 +1108,13 @@ pub struct set_device_button_mapping_reply {
 }
 
 
+#[repr(C)]
 pub struct query_device_state_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_device_state_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1014,6 +1124,7 @@ pub struct query_device_state_request {
 }
 
 
+#[repr(C)]
 pub struct query_device_state_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1024,6 +1135,7 @@ pub struct query_device_state_reply {
 }
 
 
+#[repr(C)]
 pub struct input_state {
      pub class_id :    u8,
      pub len :         u8,
@@ -1033,6 +1145,7 @@ pub struct input_state {
 /**
  * @brief input_state_iterator
  **/
+#[repr(C)]
 pub struct input_state_iterator {
     pub data : *mut input_state,
     pub rem  : c_int,
@@ -1040,6 +1153,7 @@ pub struct input_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct key_state {
      pub class_id :   u8,
      pub len :        u8,
@@ -1051,6 +1165,7 @@ pub struct key_state {
 /**
  * @brief key_state_iterator
  **/
+#[repr(C)]
 pub struct key_state_iterator {
     pub data : *mut key_state,
     pub rem  : c_int,
@@ -1058,6 +1173,7 @@ pub struct key_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct button_state {
      pub class_id :      u8,
      pub len :           u8,
@@ -1069,6 +1185,7 @@ pub struct button_state {
 /**
  * @brief button_state_iterator
  **/
+#[repr(C)]
 pub struct button_state_iterator {
     pub data : *mut button_state,
     pub rem  : c_int,
@@ -1076,6 +1193,7 @@ pub struct button_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct valuator_state {
      pub class_id :        u8,
      pub len :             u8,
@@ -1086,6 +1204,7 @@ pub struct valuator_state {
 /**
  * @brief valuator_state_iterator
  **/
+#[repr(C)]
 pub struct valuator_state_iterator {
     pub data : *mut valuator_state,
     pub rem  : c_int,
@@ -1094,6 +1213,7 @@ pub struct valuator_state_iterator {
 
 
 
+#[repr(C)]
 pub struct send_extension_event_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1108,6 +1228,7 @@ pub struct send_extension_event_request {
 
 
 
+#[repr(C)]
 pub struct device_bell_request {
      pub major_opcode :     u8,
      pub minor_opcode :     u8,
@@ -1119,11 +1240,13 @@ pub struct device_bell_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_valuators_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct set_device_valuators_request {
      pub major_opcode :     u8,
      pub minor_opcode :     u8,
@@ -1135,6 +1258,7 @@ pub struct set_device_valuators_request {
 }
 
 
+#[repr(C)]
 pub struct set_device_valuators_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1145,11 +1269,13 @@ pub struct set_device_valuators_reply {
 }
 
 
+#[repr(C)]
 pub struct get_device_control_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_control_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -1160,6 +1286,7 @@ pub struct get_device_control_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_control_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1170,6 +1297,7 @@ pub struct get_device_control_reply {
 }
 
 
+#[repr(C)]
 pub struct device_state {
      pub control_id :   u16,
      pub len :          u16
@@ -1178,6 +1306,7 @@ pub struct device_state {
 /**
  * @brief device_state_iterator
  **/
+#[repr(C)]
 pub struct device_state_iterator {
     pub data : *mut device_state,
     pub rem  : c_int,
@@ -1185,6 +1314,7 @@ pub struct device_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_resolution_state {
      pub control_id :      u16,
      pub len :             u16,
@@ -1194,6 +1324,7 @@ pub struct device_resolution_state {
 /**
  * @brief device_resolution_state_iterator
  **/
+#[repr(C)]
 pub struct device_resolution_state_iterator {
     pub data : *mut device_resolution_state,
     pub rem  : c_int,
@@ -1201,6 +1332,7 @@ pub struct device_resolution_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_abs_calib_state {
      pub control_id :         u16,
      pub len :                u16,
@@ -1217,6 +1349,7 @@ pub struct device_abs_calib_state {
 /**
  * @brief device_abs_calib_state_iterator
  **/
+#[repr(C)]
 pub struct device_abs_calib_state_iterator {
     pub data : *mut device_abs_calib_state,
     pub rem  : c_int,
@@ -1224,6 +1357,7 @@ pub struct device_abs_calib_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_abs_area_state {
      pub control_id :   u16,
      pub len :          u16,
@@ -1238,6 +1372,7 @@ pub struct device_abs_area_state {
 /**
  * @brief device_abs_area_state_iterator
  **/
+#[repr(C)]
 pub struct device_abs_area_state_iterator {
     pub data : *mut device_abs_area_state,
     pub rem  : c_int,
@@ -1245,6 +1380,7 @@ pub struct device_abs_area_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_core_state {
      pub control_id :   u16,
      pub len :          u16,
@@ -1256,6 +1392,7 @@ pub struct device_core_state {
 /**
  * @brief device_core_state_iterator
  **/
+#[repr(C)]
 pub struct device_core_state_iterator {
     pub data : *mut device_core_state,
     pub rem  : c_int,
@@ -1263,6 +1400,7 @@ pub struct device_core_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_enable_state {
      pub control_id :   u16,
      pub len :          u16,
@@ -1273,6 +1411,7 @@ pub struct device_enable_state {
 /**
  * @brief device_enable_state_iterator
  **/
+#[repr(C)]
 pub struct device_enable_state_iterator {
     pub data : *mut device_enable_state,
     pub rem  : c_int,
@@ -1280,6 +1419,7 @@ pub struct device_enable_state_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_ctl {
      pub control_id :   u16,
      pub len :          u16
@@ -1288,6 +1428,7 @@ pub struct device_ctl {
 /**
  * @brief device_ctl_iterator
  **/
+#[repr(C)]
 pub struct device_ctl_iterator {
     pub data : *mut device_ctl,
     pub rem  : c_int,
@@ -1295,6 +1436,7 @@ pub struct device_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_resolution_ctl {
      pub control_id :       u16,
      pub len :              u16,
@@ -1305,6 +1447,7 @@ pub struct device_resolution_ctl {
 /**
  * @brief device_resolution_ctl_iterator
  **/
+#[repr(C)]
 pub struct device_resolution_ctl_iterator {
     pub data : *mut device_resolution_ctl,
     pub rem  : c_int,
@@ -1312,6 +1455,7 @@ pub struct device_resolution_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_abs_calib_ctl {
      pub control_id :         u16,
      pub len :                u16,
@@ -1328,6 +1472,7 @@ pub struct device_abs_calib_ctl {
 /**
  * @brief device_abs_calib_ctl_iterator
  **/
+#[repr(C)]
 pub struct device_abs_calib_ctl_iterator {
     pub data : *mut device_abs_calib_ctl,
     pub rem  : c_int,
@@ -1335,6 +1480,7 @@ pub struct device_abs_calib_ctl_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_abs_area_ctrl {
      pub control_id :   u16,
      pub len :          u16,
@@ -1349,6 +1495,7 @@ pub struct device_abs_area_ctrl {
 /**
  * @brief device_abs_area_ctrl_iterator
  **/
+#[repr(C)]
 pub struct device_abs_area_ctrl_iterator {
     pub data : *mut device_abs_area_ctrl,
     pub rem  : c_int,
@@ -1356,6 +1503,7 @@ pub struct device_abs_area_ctrl_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_core_ctrl {
      pub control_id :   u16,
      pub len :          u16,
@@ -1366,6 +1514,7 @@ pub struct device_core_ctrl {
 /**
  * @brief device_core_ctrl_iterator
  **/
+#[repr(C)]
 pub struct device_core_ctrl_iterator {
     pub data : *mut device_core_ctrl,
     pub rem  : c_int,
@@ -1373,6 +1522,7 @@ pub struct device_core_ctrl_iterator {
 }
 
 
+#[repr(C)]
 pub struct device_enable_ctrl {
      pub control_id :   u16,
      pub len :          u16,
@@ -1383,6 +1533,7 @@ pub struct device_enable_ctrl {
 /**
  * @brief device_enable_ctrl_iterator
  **/
+#[repr(C)]
 pub struct device_enable_ctrl_iterator {
     pub data : *mut device_enable_ctrl,
     pub rem  : c_int,
@@ -1391,6 +1542,7 @@ pub struct device_enable_ctrl_iterator {
 
 
 
+#[repr(C)]
 pub struct device_valuator_event {
      pub response_type :    u8,
      pub device_id :        u8,
@@ -1403,6 +1555,7 @@ pub struct device_valuator_event {
 
 
 
+#[repr(C)]
 pub struct device_key_press_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -1440,6 +1593,7 @@ pub type proximity_in_event = device_key_press_event;
 pub type proximity_out_event = device_key_press_event;
 
 
+#[repr(C)]
 pub struct focus_in_event {
      pub response_type :   u8,
      pub detail :          u8,
@@ -1456,6 +1610,7 @@ pub struct focus_in_event {
 pub type focus_out_event = focus_in_event;
 
 
+#[repr(C)]
 pub struct device_state_notify_event {
      pub response_type :      u8,
      pub device_id :          u8,
@@ -1472,6 +1627,7 @@ pub struct device_state_notify_event {
 
 
 
+#[repr(C)]
 pub struct device_mapping_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
@@ -1486,6 +1642,7 @@ pub struct device_mapping_notify_event {
 
 
 
+#[repr(C)]
 pub struct change_device_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
@@ -1497,6 +1654,7 @@ pub struct change_device_notify_event {
 
 
 
+#[repr(C)]
 pub struct device_key_state_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
@@ -1506,6 +1664,7 @@ pub struct device_key_state_notify_event {
 
 
 
+#[repr(C)]
 pub struct device_button_state_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
@@ -1515,6 +1674,7 @@ pub struct device_button_state_notify_event {
 
 
 
+#[repr(C)]
 pub struct device_presence_notify_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -1528,6 +1688,7 @@ pub struct device_presence_notify_event {
 
 
 
+#[repr(C)]
 pub struct device_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -1536,6 +1697,7 @@ pub struct device_error {
 
 
 
+#[repr(C)]
 pub struct event_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -1544,6 +1706,7 @@ pub struct event_error {
 
 
 
+#[repr(C)]
 pub struct mode_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -1552,6 +1715,7 @@ pub struct mode_error {
 
 
 
+#[repr(C)]
 pub struct device_busy_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -1560,6 +1724,7 @@ pub struct device_busy_error {
 
 
 
+#[repr(C)]
 pub struct class_error {
      pub response_type :   u8,
      pub error_code :      u8,

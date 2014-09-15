@@ -13,11 +13,13 @@ use ffi;
 pub static XEVIE_MAJOR_VERSION : c_uint = 1;
 pub static XEVIE_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -27,6 +29,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :          u8,
      pub pad0 :                   u8,
@@ -38,11 +41,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct start_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct start_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -51,6 +56,7 @@ pub struct start_request {
 }
 
 
+#[repr(C)]
 pub struct start_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -60,11 +66,13 @@ pub struct start_reply {
 }
 
 
+#[repr(C)]
 pub struct end_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct end_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -73,6 +81,7 @@ pub struct end_request {
 }
 
 
+#[repr(C)]
 pub struct end_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -82,6 +91,7 @@ pub struct end_reply {
 }
 
 
+#[repr(C)]
 pub struct event {
      pub pad0 :   [u8,..32]
 }
@@ -89,6 +99,7 @@ pub struct event {
 /**
  * @brief event_iterator
  **/
+#[repr(C)]
 pub struct event_iterator {
     pub data : *mut event,
     pub rem  : c_int,
@@ -96,11 +107,13 @@ pub struct event_iterator {
 }
 
 
+#[repr(C)]
 pub struct send_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct send_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -111,6 +124,7 @@ pub struct send_request {
 }
 
 
+#[repr(C)]
 pub struct send_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -120,11 +134,13 @@ pub struct send_reply {
 }
 
 
+#[repr(C)]
 pub struct select_input_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct select_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -133,6 +149,7 @@ pub struct select_input_request {
 }
 
 
+#[repr(C)]
 pub struct select_input_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

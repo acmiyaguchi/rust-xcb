@@ -14,6 +14,7 @@ use ffi::xproto;
 pub static RES_MAJOR_VERSION : c_uint = 1;
 pub static RES_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct client {
      pub resource_base :   u32,
      pub resource_mask :   u32
@@ -22,6 +23,7 @@ pub struct client {
 /**
  * @brief client_iterator
  **/
+#[repr(C)]
 pub struct client_iterator {
     pub data : *mut client,
     pub rem  : c_int,
@@ -29,6 +31,7 @@ pub struct client_iterator {
 }
 
 
+#[repr(C)]
 pub struct type_ {
      pub resource_type :   ffi::xproto::atom,
      pub count :           u32
@@ -37,6 +40,7 @@ pub struct type_ {
 /**
  * @brief type_iterator
  **/
+#[repr(C)]
 pub struct type_iterator {
     pub data : *mut type_,
     pub rem  : c_int,
@@ -44,11 +48,13 @@ pub struct type_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -58,6 +64,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -68,11 +75,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct query_clients_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_clients_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -80,6 +89,7 @@ pub struct query_clients_request {
 }
 
 
+#[repr(C)]
 pub struct query_clients_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -90,11 +100,13 @@ pub struct query_clients_reply {
 }
 
 
+#[repr(C)]
 pub struct query_client_resources_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_client_resources_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -103,6 +115,7 @@ pub struct query_client_resources_request {
 }
 
 
+#[repr(C)]
 pub struct query_client_resources_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -113,11 +126,13 @@ pub struct query_client_resources_reply {
 }
 
 
+#[repr(C)]
 pub struct query_client_pixmap_bytes_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_client_pixmap_bytes_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -126,6 +141,7 @@ pub struct query_client_pixmap_bytes_request {
 }
 
 
+#[repr(C)]
 pub struct query_client_pixmap_bytes_reply {
      pub response_type :    u8,
      pub pad0 :             u8,

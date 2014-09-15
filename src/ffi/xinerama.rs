@@ -14,6 +14,7 @@ use ffi::xproto;
 pub static XINERAMA_MAJOR_VERSION : c_uint = 1;
 pub static XINERAMA_MINOR_VERSION : c_uint = 1;
 
+#[repr(C)]
 pub struct screen_info {
      pub x_org :    i16,
      pub y_org :    i16,
@@ -24,6 +25,7 @@ pub struct screen_info {
 /**
  * @brief screen_info_iterator
  **/
+#[repr(C)]
 pub struct screen_info_iterator {
     pub data : *mut screen_info,
     pub rem  : c_int,
@@ -31,11 +33,13 @@ pub struct screen_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -45,6 +49,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -55,11 +60,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct get_state_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_state_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -68,6 +75,7 @@ pub struct get_state_request {
 }
 
 
+#[repr(C)]
 pub struct get_state_reply {
      pub response_type :   u8,
      pub state :           u8,
@@ -77,11 +85,13 @@ pub struct get_state_reply {
 }
 
 
+#[repr(C)]
 pub struct get_screen_count_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_count_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -90,6 +100,7 @@ pub struct get_screen_count_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_count_reply {
      pub response_type :   u8,
      pub screen_count :    u8,
@@ -99,11 +110,13 @@ pub struct get_screen_count_reply {
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -113,6 +126,7 @@ pub struct get_screen_size_request {
 }
 
 
+#[repr(C)]
 pub struct get_screen_size_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -125,11 +139,13 @@ pub struct get_screen_size_reply {
 }
 
 
+#[repr(C)]
 pub struct is_active_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct is_active_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -137,6 +153,7 @@ pub struct is_active_request {
 }
 
 
+#[repr(C)]
 pub struct is_active_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -146,11 +163,13 @@ pub struct is_active_reply {
 }
 
 
+#[repr(C)]
 pub struct query_screens_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_screens_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -158,6 +177,7 @@ pub struct query_screens_request {
 }
 
 
+#[repr(C)]
 pub struct query_screens_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

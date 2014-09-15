@@ -20,6 +20,7 @@ pub type context = u32;
 /**
  * @brief context_iterator
  **/
+#[repr(C)]
 pub struct context_iterator {
     pub data : *mut context,
     pub rem  : c_int,
@@ -31,6 +32,7 @@ pub type surface = u32;
 /**
  * @brief surface_iterator
  **/
+#[repr(C)]
 pub struct surface_iterator {
     pub data : *mut surface,
     pub rem  : c_int,
@@ -42,6 +44,7 @@ pub type subpicture = u32;
 /**
  * @brief subpicture_iterator
  **/
+#[repr(C)]
 pub struct subpicture_iterator {
     pub data : *mut subpicture,
     pub rem  : c_int,
@@ -49,6 +52,7 @@ pub struct subpicture_iterator {
 }
 
 
+#[repr(C)]
 pub struct surface_info {
      pub id :                      surface,
      pub chroma_format :           u16,
@@ -64,6 +68,7 @@ pub struct surface_info {
 /**
  * @brief surface_info_iterator
  **/
+#[repr(C)]
 pub struct surface_info_iterator {
     pub data : *mut surface_info,
     pub rem  : c_int,
@@ -71,11 +76,13 @@ pub struct surface_info_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -83,6 +90,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -93,11 +101,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct list_surface_types_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_surface_types_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -106,6 +116,7 @@ pub struct list_surface_types_request {
 }
 
 
+#[repr(C)]
 pub struct list_surface_types_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -116,11 +127,13 @@ pub struct list_surface_types_reply {
 }
 
 
+#[repr(C)]
 pub struct create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -134,6 +147,7 @@ pub struct create_context_request {
 }
 
 
+#[repr(C)]
 pub struct create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -147,6 +161,7 @@ pub struct create_context_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -155,11 +170,13 @@ pub struct destroy_context_request {
 }
 
 
+#[repr(C)]
 pub struct create_surface_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_surface_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -169,6 +186,7 @@ pub struct create_surface_request {
 }
 
 
+#[repr(C)]
 pub struct create_surface_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -179,6 +197,7 @@ pub struct create_surface_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_surface_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -187,11 +206,13 @@ pub struct destroy_surface_request {
 }
 
 
+#[repr(C)]
 pub struct create_subpicture_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_subpicture_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -204,6 +225,7 @@ pub struct create_subpicture_request {
 }
 
 
+#[repr(C)]
 pub struct create_subpicture_reply {
      pub response_type :         u8,
      pub pad0 :                  u8,
@@ -219,6 +241,7 @@ pub struct create_subpicture_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_subpicture_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -227,11 +250,13 @@ pub struct destroy_subpicture_request {
 }
 
 
+#[repr(C)]
 pub struct list_subpicture_types_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct list_subpicture_types_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -241,6 +266,7 @@ pub struct list_subpicture_types_request {
 }
 
 
+#[repr(C)]
 pub struct list_subpicture_types_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

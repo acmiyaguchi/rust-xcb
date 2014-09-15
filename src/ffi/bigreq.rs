@@ -13,11 +13,13 @@ use ffi;
 pub static BIGREQUESTS_MAJOR_VERSION : c_uint = 0;
 pub static BIGREQUESTS_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct enable_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct enable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -25,6 +27,7 @@ pub struct enable_request {
 }
 
 
+#[repr(C)]
 pub struct enable_reply {
      pub response_type :            u8,
      pub pad0 :                     u8,

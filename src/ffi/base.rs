@@ -25,16 +25,20 @@ use libc::{c_int, c_uint, c_void};
 
 use ffi::xproto;
 
+#[repr(C)]
 pub struct connection;
 
+#[repr(C)]
 pub struct extension;
 
+#[repr(C)]
 pub struct generic_iterator {
     data : *mut u8,
     rem : int,
     index : int
 }
 
+#[repr(C)]
 pub struct generic_reply {
     response_type : u8,
     pad0 : u8,
@@ -42,6 +46,7 @@ pub struct generic_reply {
     length : u32
 }
 
+#[repr(C)]
 pub struct generic_event {
     pub response_type : u8,
     pad0 : u8,
@@ -50,6 +55,7 @@ pub struct generic_event {
     full_sequence : u32
 }
 
+#[repr(C)]
 pub struct ge_event {
     response_type : u8,
     pad0 : u8,
@@ -61,6 +67,7 @@ pub struct ge_event {
     full_sequence : u32
 }
 
+#[repr(C)]
 pub struct generic_error {
     response_type : u8,
     error_code : u8,
@@ -73,10 +80,12 @@ pub struct generic_error {
     full_sequence : u32
 }
 
+#[repr(C)]
 pub struct void_cookie {
     sequence : int
 }
 
+#[repr(C)]
 pub struct auth_info {
     namelen : int,
     name : *mut u8,

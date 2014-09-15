@@ -18,6 +18,7 @@ pub type seg = u32;
 /**
  * @brief seg_iterator
  **/
+#[repr(C)]
 pub struct seg_iterator {
     pub data : *mut seg,
     pub rem  : c_int,
@@ -26,6 +27,7 @@ pub struct seg_iterator {
 
 
 
+#[repr(C)]
 pub struct completion_event {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -42,11 +44,13 @@ pub struct completion_event {
 
 pub type bad_seg_error  = ffi::xproto::value_error;
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -54,6 +58,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :    u8,
      pub shared_pixmaps :   u8,
@@ -69,6 +74,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct attach_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -81,6 +87,7 @@ pub struct attach_request {
 
 
 
+#[repr(C)]
 pub struct detach_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -90,6 +97,7 @@ pub struct detach_request {
 
 
 
+#[repr(C)]
 pub struct put_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -113,11 +121,13 @@ pub struct put_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_image_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_image_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -135,6 +145,7 @@ pub struct get_image_request {
 }
 
 
+#[repr(C)]
 pub struct get_image_reply {
      pub response_type :   u8,
      pub depth :           u8,
@@ -146,6 +157,7 @@ pub struct get_image_reply {
 
 
 
+#[repr(C)]
 pub struct create_pixmap_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,

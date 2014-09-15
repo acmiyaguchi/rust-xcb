@@ -13,11 +13,13 @@ use ffi;
 pub static DPMS_MAJOR_VERSION : c_uint = 0;
 pub static DPMS_MINOR_VERSION : c_uint = 0;
 
+#[repr(C)]
 pub struct get_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -27,6 +29,7 @@ pub struct get_version_request {
 }
 
 
+#[repr(C)]
 pub struct get_version_reply {
      pub response_type :          u8,
      pub pad0 :                   u8,
@@ -37,11 +40,13 @@ pub struct get_version_reply {
 }
 
 
+#[repr(C)]
 pub struct capable_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct capable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -49,6 +54,7 @@ pub struct capable_request {
 }
 
 
+#[repr(C)]
 pub struct capable_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -59,11 +65,13 @@ pub struct capable_reply {
 }
 
 
+#[repr(C)]
 pub struct get_timeouts_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_timeouts_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -71,6 +79,7 @@ pub struct get_timeouts_request {
 }
 
 
+#[repr(C)]
 pub struct get_timeouts_reply {
      pub response_type :     u8,
      pub pad0 :              u8,
@@ -84,6 +93,7 @@ pub struct get_timeouts_reply {
 
 
 
+#[repr(C)]
 pub struct set_timeouts_request {
      pub major_opcode :      u8,
      pub minor_opcode :      u8,
@@ -95,6 +105,7 @@ pub struct set_timeouts_request {
 
 
 
+#[repr(C)]
 pub struct enable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -103,6 +114,7 @@ pub struct enable_request {
 
 
 
+#[repr(C)]
 pub struct disable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -111,6 +123,7 @@ pub struct disable_request {
 
 
 
+#[repr(C)]
 pub struct force_level_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -119,11 +132,13 @@ pub struct force_level_request {
 }
 
 
+#[repr(C)]
 pub struct info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct info_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -131,6 +146,7 @@ pub struct info_request {
 }
 
 
+#[repr(C)]
 pub struct info_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

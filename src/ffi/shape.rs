@@ -18,6 +18,7 @@ pub type op = u8;
 /**
  * @brief op_iterator
  **/
+#[repr(C)]
 pub struct op_iterator {
     pub data : *mut op,
     pub rem  : c_int,
@@ -29,6 +30,7 @@ pub type kind = u8;
 /**
  * @brief kind_iterator
  **/
+#[repr(C)]
 pub struct kind_iterator {
     pub data : *mut kind,
     pub rem  : c_int,
@@ -37,6 +39,7 @@ pub struct kind_iterator {
 
 
 
+#[repr(C)]
 pub struct notify_event {
      pub response_type :     u8,
      pub shape_kind :        kind,
@@ -52,11 +55,13 @@ pub struct notify_event {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -64,6 +69,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -75,6 +81,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct rectangles_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -90,6 +97,7 @@ pub struct rectangles_request {
 
 
 
+#[repr(C)]
 pub struct mask_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -105,6 +113,7 @@ pub struct mask_request {
 
 
 
+#[repr(C)]
 pub struct combine_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -121,6 +130,7 @@ pub struct combine_request {
 
 
 
+#[repr(C)]
 pub struct offset_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -133,11 +143,13 @@ pub struct offset_request {
 }
 
 
+#[repr(C)]
 pub struct query_extents_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_extents_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -146,6 +158,7 @@ pub struct query_extents_request {
 }
 
 
+#[repr(C)]
 pub struct query_extents_reply {
      pub response_type :                   u8,
      pub pad0 :                            u8,
@@ -166,6 +179,7 @@ pub struct query_extents_reply {
 
 
 
+#[repr(C)]
 pub struct select_input_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -176,11 +190,13 @@ pub struct select_input_request {
 }
 
 
+#[repr(C)]
 pub struct input_selected_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct input_selected_request {
      pub major_opcode :         u8,
      pub minor_opcode :         u8,
@@ -189,6 +205,7 @@ pub struct input_selected_request {
 }
 
 
+#[repr(C)]
 pub struct input_selected_reply {
      pub response_type :   u8,
      pub enabled :         u8,
@@ -197,11 +214,13 @@ pub struct input_selected_reply {
 }
 
 
+#[repr(C)]
 pub struct get_rectangles_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_rectangles_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -212,6 +231,7 @@ pub struct get_rectangles_request {
 }
 
 
+#[repr(C)]
 pub struct get_rectangles_reply {
      pub response_type :    u8,
      pub ordering :         u8,

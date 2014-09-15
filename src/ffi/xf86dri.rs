@@ -13,6 +13,7 @@ use ffi;
 pub static XF86DRI_MAJOR_VERSION : c_uint = 4;
 pub static XF86DRI_MINOR_VERSION : c_uint = 1;
 
+#[repr(C)]
 pub struct drm_clip_rect {
      pub x1 :   i16,
      pub y1 :   i16,
@@ -23,6 +24,7 @@ pub struct drm_clip_rect {
 /**
  * @brief drm_clip_rect_iterator
  **/
+#[repr(C)]
 pub struct drm_clip_rect_iterator {
     pub data : *mut drm_clip_rect,
     pub rem  : c_int,
@@ -30,11 +32,13 @@ pub struct drm_clip_rect_iterator {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -42,6 +46,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -53,11 +58,13 @@ pub struct query_version_reply {
 }
 
 
+#[repr(C)]
 pub struct query_direct_rendering_capable_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_direct_rendering_capable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -66,6 +73,7 @@ pub struct query_direct_rendering_capable_request {
 }
 
 
+#[repr(C)]
 pub struct query_direct_rendering_capable_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -75,11 +83,13 @@ pub struct query_direct_rendering_capable_reply {
 }
 
 
+#[repr(C)]
 pub struct open_connection_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct open_connection_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -88,6 +98,7 @@ pub struct open_connection_request {
 }
 
 
+#[repr(C)]
 pub struct open_connection_reply {
      pub response_type :       u8,
      pub pad0 :                u8,
@@ -101,6 +112,7 @@ pub struct open_connection_reply {
 
 
 
+#[repr(C)]
 pub struct close_connection_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -109,11 +121,13 @@ pub struct close_connection_request {
 }
 
 
+#[repr(C)]
 pub struct get_client_driver_name_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_client_driver_name_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -122,6 +136,7 @@ pub struct get_client_driver_name_request {
 }
 
 
+#[repr(C)]
 pub struct get_client_driver_name_reply {
      pub response_type :                 u8,
      pub pad0 :                          u8,
@@ -135,11 +150,13 @@ pub struct get_client_driver_name_reply {
 }
 
 
+#[repr(C)]
 pub struct create_context_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -150,6 +167,7 @@ pub struct create_context_request {
 }
 
 
+#[repr(C)]
 pub struct create_context_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -160,6 +178,7 @@ pub struct create_context_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_context_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -169,11 +188,13 @@ pub struct destroy_context_request {
 }
 
 
+#[repr(C)]
 pub struct create_drawable_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct create_drawable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -183,6 +204,7 @@ pub struct create_drawable_request {
 }
 
 
+#[repr(C)]
 pub struct create_drawable_reply {
      pub response_type :        u8,
      pub pad0 :                 u8,
@@ -193,6 +215,7 @@ pub struct create_drawable_reply {
 
 
 
+#[repr(C)]
 pub struct destroy_drawable_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -202,11 +225,13 @@ pub struct destroy_drawable_request {
 }
 
 
+#[repr(C)]
 pub struct get_drawable_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_drawable_info_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -216,6 +241,7 @@ pub struct get_drawable_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_drawable_info_reply {
      pub response_type :          u8,
      pub pad0 :                   u8,
@@ -234,11 +260,13 @@ pub struct get_drawable_info_reply {
 }
 
 
+#[repr(C)]
 pub struct get_device_info_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_device_info_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -247,6 +275,7 @@ pub struct get_device_info_request {
 }
 
 
+#[repr(C)]
 pub struct get_device_info_reply {
      pub response_type :               u8,
      pub pad0 :                        u8,
@@ -261,11 +290,13 @@ pub struct get_device_info_reply {
 }
 
 
+#[repr(C)]
 pub struct auth_connection_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct auth_connection_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -275,6 +306,7 @@ pub struct auth_connection_request {
 }
 
 
+#[repr(C)]
 pub struct auth_connection_reply {
      pub response_type :   u8,
      pub pad0 :            u8,

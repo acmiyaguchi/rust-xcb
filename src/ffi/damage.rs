@@ -21,6 +21,7 @@ pub type damage = u32;
 /**
  * @brief damage_iterator
  **/
+#[repr(C)]
 pub struct damage_iterator {
     pub data : *mut damage,
     pub rem  : c_int,
@@ -29,6 +30,7 @@ pub struct damage_iterator {
 
 
 
+#[repr(C)]
 pub struct bad_damage_error {
      pub response_type :   u8,
      pub error_code :      u8,
@@ -36,11 +38,13 @@ pub struct bad_damage_error {
 }
 
 
+#[repr(C)]
 pub struct query_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct query_version_request {
      pub major_opcode :           u8,
      pub minor_opcode :           u8,
@@ -50,6 +54,7 @@ pub struct query_version_request {
 }
 
 
+#[repr(C)]
 pub struct query_version_reply {
      pub response_type :   u8,
      pub pad0 :            u8,
@@ -62,6 +67,7 @@ pub struct query_version_reply {
 
 
 
+#[repr(C)]
 pub struct create_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -74,6 +80,7 @@ pub struct create_request {
 
 
 
+#[repr(C)]
 pub struct destroy_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -83,6 +90,7 @@ pub struct destroy_request {
 
 
 
+#[repr(C)]
 pub struct subtract_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -94,6 +102,7 @@ pub struct subtract_request {
 
 
 
+#[repr(C)]
 pub struct add_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -104,6 +113,7 @@ pub struct add_request {
 
 
 
+#[repr(C)]
 pub struct notify_event {
      pub response_type :   u8,
      pub level :           u8,

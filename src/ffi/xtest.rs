@@ -14,11 +14,13 @@ use ffi::xproto;
 pub static TEST_MAJOR_VERSION : c_uint = 2;
 pub static TEST_MINOR_VERSION : c_uint = 1;
 
+#[repr(C)]
 pub struct get_version_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct get_version_request {
      pub major_opcode :    u8,
      pub minor_opcode :    u8,
@@ -29,6 +31,7 @@ pub struct get_version_request {
 }
 
 
+#[repr(C)]
 pub struct get_version_reply {
      pub response_type :   u8,
      pub major_version :   u8,
@@ -38,11 +41,13 @@ pub struct get_version_reply {
 }
 
 
+#[repr(C)]
 pub struct compare_cursor_cookie {
     sequence : c_uint
 }
 
 
+#[repr(C)]
 pub struct compare_cursor_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -52,6 +57,7 @@ pub struct compare_cursor_request {
 }
 
 
+#[repr(C)]
 pub struct compare_cursor_reply {
      pub response_type :   u8,
      pub same :            u8,
@@ -61,6 +67,7 @@ pub struct compare_cursor_reply {
 
 
 
+#[repr(C)]
 pub struct fake_input_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
@@ -79,6 +86,7 @@ pub struct fake_input_request {
 
 
 
+#[repr(C)]
 pub struct grab_control_request {
      pub major_opcode :   u8,
      pub minor_opcode :   u8,
