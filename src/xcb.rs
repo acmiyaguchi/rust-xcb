@@ -72,7 +72,7 @@ pub mod ffi {
     //pub mod xf86vidmode; Same with this one...
     pub mod xfixes;
     pub mod xinerama;
-    pub mod xinput;
+    //pub mod xinput;
     //pub mod xkb;
     pub mod xprint;
 
