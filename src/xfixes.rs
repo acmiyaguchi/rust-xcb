@@ -22,10 +22,19 @@ use render;
 use shape;
 pub struct  QueryVersionCookie<'s> { pub base : base::Cookie<'s, query_version_cookie> }
 
+pub impl<'s> QueryVersionCookie<'s> {
+    fn new(data : base::Cookie<'s, query_version_cookie>) -> QueryVersionCookie {
+        QueryVersionCookie { base : data }
+}
+}
 /** Opcode for xcb_xfixes_query_version. */
 pub static XCB_XFIXES_QUERY_VERSION : u8 = 0;
 pub struct QueryVersionReply { base:  base::Reply<query_version_reply> }
-fn mk_reply_query_version_reply(reply:*mut query_version_reply) -> QueryVersionReply { QueryVersionReply { base : base::mk_reply(reply) } }
+pub impl QueryVersionCookie {
+    fn new(data : base::Reply<query_version_request>) -> QueryVersionRequest {
+        QueryVersionRequest { base : data }
+}
+}
 
 pub type save_set_mode = c_uint;//{
     pub static XCB_XFIXES_SAVE_SET_MODE_INSERT : save_set_mode = 1;
@@ -58,6 +67,11 @@ pub type selection_event_mask = c_uint;//{
 /** Opcode for xcb_xfixes_selection_notify. */
 pub static XCB_XFIXES_SELECTION_NOTIFY : u8 = 0;
 pub struct SelectionNotifyEvent {pub base : base::Event<selection_notify_event>}
+pub impl SelectionNotifyEvent {
+    fn new(data : base::Event<selection_notify_event>) -> SelectionNotifyEvent {
+        SelectionNotifyEvent { base : Event { event : data } }
+}
+}
 /** Opcode for xcb_xfixes_select_selection_input. */
 pub static XCB_XFIXES_SELECT_SELECTION_INPUT : u8 = 2;
 
@@ -71,10 +85,20 @@ pub type cursor_notify_mask = c_uint;//{
 /** Opcode for xcb_xfixes_cursor_notify. */
 pub static XCB_XFIXES_CURSOR_NOTIFY : u8 = 1;
 pub struct CursorNotifyEvent {pub base : base::Event<cursor_notify_event>}
+pub impl CursorNotifyEvent {
+    fn new(data : base::Event<cursor_notify_event>) -> CursorNotifyEvent {
+        CursorNotifyEvent { base : Event { event : data } }
+}
+}
 /** Opcode for xcb_xfixes_select_cursor_input. */
 pub static XCB_XFIXES_SELECT_CURSOR_INPUT : u8 = 3;
 pub struct  GetCursorImageCookie<'s> { pub base : base::Cookie<'s, get_cursor_image_cookie> }
 
+pub impl<'s> GetCursorImageCookie<'s> {
+    fn new(data : base::Cookie<'s, get_cursor_image_cookie>) -> GetCursorImageCookie {
+        GetCursorImageCookie { base : data }
+}
+}
 /** Opcode for xcb_xfixes_get_cursor_image. */
 pub static XCB_XFIXES_GET_CURSOR_IMAGE : u8 = 4;
 pub type RegionIterator = region_iterator;
@@ -82,6 +106,11 @@ pub type RegionIterator = region_iterator;
 /** Opcode for xcb_xfixes_bad_region. */
 pub static XCB_XFIXES_BAD_REGION : u8 = 0;
 pub struct BadRegionError { pub base : base::Error<bad_region_error> }
+pub impl BadRegionError {
+    fn new(data : base::Error<bad_region_error>) -> BadRegionError {
+        BadRegionError { base : base::Error { error : data } }
+}
+}
 
 pub type region_enum = c_uint;//{
     pub static XCB_XFIXES_REGION_NONE : region_enum = 1;
@@ -116,6 +145,11 @@ pub static XCB_XFIXES_TRANSLATE_REGION : u8 = 17;
 pub static XCB_XFIXES_REGION_EXTENTS : u8 = 18;
 pub struct  FetchRegionCookie<'s> { pub base : base::Cookie<'s, fetch_region_cookie> }
 
+pub impl<'s> FetchRegionCookie<'s> {
+    fn new(data : base::Cookie<'s, fetch_region_cookie>) -> FetchRegionCookie {
+        FetchRegionCookie { base : data }
+}
+}
 /** Opcode for xcb_xfixes_fetch_region. */
 pub static XCB_XFIXES_FETCH_REGION : u8 = 19;
 /** Opcode for xcb_xfixes_set_gc_clip_region. */
@@ -128,10 +162,20 @@ pub static XCB_XFIXES_SET_PICTURE_CLIP_REGION : u8 = 22;
 pub static XCB_XFIXES_SET_CURSOR_NAME : u8 = 23;
 pub struct  GetCursorNameCookie<'s> { pub base : base::Cookie<'s, get_cursor_name_cookie> }
 
+pub impl<'s> GetCursorNameCookie<'s> {
+    fn new(data : base::Cookie<'s, get_cursor_name_cookie>) -> GetCursorNameCookie {
+        GetCursorNameCookie { base : data }
+}
+}
 /** Opcode for xcb_xfixes_get_cursor_name. */
 pub static XCB_XFIXES_GET_CURSOR_NAME : u8 = 24;
 pub struct  GetCursorImageAndNameCookie<'s> { pub base : base::Cookie<'s, get_cursor_image_and_name_cookie> }
 
+pub impl<'s> GetCursorImageAndNameCookie<'s> {
+    fn new(data : base::Cookie<'s, get_cursor_image_and_name_cookie>) -> GetCursorImageAndNameCookie {
+        GetCursorImageAndNameCookie { base : data }
+}
+}
 /** Opcode for xcb_xfixes_get_cursor_image_and_name. */
 pub static XCB_XFIXES_GET_CURSOR_IMAGE_AND_NAME : u8 = 25;
 /** Opcode for xcb_xfixes_change_cursor. */
@@ -151,7 +195,7 @@ pub fn QueryVersion<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_query_version(c.get_raw_conn(),
         client_major_version as u32, //1
         client_minor_version as u32); //2
-    QueryVersionCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    QueryVersionCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn QueryVersionUnchecked<'r> (c : &'r Connection,
@@ -161,7 +205,7 @@ pub fn QueryVersionUnchecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_query_version_unchecked(c.get_raw_conn(),
         client_major_version as u32, //1
         client_minor_version as u32); //2
-    QueryVersionCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    QueryVersionCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -188,7 +232,7 @@ pub fn ChangeSaveSetChecked<'r> (c : &'r Connection,
         target as u8, //2
         map as u8, //3
         window as ffi::xproto::window); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn ChangeSaveSet<'r> (c : &'r Connection,
@@ -202,7 +246,7 @@ pub fn ChangeSaveSet<'r> (c : &'r Connection,
         target as u8, //2
         map as u8, //3
         window as ffi::xproto::window); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -245,7 +289,7 @@ impl SelectionNotifyEvent {
       (*raw).selection = selection;
       (*raw).timestamp = timestamp;
       (*raw).selection_timestamp = selection_timestamp;
-      SelectionNotifyEvent { base : Event { event : raw as *mut selection_notify_event }}
+      SelectionNotifyEvent::new(raw as *mut selection_notify_event)
     }
   }
 }
@@ -258,7 +302,7 @@ pub fn SelectSelectionInputChecked<'r> (c : &'r Connection,
         window as ffi::xproto::window, //1
         selection as ffi::xproto::atom, //2
         event_mask as u32); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SelectSelectionInput<'r> (c : &'r Connection,
@@ -270,7 +314,7 @@ pub fn SelectSelectionInput<'r> (c : &'r Connection,
         window as ffi::xproto::window, //1
         selection as ffi::xproto::atom, //2
         event_mask as u32); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -307,7 +351,7 @@ impl CursorNotifyEvent {
       (*raw).cursor_serial = cursor_serial;
       (*raw).timestamp = timestamp;
       (*raw).name = name;
-      CursorNotifyEvent { base : Event { event : raw as *mut cursor_notify_event }}
+      CursorNotifyEvent::new(raw as *mut cursor_notify_event)
     }
   }
 }
@@ -318,7 +362,7 @@ pub fn SelectCursorInputChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_select_cursor_input_checked(c.get_raw_conn(),
         window as ffi::xproto::window, //1
         event_mask as u32); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SelectCursorInput<'r> (c : &'r Connection,
@@ -328,21 +372,25 @@ pub fn SelectCursorInput<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_select_cursor_input(c.get_raw_conn(),
         window as ffi::xproto::window, //1
         event_mask as u32); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub struct GetCursorImageReply { base:  base::Reply<get_cursor_image_reply> }
-fn mk_reply_get_cursor_image_reply(reply:*mut get_cursor_image_reply) -> GetCursorImageReply { GetCursorImageReply { base : base::mk_reply(reply) } }
+pub impl GetCursorImageCookie {
+    fn new(data : base::Reply<get_cursor_image_request>) -> GetCursorImageRequest {
+        GetCursorImageRequest { base : data }
+}
+}
 pub fn GetCursorImage<'r> (c : &'r Connection) -> GetCursorImageCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_get_cursor_image(c.get_raw_conn());
-    GetCursorImageCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorImageCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn GetCursorImageUnchecked<'r> (c : &'r Connection) -> GetCursorImageCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_get_cursor_image_unchecked(c.get_raw_conn());
-    GetCursorImageCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorImageCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -380,15 +428,18 @@ impl_reply_cookie!(GetCursorImageCookie<'s>, mk_reply_get_cursor_image_reply, Ge
 
 pub type Region = region;
 
+pub impl Region {
+fn new(data : region) -> Region { let val = Region; val }
+}
 
-impl<'s, Region> Iterator<&'s Region> for RegionIterator {
-    fn next(&mut self) -> Option<&'s Region> {
+impl Iterator<Region> for RegionIterator {
+    fn next(&mut self) -> Option<Region> {
         if self.rem == 0 { return None; }
         unsafe {
-            let iter : *mut region_iterator = mem::transmute(self);
+            let iter : *mut region_iterator = self;
             let data = (*iter).data;
             xcb_xfixes_region_next(iter);
-            Some(mem::transmute(data))
+            Some(Region::new(*data))
         }
     }
 }
@@ -403,7 +454,7 @@ pub fn CreateRegionChecked<'r> (c : &'r Connection,
         region as region, //1
         rectangles_len as u32, //2
         rectangles_ptr as *mut ffi::xproto::rectangle); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CreateRegion<'r> (c : &'r Connection,
@@ -416,7 +467,7 @@ pub fn CreateRegion<'r> (c : &'r Connection,
         region as region, //1
         rectangles_len as u32, //2
         rectangles_ptr as *mut ffi::xproto::rectangle); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn CreateRegionFromBitmapChecked<'r> (c : &'r Connection,
@@ -426,7 +477,7 @@ pub fn CreateRegionFromBitmapChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_bitmap_checked(c.get_raw_conn(),
         region as region, //1
         bitmap as ffi::xproto::pixmap); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CreateRegionFromBitmap<'r> (c : &'r Connection,
@@ -436,7 +487,7 @@ pub fn CreateRegionFromBitmap<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_bitmap(c.get_raw_conn(),
         region as region, //1
         bitmap as ffi::xproto::pixmap); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn CreateRegionFromWindowChecked<'r> (c : &'r Connection,
@@ -448,7 +499,7 @@ pub fn CreateRegionFromWindowChecked<'r> (c : &'r Connection,
         region as region, //1
         window as ffi::xproto::window, //2
         kind as ffi::shape::kind); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CreateRegionFromWindow<'r> (c : &'r Connection,
@@ -460,7 +511,7 @@ pub fn CreateRegionFromWindow<'r> (c : &'r Connection,
         region as region, //1
         window as ffi::xproto::window, //2
         kind as ffi::shape::kind); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn CreateRegionFromGcChecked<'r> (c : &'r Connection,
@@ -470,7 +521,7 @@ pub fn CreateRegionFromGcChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_gc_checked(c.get_raw_conn(),
         region as region, //1
         gc as ffi::xproto::gcontext); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CreateRegionFromGc<'r> (c : &'r Connection,
@@ -480,7 +531,7 @@ pub fn CreateRegionFromGc<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_gc(c.get_raw_conn(),
         region as region, //1
         gc as ffi::xproto::gcontext); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn CreateRegionFromPictureChecked<'r> (c : &'r Connection,
@@ -490,7 +541,7 @@ pub fn CreateRegionFromPictureChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_picture_checked(c.get_raw_conn(),
         region as region, //1
         picture as ffi::render::picture); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CreateRegionFromPicture<'r> (c : &'r Connection,
@@ -500,7 +551,7 @@ pub fn CreateRegionFromPicture<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_create_region_from_picture(c.get_raw_conn(),
         region as region, //1
         picture as ffi::render::picture); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn DestroyRegionChecked<'r> (c : &'r Connection,
@@ -508,7 +559,7 @@ pub fn DestroyRegionChecked<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_destroy_region_checked(c.get_raw_conn(),
         region as region); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn DestroyRegion<'r> (c : &'r Connection,
@@ -516,7 +567,7 @@ pub fn DestroyRegion<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_destroy_region(c.get_raw_conn(),
         region as region); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn SetRegionChecked<'r> (c : &'r Connection,
@@ -529,7 +580,7 @@ pub fn SetRegionChecked<'r> (c : &'r Connection,
         region as region, //1
         rectangles_len as u32, //2
         rectangles_ptr as *mut ffi::xproto::rectangle); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SetRegion<'r> (c : &'r Connection,
@@ -542,7 +593,7 @@ pub fn SetRegion<'r> (c : &'r Connection,
         region as region, //1
         rectangles_len as u32, //2
         rectangles_ptr as *mut ffi::xproto::rectangle); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn CopyRegionChecked<'r> (c : &'r Connection,
@@ -552,7 +603,7 @@ pub fn CopyRegionChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_copy_region_checked(c.get_raw_conn(),
         source as region, //1
         destination as region); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn CopyRegion<'r> (c : &'r Connection,
@@ -562,7 +613,7 @@ pub fn CopyRegion<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_copy_region(c.get_raw_conn(),
         source as region, //1
         destination as region); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn UnionRegionChecked<'r> (c : &'r Connection,
@@ -574,7 +625,7 @@ pub fn UnionRegionChecked<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn UnionRegion<'r> (c : &'r Connection,
@@ -586,7 +637,7 @@ pub fn UnionRegion<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn IntersectRegionChecked<'r> (c : &'r Connection,
@@ -598,7 +649,7 @@ pub fn IntersectRegionChecked<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn IntersectRegion<'r> (c : &'r Connection,
@@ -610,7 +661,7 @@ pub fn IntersectRegion<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn SubtractRegionChecked<'r> (c : &'r Connection,
@@ -622,7 +673,7 @@ pub fn SubtractRegionChecked<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SubtractRegion<'r> (c : &'r Connection,
@@ -634,7 +685,7 @@ pub fn SubtractRegion<'r> (c : &'r Connection,
         source1 as region, //1
         source2 as region, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn InvertRegionChecked<'r> (c : &'r Connection,
@@ -646,7 +697,7 @@ pub fn InvertRegionChecked<'r> (c : &'r Connection,
         source as region, //1
         bounds.base.strct, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn InvertRegion<'r> (c : &'r Connection,
@@ -658,7 +709,7 @@ pub fn InvertRegion<'r> (c : &'r Connection,
         source as region, //1
         bounds.base.strct, //2
         destination as region); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn TranslateRegionChecked<'r> (c : &'r Connection,
@@ -670,7 +721,7 @@ pub fn TranslateRegionChecked<'r> (c : &'r Connection,
         region as region, //1
         dx as i16, //2
         dy as i16); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn TranslateRegion<'r> (c : &'r Connection,
@@ -682,7 +733,7 @@ pub fn TranslateRegion<'r> (c : &'r Connection,
         region as region, //1
         dx as i16, //2
         dy as i16); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn RegionExtentsChecked<'r> (c : &'r Connection,
@@ -692,7 +743,7 @@ pub fn RegionExtentsChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_region_extents_checked(c.get_raw_conn(),
         source as region, //1
         destination as region); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn RegionExtents<'r> (c : &'r Connection,
@@ -702,17 +753,21 @@ pub fn RegionExtents<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_region_extents(c.get_raw_conn(),
         source as region, //1
         destination as region); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub struct FetchRegionReply { base:  base::Reply<fetch_region_reply> }
-fn mk_reply_fetch_region_reply(reply:*mut fetch_region_reply) -> FetchRegionReply { FetchRegionReply { base : base::mk_reply(reply) } }
+pub impl FetchRegionCookie {
+    fn new(data : base::Reply<fetch_region_request>) -> FetchRegionRequest {
+        FetchRegionRequest { base : data }
+}
+}
 pub fn FetchRegion<'r> (c : &'r Connection,
                     region : Region) -> FetchRegionCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_fetch_region(c.get_raw_conn(),
         region as region); //1
-    FetchRegionCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    FetchRegionCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn FetchRegionUnchecked<'r> (c : &'r Connection,
@@ -720,7 +775,7 @@ pub fn FetchRegionUnchecked<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_fetch_region_unchecked(c.get_raw_conn(),
         region as region); //1
-    FetchRegionCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    FetchRegionCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -746,7 +801,7 @@ pub fn SetGcClipRegionChecked<'r> (c : &'r Connection,
         region as region, //2
         x_origin as i16, //3
         y_origin as i16); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SetGcClipRegion<'r> (c : &'r Connection,
@@ -760,7 +815,7 @@ pub fn SetGcClipRegion<'r> (c : &'r Connection,
         region as region, //2
         x_origin as i16, //3
         y_origin as i16); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn SetWindowShapeRegionChecked<'r> (c : &'r Connection,
@@ -776,7 +831,7 @@ pub fn SetWindowShapeRegionChecked<'r> (c : &'r Connection,
         x_offset as i16, //3
         y_offset as i16, //4
         region as region); //5
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SetWindowShapeRegion<'r> (c : &'r Connection,
@@ -792,7 +847,7 @@ pub fn SetWindowShapeRegion<'r> (c : &'r Connection,
         x_offset as i16, //3
         y_offset as i16, //4
         region as region); //5
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn SetPictureClipRegionChecked<'r> (c : &'r Connection,
@@ -806,7 +861,7 @@ pub fn SetPictureClipRegionChecked<'r> (c : &'r Connection,
         region as region, //2
         x_origin as i16, //3
         y_origin as i16); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SetPictureClipRegion<'r> (c : &'r Connection,
@@ -820,7 +875,7 @@ pub fn SetPictureClipRegion<'r> (c : &'r Connection,
         region as region, //2
         x_origin as i16, //3
         y_origin as i16); //4
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn SetCursorNameChecked<'r> (c : &'r Connection,
@@ -834,7 +889,7 @@ pub fn SetCursorNameChecked<'r> (c : &'r Connection,
         cursor as ffi::xproto::cursor, //1
         name_len as u16, //2
         name_ptr as *mut c_char); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn SetCursorName<'r> (c : &'r Connection,
@@ -848,17 +903,21 @@ pub fn SetCursorName<'r> (c : &'r Connection,
         cursor as ffi::xproto::cursor, //1
         name_len as u16, //2
         name_ptr as *mut c_char); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub struct GetCursorNameReply { base:  base::Reply<get_cursor_name_reply> }
-fn mk_reply_get_cursor_name_reply(reply:*mut get_cursor_name_reply) -> GetCursorNameReply { GetCursorNameReply { base : base::mk_reply(reply) } }
+pub impl GetCursorNameCookie {
+    fn new(data : base::Reply<get_cursor_name_request>) -> GetCursorNameRequest {
+        GetCursorNameRequest { base : data }
+}
+}
 pub fn GetCursorName<'r> (c : &'r Connection,
                       cursor : xproto::Cursor) -> GetCursorNameCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_get_cursor_name(c.get_raw_conn(),
         cursor as ffi::xproto::cursor); //1
-    GetCursorNameCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorNameCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn GetCursorNameUnchecked<'r> (c : &'r Connection,
@@ -866,7 +925,7 @@ pub fn GetCursorNameUnchecked<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_get_cursor_name_unchecked(c.get_raw_conn(),
         cursor as ffi::xproto::cursor); //1
-    GetCursorNameCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorNameCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -883,17 +942,21 @@ impl GetCursorNameReply {
 impl_reply_cookie!(GetCursorNameCookie<'s>, mk_reply_get_cursor_name_reply, GetCursorNameReply, xcb_xfixes_get_cursor_name_reply)
 
 pub struct GetCursorImageAndNameReply { base:  base::Reply<get_cursor_image_and_name_reply> }
-fn mk_reply_get_cursor_image_and_name_reply(reply:*mut get_cursor_image_and_name_reply) -> GetCursorImageAndNameReply { GetCursorImageAndNameReply { base : base::mk_reply(reply) } }
+pub impl GetCursorImageAndNameCookie {
+    fn new(data : base::Reply<get_cursor_image_and_name_request>) -> GetCursorImageAndNameRequest {
+        GetCursorImageAndNameRequest { base : data }
+}
+}
 pub fn GetCursorImageAndName<'r> (c : &'r Connection) -> GetCursorImageAndNameCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_get_cursor_image_and_name(c.get_raw_conn());
-    GetCursorImageAndNameCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorImageAndNameCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn GetCursorImageAndNameUnchecked<'r> (c : &'r Connection) -> GetCursorImageAndNameCookie<'r> {
   unsafe {
     let cookie = xcb_xfixes_get_cursor_image_and_name_unchecked(c.get_raw_conn());
-    GetCursorImageAndNameCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    GetCursorImageAndNameCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 
@@ -944,7 +1007,7 @@ pub fn ChangeCursorChecked<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_change_cursor_checked(c.get_raw_conn(),
         source as ffi::xproto::cursor, //1
         destination as ffi::xproto::cursor); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn ChangeCursor<'r> (c : &'r Connection,
@@ -954,7 +1017,7 @@ pub fn ChangeCursor<'r> (c : &'r Connection,
     let cookie = xcb_xfixes_change_cursor(c.get_raw_conn(),
         source as ffi::xproto::cursor, //1
         destination as ffi::xproto::cursor); //2
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn ChangeCursorByNameChecked<'r> (c : &'r Connection,
@@ -968,7 +1031,7 @@ pub fn ChangeCursorByNameChecked<'r> (c : &'r Connection,
         src as ffi::xproto::cursor, //1
         name_len as u16, //2
         name_ptr as *mut c_char); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn ChangeCursorByName<'r> (c : &'r Connection,
@@ -982,7 +1045,7 @@ pub fn ChangeCursorByName<'r> (c : &'r Connection,
         src as ffi::xproto::cursor, //1
         name_len as u16, //2
         name_ptr as *mut c_char); //3
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn ExpandRegionChecked<'r> (c : &'r Connection,
@@ -1000,7 +1063,7 @@ pub fn ExpandRegionChecked<'r> (c : &'r Connection,
         right as u16, //4
         top as u16, //5
         bottom as u16); //6
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn ExpandRegion<'r> (c : &'r Connection,
@@ -1018,7 +1081,7 @@ pub fn ExpandRegion<'r> (c : &'r Connection,
         right as u16, //4
         top as u16, //5
         bottom as u16); //6
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn HideCursorChecked<'r> (c : &'r Connection,
@@ -1026,7 +1089,7 @@ pub fn HideCursorChecked<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_hide_cursor_checked(c.get_raw_conn(),
         window as ffi::xproto::window); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn HideCursor<'r> (c : &'r Connection,
@@ -1034,7 +1097,7 @@ pub fn HideCursor<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_hide_cursor(c.get_raw_conn(),
         window as ffi::xproto::window); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 pub fn ShowCursorChecked<'r> (c : &'r Connection,
@@ -1042,7 +1105,7 @@ pub fn ShowCursorChecked<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_show_cursor_checked(c.get_raw_conn(),
         window as ffi::xproto::window); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:true}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:true})
   }
 }
 pub fn ShowCursor<'r> (c : &'r Connection,
@@ -1050,7 +1113,7 @@ pub fn ShowCursor<'r> (c : &'r Connection,
   unsafe {
     let cookie = xcb_xfixes_show_cursor(c.get_raw_conn(),
         window as ffi::xproto::window); //1
-    base::VoidCookie { base : Cookie {cookie:cookie,conn:c,checked:false}}
+    base::VoidCookie::new(Cookie {cookie:cookie,conn:c,checked:false})
   }
 }
 

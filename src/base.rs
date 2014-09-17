@@ -291,9 +291,9 @@ impl<T> Drop for Reply<T> {
     }
 }
 
-pub struct GenericReply { pub base : Reply<generic_reply>}
-pub struct GenericEvent { pub base : Event<generic_event>}
-pub struct GenericError { pub base : Error<generic_error>}
+pub struct GenericReply { pub base : Reply<generic_reply> }
+pub struct GenericEvent { pub base : Event<generic_event> }
+pub struct GenericError { pub base : Error<generic_error> }
 pub struct VoidCookie<'s> { pub base : Cookie<'s, void_cookie> }
 
 /**

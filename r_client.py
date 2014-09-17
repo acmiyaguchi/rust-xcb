@@ -869,14 +869,14 @@ def _c_iterator(self, name):
     _h('pub fn %s (i:%s) -> ffi::base::generic_iterator;', self.c_end_name, self.c_iterator_type)
 
     _r('')
-    _r('impl<\'s, %s> Iterator<&\'s %s> for %s {', self.r_type, self.r_type, self.r_iterator_type)
-    _r('    fn next(&mut self) -> Option<&\'s %s> {', self.r_type)
+    _r('impl Iterator<%s> for %s {', self.r_type, self.r_iterator_type)
+    _r('    fn next(&mut self) -> Option<%s> {', self.r_type)
     _r('        if self.rem == 0 { return None; }')
     _r('        unsafe {')
-    _r('            let iter : *mut %s = mem::transmute(self);', self.c_iterator_type)
+    _r('            let iter : *mut %s = self;', self.c_iterator_type)
     _r('            let data = (*iter).data;')
     _r('            %s(iter);', self.c_next_name)
-    _r('            Some(mem::transmute(data))')
+    _r('            Some(%s::new(*data))', self.r_type)
     _r('        }')
     _r('    }')
     _r('}\n')
@@ -1111,6 +1111,8 @@ def c_simple(self, name):
         _h('')
         _h('pub type %s = %s;', my_name, _t(self.name))
         _r('pub type %s = %s;\n', _rty(name), my_name)
+        _r('pub impl %s {',_rty(name))
+        _r('fn new(data : %s) -> %s { let val = %s; val }\n}', my_name, _rty(name), _rty(name))
 
         # Iterator
         _c_iterator(self, name)
@@ -1192,7 +1194,12 @@ def c_struct(self, name):
     _c_complex(self)
 
     self.wrap_type = 'Struct'
-    _r('pub struct %s {pub base : base::Struct<%s> }\n', self.r_type, self.c_type)
+    _r('pub struct %s {', self.r_type)
+    _r('    pub base : base::Struct<%s>\n}\n', self.c_type)
+    #GHandle new instances of this data
+    _r('impl %s {', self.r_type)
+    _r('    fn new(data : Struct<%s>) -> %s {', self.c_type, self.r_type)
+    _r('        %s { base : Struct { strct : data } }\n}\n}', self.r_type)
     self.wrap_field_name = 'self.base.strct'
     _c_accessors(self, name, name)
     _c_iterator(self, name)
@@ -1216,8 +1223,13 @@ def c_union(self, name):
     _h('}')
 
     self.wrap_type = 'Struct'
-    _r('pub struct %s {pub base : base::Struct<%s>}', self.r_type, self.c_type)
-
+    _r('pub struct %s {', self.r_type)
+    _r('    pub base : base::Struct<%s>\n}\n', self.c_type)
+    #GHandle new instances of this data
+    _r('impl %s {', self.r_type)
+    _r('    fn new(data : Struct<%s>) -> %s {', self.c_type, self.r_type)
+    _r('        %s { base : Struct { strct : data } }\n}\n}', self.r_type)
+    
     _c_iterator(self, name)
 
 def _c_request_helper(self, name, rust_cookie_type, cookie_type, void, regular, aux=False):
@@ -1478,7 +1490,7 @@ def _c_request_helper(self, name, rust_cookie_type, cookie_type, void, regular, 
         _r('        %s%s //%d', c, comma, idx)
 
 
-    _r('    %s { base : Cookie {cookie:cookie,conn:c,checked:%s}}', rust_cookie_type, 'true' if checked else 'false')
+    _r('    %s::new(Cookie {cookie:cookie,conn:c,checked:%s})', rust_cookie_type, 'true' if checked else 'false')
     _r('  }')
     _r('}')
 
@@ -1532,7 +1544,9 @@ def _c_cookie(self, name):
 
     self.wrap_type = 'Cookie'
     _r('pub struct  %s<\'s> { pub base : base::Cookie<\'s, %s> }\n', self.r_cookie_type, self.c_cookie_type)
-
+    _r('pub impl<\'s> %s<\'s> {', self.r_cookie_type)
+    _r('    fn new(data : base::Cookie<\'s, %s>) -> %s {', self.c_cookie_type, self.r_cookie_type)
+    _r('        %s { base : data }\n}\n}', self.r_cookie_type)
 
 def c_request(self, name):
     '''
@@ -1555,9 +1569,10 @@ def c_request(self, name):
     if self.reply:
         _c_type_setup(self.reply, name, ('reply',))
         _r('pub struct %s { base:  base::Reply<%s> }', self.r_reply_type, self.c_reply_type)
-        _r('fn mk_reply_%s(reply:*mut %s) -> %s { %s { base : base::mk_reply(reply) } }', self.c_reply_type, self.c_reply_type, self.r_reply_type,  self.r_reply_type)
-
-
+        _r('pub impl %s {', self.r_cookie_type)
+        _r('    fn new(data : base::Reply<%s>) -> %s {', self.c_type, self.r_type)
+        _r('        %s { base : data }\n}\n}', self.r_type)
+        
         # Reply structure definition
         _c_complex(self.reply)
 
@@ -1594,6 +1609,9 @@ def c_event(self, name):
 
     self.wrap_type = 'Event';
     _r('pub struct %s {pub base : base::Event<%s>}', self.r_type, self.c_type)
+    _r('pub impl %s {', self.r_type)
+    _r('    fn new(data : base::Event<%s>) -> %s {', self.c_type, self.r_type)
+    _r('        %s { base : Event { event : data } }\n}\n}', self.r_type)
 
     if self.name == name:
         # Structure definition
@@ -1636,7 +1654,7 @@ def c_event(self, name):
                 _r('      (*raw).%s = %s.base.strct;', f.c_field_name, f.c_field_name)
             else:
                 _r('      (*raw).%s = %s;', f.c_field_name, f.c_field_name)
-        _r('      %s { base : Event { event : raw as *mut %s }}', self.r_type, self.c_type)
+        _r('      %s::new(raw as *mut %s)', self.r_type, self.c_type)
         _r('    }')
         _r('  }')
         _r('}')
@@ -1664,8 +1682,9 @@ def c_error(self, name):
         _h('pub type %s  = %s;', _t(name + ('error',)), _t(self.name + ('error',)))
 
     _r('pub struct %s { pub base : base::Error<%s> }', self.r_type, self.c_type)
-
-
+    _r('pub impl %s {', self.r_type)
+    _r('    fn new(data : base::Error<%s>) -> %s {', self.c_type, self.r_type)
+    _r('        %s { base : base::Error { error : data } }\n}\n}', self.r_type)
 
 # Main routine starts here
 

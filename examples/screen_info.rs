@@ -13,18 +13,23 @@ fn main() {
 
     let mut screen;
     loop {
-        let n : Option<&xcb::xproto::Screen> = iter.next();
+        let n : Option<xcb::xproto::Screen> = iter.next();
         match n {
             Some(s) => {
-                if 1 == screen_num {
-                    screen = *s;
+                if 0 == screen_num {
+                    screen = s;
                     break;
                 }
             }
             None => { fail!("Whut") }
         }
     }
-
+    println!("Status: {}, MajorMinor: {}{}, Length: {}, Vendor: {}", 
+			setup.status(), 
+			setup.protocol_major_version(),
+			setup.protocol_minor_version(),
+			setup.length(),
+			setup.vendor());
     println!("");
     println!("Informations of screen {}:", screen.root());
     println!("  width..........: {}", screen.width_in_pixels());

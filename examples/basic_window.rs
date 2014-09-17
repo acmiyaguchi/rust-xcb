@@ -15,10 +15,10 @@ fn main() {
 
     let mut screen;
     loop {
-        let n : Option<&xcb::xproto::Screen> = iter.next();
+        let n : Option<xcb::xproto::Screen> = iter.next();
         match n {
             Some(s) => {
-                screen = *s;
+                screen = s;
                 break;
             }
             None => { fail!("Whut") }
@@ -43,7 +43,7 @@ fn main() {
         screen.root_visual(),
         values);
 
-    MapWindow(&conn,window);
+    MapWindow(&conn, window);
 
     conn.flush();
 
@@ -59,7 +59,7 @@ fn main() {
         match event {
             None => { break; }
             Some(event) => {
-                let r = event.base.response_type();
+                let r:u8 = event.base.response_type();
                 if r == XCB_KEY_PRESS {
                     let key_press : &mut KeyPressEvent = cast_event(&event);
                     println!("Key '{}' pressed", key_press.detail());
