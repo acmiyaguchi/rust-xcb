@@ -1507,7 +1507,7 @@ def _c_reply(self, name):
     _h('          %s  cookie : %s,', spacing, self.c_cookie_type)
     _h('          %s  e : *mut *mut ffi::base::generic_error) -> *mut %s;', spacing, self.c_reply_type)
 
-    _r('impl_reply_cookie!(%s<\'s>, mk_reply_%s, %s, %s)\n', self.r_cookie_type, self.c_reply_type, self.r_reply_type, self.c_reply_name)
+    _r('impl_reply_cookie!(%s<\'s>, mk_reply_%s, %s, %s);\n', self.r_cookie_type, self.c_reply_type, self.r_reply_type, self.c_reply_name)
 
 def _c_opcode(name, opcode):
     '''
@@ -1629,7 +1629,7 @@ def c_event(self, name):
 
         _r('  pub fn new('+(',\n         '.join(new_params))+') -> %s {', self.r_type)
         _r('    unsafe {')
-        _r('      let raw = malloc(32u as size_t) as *mut %s;', self.c_type)
+        _r('      let raw = malloc(32 as size_t) as *mut %s;', self.c_type)
         for f in self.fields:
             if not f.visible: continue
             if f.type.is_container:

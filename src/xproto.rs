@@ -2289,7 +2289,7 @@ impl KeyPressEvent {
          state : u16,
          same_screen : u8) -> KeyPressEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut key_press_event;
+      let raw = malloc(32 as size_t) as *mut key_press_event;
       (*raw).detail = detail;
       (*raw).time = time;
       (*raw).root = root;
@@ -2363,7 +2363,7 @@ impl ButtonPressEvent {
          state : u16,
          same_screen : u8) -> ButtonPressEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut button_press_event;
+      let raw = malloc(32 as size_t) as *mut button_press_event;
       (*raw).detail = detail;
       (*raw).time = time;
       (*raw).root = root;
@@ -2437,7 +2437,7 @@ impl MotionNotifyEvent {
          state : u16,
          same_screen : u8) -> MotionNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut motion_notify_event;
+      let raw = malloc(32 as size_t) as *mut motion_notify_event;
       (*raw).detail = detail;
       (*raw).time = time;
       (*raw).root = root;
@@ -2516,7 +2516,7 @@ impl EnterNotifyEvent {
          mode : u8,
          same_screen_focus : u8) -> EnterNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut enter_notify_event;
+      let raw = malloc(32 as size_t) as *mut enter_notify_event;
       (*raw).detail = detail;
       (*raw).time = time;
       (*raw).root = root;
@@ -2551,7 +2551,7 @@ impl FocusInEvent {
          event : Window,
          mode : u8) -> FocusInEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut focus_in_event;
+      let raw = malloc(32 as size_t) as *mut focus_in_event;
       (*raw).detail = detail;
       (*raw).event = event;
       (*raw).mode = mode;
@@ -2567,7 +2567,7 @@ impl KeymapNotifyEvent {
 
   pub fn new(keys : [u8; 31]) -> KeymapNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut keymap_notify_event;
+      let raw = malloc(32 as size_t) as *mut keymap_notify_event;
       (*raw).keys = keys;
       KeymapNotifyEvent { base : Event { event : raw as *mut keymap_notify_event }}
     }
@@ -2606,7 +2606,7 @@ impl ExposeEvent {
          height : u16,
          count : u16) -> ExposeEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut expose_event;
+      let raw = malloc(32 as size_t) as *mut expose_event;
       (*raw).window = window;
       (*raw).x = x;
       (*raw).y = y;
@@ -2660,7 +2660,7 @@ impl GraphicsExposureEvent {
          count : u16,
          major_opcode : u8) -> GraphicsExposureEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut graphics_exposure_event;
+      let raw = malloc(32 as size_t) as *mut graphics_exposure_event;
       (*raw).drawable = drawable;
       (*raw).x = x;
       (*raw).y = y;
@@ -2691,7 +2691,7 @@ impl NoExposureEvent {
          minor_opcode : u16,
          major_opcode : u8) -> NoExposureEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut no_exposure_event;
+      let raw = malloc(32 as size_t) as *mut no_exposure_event;
       (*raw).drawable = drawable;
       (*raw).minor_opcode = minor_opcode;
       (*raw).major_opcode = major_opcode;
@@ -2712,7 +2712,7 @@ impl VisibilityNotifyEvent {
   pub fn new(window : Window,
          state : u8) -> VisibilityNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut visibility_notify_event;
+      let raw = malloc(32 as size_t) as *mut visibility_notify_event;
       (*raw).window = window;
       (*raw).state = state;
       VisibilityNotifyEvent { base : Event { event : raw as *mut visibility_notify_event }}
@@ -2762,7 +2762,7 @@ impl CreateNotifyEvent {
          border_width : u16,
          override_redirect : u8) -> CreateNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut create_notify_event;
+      let raw = malloc(32 as size_t) as *mut create_notify_event;
       (*raw).parent = parent;
       (*raw).window = window;
       (*raw).x = x;
@@ -2788,7 +2788,7 @@ impl DestroyNotifyEvent {
   pub fn new(event : Window,
          window : Window) -> DestroyNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut destroy_notify_event;
+      let raw = malloc(32 as size_t) as *mut destroy_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       DestroyNotifyEvent { base : Event { event : raw as *mut destroy_notify_event }}
@@ -2813,7 +2813,7 @@ impl UnmapNotifyEvent {
          window : Window,
          from_configure : u8) -> UnmapNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut unmap_notify_event;
+      let raw = malloc(32 as size_t) as *mut unmap_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).from_configure = from_configure;
@@ -2839,7 +2839,7 @@ impl MapNotifyEvent {
          window : Window,
          override_redirect : u8) -> MapNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut map_notify_event;
+      let raw = malloc(32 as size_t) as *mut map_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).override_redirect = override_redirect;
@@ -2860,7 +2860,7 @@ impl MapRequestEvent {
   pub fn new(parent : Window,
          window : Window) -> MapRequestEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut map_request_event;
+      let raw = malloc(32 as size_t) as *mut map_request_event;
       (*raw).parent = parent;
       (*raw).window = window;
       MapRequestEvent { base : Event { event : raw as *mut map_request_event }}
@@ -2900,7 +2900,7 @@ impl ReparentNotifyEvent {
          y : i16,
          override_redirect : u8) -> ReparentNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut reparent_notify_event;
+      let raw = malloc(32 as size_t) as *mut reparent_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).parent = parent;
@@ -2959,7 +2959,7 @@ impl ConfigureNotifyEvent {
          border_width : u16,
          override_redirect : u8) -> ConfigureNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut configure_notify_event;
+      let raw = malloc(32 as size_t) as *mut configure_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).above_sibling = above_sibling;
@@ -3026,7 +3026,7 @@ impl ConfigureRequestEvent {
          border_width : u16,
          value_mask : u16) -> ConfigureRequestEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut configure_request_event;
+      let raw = malloc(32 as size_t) as *mut configure_request_event;
       (*raw).stack_mode = stack_mode;
       (*raw).parent = parent;
       (*raw).window = window;
@@ -3064,7 +3064,7 @@ impl GravityNotifyEvent {
          x : i16,
          y : i16) -> GravityNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut gravity_notify_event;
+      let raw = malloc(32 as size_t) as *mut gravity_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).x = x;
@@ -3091,7 +3091,7 @@ impl ResizeRequestEvent {
          width : u16,
          height : u16) -> ResizeRequestEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut resize_request_event;
+      let raw = malloc(32 as size_t) as *mut resize_request_event;
       (*raw).window = window;
       (*raw).width = width;
       (*raw).height = height;
@@ -3117,7 +3117,7 @@ impl CirculateNotifyEvent {
          window : Window,
          place : u8) -> CirculateNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut circulate_notify_event;
+      let raw = malloc(32 as size_t) as *mut circulate_notify_event;
       (*raw).event = event;
       (*raw).window = window;
       (*raw).place = place;
@@ -3148,7 +3148,7 @@ impl PropertyNotifyEvent {
          time : Timestamp,
          state : u8) -> PropertyNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut property_notify_event;
+      let raw = malloc(32 as size_t) as *mut property_notify_event;
       (*raw).window = window;
       (*raw).atom = atom;
       (*raw).time = time;
@@ -3175,7 +3175,7 @@ impl SelectionClearEvent {
          owner : Window,
          selection : Atom) -> SelectionClearEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut selection_clear_event;
+      let raw = malloc(32 as size_t) as *mut selection_clear_event;
       (*raw).time = time;
       (*raw).owner = owner;
       (*raw).selection = selection;
@@ -3216,7 +3216,7 @@ impl SelectionRequestEvent {
          target : Atom,
          property : Atom) -> SelectionRequestEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut selection_request_event;
+      let raw = malloc(32 as size_t) as *mut selection_request_event;
       (*raw).time = time;
       (*raw).owner = owner;
       (*raw).requestor = requestor;
@@ -3255,7 +3255,7 @@ impl SelectionNotifyEvent {
          target : Atom,
          property : Atom) -> SelectionNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut selection_notify_event;
+      let raw = malloc(32 as size_t) as *mut selection_notify_event;
       (*raw).time = time;
       (*raw).requestor = requestor;
       (*raw).selection = selection;
@@ -3288,7 +3288,7 @@ impl ColormapNotifyEvent {
          new_ : u8,
          state : u8) -> ColormapNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut colormap_notify_event;
+      let raw = malloc(32 as size_t) as *mut colormap_notify_event;
       (*raw).window = window;
       (*raw).colormap = colormap;
       (*raw).new_ = new_;
@@ -3333,7 +3333,7 @@ impl ClientMessageEvent {
          type_ : Atom,
          data : ClientMessageData) -> ClientMessageEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut client_message_event;
+      let raw = malloc(32 as size_t) as *mut client_message_event;
       (*raw).format = format;
       (*raw).window = window;
       (*raw).type_ = type_;
@@ -3360,7 +3360,7 @@ impl MappingNotifyEvent {
          first_keycode : Keycode,
          count : u8) -> MappingNotifyEvent {
     unsafe {
-      let raw = malloc(32u as size_t) as *mut mapping_notify_event;
+      let raw = malloc(32 as size_t) as *mut mapping_notify_event;
       (*raw).request = request;
       (*raw).first_keycode = first_keycode;
       (*raw).count = count;
@@ -3539,7 +3539,7 @@ impl GetWindowAttributesReply {
   }
 
 }
-impl_reply_cookie!(GetWindowAttributesCookie<'s>, mk_reply_get_window_attributes_reply, GetWindowAttributesReply, xcb_get_window_attributes_reply)
+impl_reply_cookie!(GetWindowAttributesCookie<'s>, mk_reply_get_window_attributes_reply, GetWindowAttributesReply, xcb_get_window_attributes_reply);
 
 pub fn DestroyWindowChecked<'r> (c : &'r Connection,
                              window : Window) -> base::VoidCookie<'r> {
@@ -3780,7 +3780,7 @@ impl GetGeometryReply {
   }
 
 }
-impl_reply_cookie!(GetGeometryCookie<'s>, mk_reply_get_geometry_reply, GetGeometryReply, xcb_get_geometry_reply)
+impl_reply_cookie!(GetGeometryCookie<'s>, mk_reply_get_geometry_reply, GetGeometryReply, xcb_get_geometry_reply);
 
 pub struct QueryTreeReply { base:  base::Reply<query_tree_reply> }
 fn mk_reply_query_tree_reply(reply:*mut query_tree_reply) -> QueryTreeReply { QueryTreeReply { base : base::mk_reply(reply) } }
@@ -3815,7 +3815,7 @@ impl QueryTreeReply {
   }
 
 }
-impl_reply_cookie!(QueryTreeCookie<'s>, mk_reply_query_tree_reply, QueryTreeReply, xcb_query_tree_reply)
+impl_reply_cookie!(QueryTreeCookie<'s>, mk_reply_query_tree_reply, QueryTreeReply, xcb_query_tree_reply);
 
 pub fn InternAtom<'r> (c : &'r Connection,
                    only_if_exists : u8,
@@ -3852,7 +3852,7 @@ impl InternAtomReply {
   }
 
 }
-impl_reply_cookie!(InternAtomCookie<'s>, mk_reply_intern_atom_reply, InternAtomReply, xcb_intern_atom_reply)
+impl_reply_cookie!(InternAtomCookie<'s>, mk_reply_intern_atom_reply, InternAtomReply, xcb_intern_atom_reply);
 
 pub struct GetAtomNameReply { base:  base::Reply<get_atom_name_reply> }
 fn mk_reply_get_atom_name_reply(reply:*mut get_atom_name_reply) -> GetAtomNameReply { GetAtomNameReply { base : base::mk_reply(reply) } }
@@ -3879,7 +3879,7 @@ impl GetAtomNameReply {
   }
 
 }
-impl_reply_cookie!(GetAtomNameCookie<'s>, mk_reply_get_atom_name_reply, GetAtomNameReply, xcb_get_atom_name_reply)
+impl_reply_cookie!(GetAtomNameCookie<'s>, mk_reply_get_atom_name_reply, GetAtomNameReply, xcb_get_atom_name_reply);
 
 pub fn ChangePropertyChecked<'r> (c : &'r Connection,
                               mode : u8,
@@ -4000,7 +4000,7 @@ impl GetPropertyReply {
   }
 
 }
-impl_reply_cookie!(GetPropertyCookie<'s>, mk_reply_get_property_reply, GetPropertyReply, xcb_get_property_reply)
+impl_reply_cookie!(GetPropertyCookie<'s>, mk_reply_get_property_reply, GetPropertyReply, xcb_get_property_reply);
 
 pub struct ListPropertiesReply { base:  base::Reply<list_properties_reply> }
 fn mk_reply_list_properties_reply(reply:*mut list_properties_reply) -> ListPropertiesReply { ListPropertiesReply { base : base::mk_reply(reply) } }
@@ -4027,7 +4027,7 @@ impl ListPropertiesReply {
   }
 
 }
-impl_reply_cookie!(ListPropertiesCookie<'s>, mk_reply_list_properties_reply, ListPropertiesReply, xcb_list_properties_reply)
+impl_reply_cookie!(ListPropertiesCookie<'s>, mk_reply_list_properties_reply, ListPropertiesReply, xcb_list_properties_reply);
 
 pub fn SetSelectionOwnerChecked<'r> (c : &'r Connection,
                                  owner : Window,
@@ -4076,7 +4076,7 @@ impl GetSelectionOwnerReply {
   }
 
 }
-impl_reply_cookie!(GetSelectionOwnerCookie<'s>, mk_reply_get_selection_owner_reply, GetSelectionOwnerReply, xcb_get_selection_owner_reply)
+impl_reply_cookie!(GetSelectionOwnerCookie<'s>, mk_reply_get_selection_owner_reply, GetSelectionOwnerReply, xcb_get_selection_owner_reply);
 
 pub fn ConvertSelectionChecked<'r> (c : &'r Connection,
                                 requestor : Window,
@@ -4193,7 +4193,7 @@ impl GrabPointerReply {
   }
 
 }
-impl_reply_cookie!(GrabPointerCookie<'s>, mk_reply_grab_pointer_reply, GrabPointerReply, xcb_grab_pointer_reply)
+impl_reply_cookie!(GrabPointerCookie<'s>, mk_reply_grab_pointer_reply, GrabPointerReply, xcb_grab_pointer_reply);
 
 pub fn UngrabPointerChecked<'r> (c : &'r Connection,
                              time : Timestamp) -> base::VoidCookie<'r> {
@@ -4346,7 +4346,7 @@ impl GrabKeyboardReply {
   }
 
 }
-impl_reply_cookie!(GrabKeyboardCookie<'s>, mk_reply_grab_keyboard_reply, GrabKeyboardReply, xcb_grab_keyboard_reply)
+impl_reply_cookie!(GrabKeyboardCookie<'s>, mk_reply_grab_keyboard_reply, GrabKeyboardReply, xcb_grab_keyboard_reply);
 
 pub fn UngrabKeyboardChecked<'r> (c : &'r Connection,
                               time : Timestamp) -> base::VoidCookie<'r> {
@@ -4519,7 +4519,7 @@ impl QueryPointerReply {
   }
 
 }
-impl_reply_cookie!(QueryPointerCookie<'s>, mk_reply_query_pointer_reply, QueryPointerReply, xcb_query_pointer_reply)
+impl_reply_cookie!(QueryPointerCookie<'s>, mk_reply_query_pointer_reply, QueryPointerReply, xcb_query_pointer_reply);
 
 pub struct Timecoord {pub base : base::Struct<timecoord> }
 
@@ -4584,7 +4584,7 @@ impl GetMotionEventsReply {
   }
 
 }
-impl_reply_cookie!(GetMotionEventsCookie<'s>, mk_reply_get_motion_events_reply, GetMotionEventsReply, xcb_get_motion_events_reply)
+impl_reply_cookie!(GetMotionEventsCookie<'s>, mk_reply_get_motion_events_reply, GetMotionEventsReply, xcb_get_motion_events_reply);
 
 pub fn TranslateCoordinates<'r> (c : &'r Connection,
                              src_window : Window,
@@ -4633,7 +4633,7 @@ impl TranslateCoordinatesReply {
   }
 
 }
-impl_reply_cookie!(TranslateCoordinatesCookie<'s>, mk_reply_translate_coordinates_reply, TranslateCoordinatesReply, xcb_translate_coordinates_reply)
+impl_reply_cookie!(TranslateCoordinatesCookie<'s>, mk_reply_translate_coordinates_reply, TranslateCoordinatesReply, xcb_translate_coordinates_reply);
 
 pub fn WarpPointerChecked<'r> (c : &'r Connection,
                            src_window : Window,
@@ -4726,7 +4726,7 @@ impl GetInputFocusReply {
   }
 
 }
-impl_reply_cookie!(GetInputFocusCookie<'s>, mk_reply_get_input_focus_reply, GetInputFocusReply, xcb_get_input_focus_reply)
+impl_reply_cookie!(GetInputFocusCookie<'s>, mk_reply_get_input_focus_reply, GetInputFocusReply, xcb_get_input_focus_reply);
 
 pub fn QueryKeymap<'r> (c : &'r Connection) -> QueryKeymapCookie<'r> {
   unsafe {
@@ -4747,7 +4747,7 @@ impl QueryKeymapReply {
   }
 
 }
-impl_reply_cookie!(QueryKeymapCookie<'s>, mk_reply_query_keymap_reply, QueryKeymapReply, xcb_query_keymap_reply)
+impl_reply_cookie!(QueryKeymapCookie<'s>, mk_reply_query_keymap_reply, QueryKeymapReply, xcb_query_keymap_reply);
 
 pub fn OpenFontChecked<'r> (c : &'r Connection,
                         fid : Font,
@@ -4930,7 +4930,7 @@ impl QueryFontReply {
   }
 
 }
-impl_reply_cookie!(QueryFontCookie<'s>, mk_reply_query_font_reply, QueryFontReply, xcb_query_font_reply)
+impl_reply_cookie!(QueryFontCookie<'s>, mk_reply_query_font_reply, QueryFontReply, xcb_query_font_reply);
 
 pub fn QueryTextExtents<'r> (c : &'r Connection,
                          font : Fontable,
@@ -4993,7 +4993,7 @@ impl QueryTextExtentsReply {
   }
 
 }
-impl_reply_cookie!(QueryTextExtentsCookie<'s>, mk_reply_query_text_extents_reply, QueryTextExtentsReply, xcb_query_text_extents_reply)
+impl_reply_cookie!(QueryTextExtentsCookie<'s>, mk_reply_query_text_extents_reply, QueryTextExtentsReply, xcb_query_text_extents_reply);
 
 pub struct Str {pub base : base::Struct<str_> }
 
@@ -5052,7 +5052,7 @@ impl ListFontsReply {
   }
 
 }
-impl_reply_cookie!(ListFontsCookie<'s>, mk_reply_list_fonts_reply, ListFontsReply, xcb_list_fonts_reply)
+impl_reply_cookie!(ListFontsCookie<'s>, mk_reply_list_fonts_reply, ListFontsReply, xcb_list_fonts_reply);
 
 pub fn ListFontsWithInfo<'r> (c : &'r Connection,
                           max_names : u16,
@@ -5139,7 +5139,7 @@ impl ListFontsWithInfoReply {
   }
 
 }
-impl_reply_cookie!(ListFontsWithInfoCookie<'s>, mk_reply_list_fonts_with_info_reply, ListFontsWithInfoReply, xcb_list_fonts_with_info_reply)
+impl_reply_cookie!(ListFontsWithInfoCookie<'s>, mk_reply_list_fonts_with_info_reply, ListFontsWithInfoReply, xcb_list_fonts_with_info_reply);
 
 pub fn SetFontPathChecked<'r> (c : &'r Connection,
                            font : &[Str]) -> base::VoidCookie<'r> {
@@ -5184,7 +5184,7 @@ impl GetFontPathReply {
   }
 
 }
-impl_reply_cookie!(GetFontPathCookie<'s>, mk_reply_get_font_path_reply, GetFontPathReply, xcb_get_font_path_reply)
+impl_reply_cookie!(GetFontPathCookie<'s>, mk_reply_get_font_path_reply, GetFontPathReply, xcb_get_font_path_reply);
 
 pub fn CreatePixmapChecked<'r> (c : &'r Connection,
                             depth : u8,
@@ -5943,7 +5943,7 @@ impl GetImageReply {
   }
 
 }
-impl_reply_cookie!(GetImageCookie<'s>, mk_reply_get_image_reply, GetImageReply, xcb_get_image_reply)
+impl_reply_cookie!(GetImageCookie<'s>, mk_reply_get_image_reply, GetImageReply, xcb_get_image_reply);
 
 pub fn PolyText8Checked<'r> (c : &'r Connection,
                          drawable : Drawable,
@@ -6220,7 +6220,7 @@ impl ListInstalledColormapsReply {
   }
 
 }
-impl_reply_cookie!(ListInstalledColormapsCookie<'s>, mk_reply_list_installed_colormaps_reply, ListInstalledColormapsReply, xcb_list_installed_colormaps_reply)
+impl_reply_cookie!(ListInstalledColormapsCookie<'s>, mk_reply_list_installed_colormaps_reply, ListInstalledColormapsReply, xcb_list_installed_colormaps_reply);
 
 pub fn AllocColor<'r> (c : &'r Connection,
                    cmap : Colormap,
@@ -6269,7 +6269,7 @@ impl AllocColorReply {
   }
 
 }
-impl_reply_cookie!(AllocColorCookie<'s>, mk_reply_alloc_color_reply, AllocColorReply, xcb_alloc_color_reply)
+impl_reply_cookie!(AllocColorCookie<'s>, mk_reply_alloc_color_reply, AllocColorReply, xcb_alloc_color_reply);
 
 pub fn AllocNamedColor<'r> (c : &'r Connection,
                         cmap : Colormap,
@@ -6330,7 +6330,7 @@ impl AllocNamedColorReply {
   }
 
 }
-impl_reply_cookie!(AllocNamedColorCookie<'s>, mk_reply_alloc_named_color_reply, AllocNamedColorReply, xcb_alloc_named_color_reply)
+impl_reply_cookie!(AllocNamedColorCookie<'s>, mk_reply_alloc_named_color_reply, AllocNamedColorReply, xcb_alloc_named_color_reply);
 
 pub struct AllocColorCellsReply { base:  base::Reply<alloc_color_cells_reply> }
 fn mk_reply_alloc_color_cells_reply(reply:*mut alloc_color_cells_reply) -> AllocColorCellsReply { AllocColorCellsReply { base : base::mk_reply(reply) } }
@@ -6373,7 +6373,7 @@ impl AllocColorCellsReply {
   }
 
 }
-impl_reply_cookie!(AllocColorCellsCookie<'s>, mk_reply_alloc_color_cells_reply, AllocColorCellsReply, xcb_alloc_color_cells_reply)
+impl_reply_cookie!(AllocColorCellsCookie<'s>, mk_reply_alloc_color_cells_reply, AllocColorCellsReply, xcb_alloc_color_cells_reply);
 
 pub struct AllocColorPlanesReply { base:  base::Reply<alloc_color_planes_reply> }
 fn mk_reply_alloc_color_planes_reply(reply:*mut alloc_color_planes_reply) -> AllocColorPlanesReply { AllocColorPlanesReply { base : base::mk_reply(reply) } }
@@ -6432,7 +6432,7 @@ impl AllocColorPlanesReply {
   }
 
 }
-impl_reply_cookie!(AllocColorPlanesCookie<'s>, mk_reply_alloc_color_planes_reply, AllocColorPlanesReply, xcb_alloc_color_planes_reply)
+impl_reply_cookie!(AllocColorPlanesCookie<'s>, mk_reply_alloc_color_planes_reply, AllocColorPlanesReply, xcb_alloc_color_planes_reply);
 
 pub fn FreeColorsChecked<'r> (c : &'r Connection,
                           cmap : Colormap,
@@ -6625,7 +6625,7 @@ impl QueryColorsReply {
   }
 
 }
-impl_reply_cookie!(QueryColorsCookie<'s>, mk_reply_query_colors_reply, QueryColorsReply, xcb_query_colors_reply)
+impl_reply_cookie!(QueryColorsCookie<'s>, mk_reply_query_colors_reply, QueryColorsReply, xcb_query_colors_reply);
 
 pub fn LookupColor<'r> (c : &'r Connection,
                     cmap : Colormap,
@@ -6682,7 +6682,7 @@ impl LookupColorReply {
   }
 
 }
-impl_reply_cookie!(LookupColorCookie<'s>, mk_reply_lookup_color_reply, LookupColorReply, xcb_lookup_color_reply)
+impl_reply_cookie!(LookupColorCookie<'s>, mk_reply_lookup_color_reply, LookupColorReply, xcb_lookup_color_reply);
 
 pub fn CreateCursorChecked<'r> (c : &'r Connection,
                             cid : Cursor,
@@ -6891,7 +6891,7 @@ impl QueryBestSizeReply {
   }
 
 }
-impl_reply_cookie!(QueryBestSizeCookie<'s>, mk_reply_query_best_size_reply, QueryBestSizeReply, xcb_query_best_size_reply)
+impl_reply_cookie!(QueryBestSizeCookie<'s>, mk_reply_query_best_size_reply, QueryBestSizeReply, xcb_query_best_size_reply);
 
 pub fn QueryExtension<'r> (c : &'r Connection,
                        name : &str) -> QueryExtensionCookie<'r> {
@@ -6936,7 +6936,7 @@ impl QueryExtensionReply {
   }
 
 }
-impl_reply_cookie!(QueryExtensionCookie<'s>, mk_reply_query_extension_reply, QueryExtensionReply, xcb_query_extension_reply)
+impl_reply_cookie!(QueryExtensionCookie<'s>, mk_reply_query_extension_reply, QueryExtensionReply, xcb_query_extension_reply);
 
 pub struct ListExtensionsReply { base:  base::Reply<list_extensions_reply> }
 fn mk_reply_list_extensions_reply(reply:*mut list_extensions_reply) -> ListExtensionsReply { ListExtensionsReply { base : base::mk_reply(reply) } }
@@ -6959,7 +6959,7 @@ impl ListExtensionsReply {
   }
 
 }
-impl_reply_cookie!(ListExtensionsCookie<'s>, mk_reply_list_extensions_reply, ListExtensionsReply, xcb_list_extensions_reply)
+impl_reply_cookie!(ListExtensionsCookie<'s>, mk_reply_list_extensions_reply, ListExtensionsReply, xcb_list_extensions_reply);
 
 pub fn ChangeKeyboardMappingChecked<'r> (c : &'r Connection,
                                      first_keycode : Keycode,
@@ -7024,7 +7024,7 @@ impl GetKeyboardMappingReply {
   }
 
 }
-impl_reply_cookie!(GetKeyboardMappingCookie<'s>, mk_reply_get_keyboard_mapping_reply, GetKeyboardMappingReply, xcb_get_keyboard_mapping_reply)
+impl_reply_cookie!(GetKeyboardMappingCookie<'s>, mk_reply_get_keyboard_mapping_reply, GetKeyboardMappingReply, xcb_get_keyboard_mapping_reply);
 
 pub fn ChangeKeyboardControlChecked<'r> (c : &'r Connection,
                                      value_list : &[(u32,u32)]) -> base::VoidCookie<'r> {
@@ -7093,7 +7093,7 @@ impl GetKeyboardControlReply {
   }
 
 }
-impl_reply_cookie!(GetKeyboardControlCookie<'s>, mk_reply_get_keyboard_control_reply, GetKeyboardControlReply, xcb_get_keyboard_control_reply)
+impl_reply_cookie!(GetKeyboardControlCookie<'s>, mk_reply_get_keyboard_control_reply, GetKeyboardControlReply, xcb_get_keyboard_control_reply);
 
 pub fn BellChecked<'r> (c : &'r Connection,
                     percent : i8) -> base::VoidCookie<'r> {
@@ -7170,7 +7170,7 @@ impl GetPointerControlReply {
   }
 
 }
-impl_reply_cookie!(GetPointerControlCookie<'s>, mk_reply_get_pointer_control_reply, GetPointerControlReply, xcb_get_pointer_control_reply)
+impl_reply_cookie!(GetPointerControlCookie<'s>, mk_reply_get_pointer_control_reply, GetPointerControlReply, xcb_get_pointer_control_reply);
 
 pub fn SetScreenSaverChecked<'r> (c : &'r Connection,
                               timeout : i16,
@@ -7231,7 +7231,7 @@ impl GetScreenSaverReply {
   }
 
 }
-impl_reply_cookie!(GetScreenSaverCookie<'s>, mk_reply_get_screen_saver_reply, GetScreenSaverReply, xcb_get_screen_saver_reply)
+impl_reply_cookie!(GetScreenSaverCookie<'s>, mk_reply_get_screen_saver_reply, GetScreenSaverReply, xcb_get_screen_saver_reply);
 
 pub fn ChangeHostsChecked<'r> (c : &'r Connection,
                            mode : u8,
@@ -7314,7 +7314,7 @@ impl ListHostsReply {
   }
 
 }
-impl_reply_cookie!(ListHostsCookie<'s>, mk_reply_list_hosts_reply, ListHostsReply, xcb_list_hosts_reply)
+impl_reply_cookie!(ListHostsCookie<'s>, mk_reply_list_hosts_reply, ListHostsReply, xcb_list_hosts_reply);
 
 pub fn SetAccessControlChecked<'r> (c : &'r Connection,
                                 mode : u8) -> base::VoidCookie<'r> {
@@ -7439,7 +7439,7 @@ impl SetPointerMappingReply {
   }
 
 }
-impl_reply_cookie!(SetPointerMappingCookie<'s>, mk_reply_set_pointer_mapping_reply, SetPointerMappingReply, xcb_set_pointer_mapping_reply)
+impl_reply_cookie!(SetPointerMappingCookie<'s>, mk_reply_set_pointer_mapping_reply, SetPointerMappingReply, xcb_set_pointer_mapping_reply);
 
 pub struct GetPointerMappingReply { base:  base::Reply<get_pointer_mapping_reply> }
 fn mk_reply_get_pointer_mapping_reply(reply:*mut get_pointer_mapping_reply) -> GetPointerMappingReply { GetPointerMappingReply { base : base::mk_reply(reply) } }
@@ -7462,7 +7462,7 @@ impl GetPointerMappingReply {
   }
 
 }
-impl_reply_cookie!(GetPointerMappingCookie<'s>, mk_reply_get_pointer_mapping_reply, GetPointerMappingReply, xcb_get_pointer_mapping_reply)
+impl_reply_cookie!(GetPointerMappingCookie<'s>, mk_reply_get_pointer_mapping_reply, GetPointerMappingReply, xcb_get_pointer_mapping_reply);
 
 pub fn SetModifierMapping<'r> (c : &'r Connection,
                            keycodes : &[Keycode]) -> SetModifierMappingCookie<'r> {
@@ -7493,7 +7493,7 @@ impl SetModifierMappingReply {
   }
 
 }
-impl_reply_cookie!(SetModifierMappingCookie<'s>, mk_reply_set_modifier_mapping_reply, SetModifierMappingReply, xcb_set_modifier_mapping_reply)
+impl_reply_cookie!(SetModifierMappingCookie<'s>, mk_reply_set_modifier_mapping_reply, SetModifierMappingReply, xcb_set_modifier_mapping_reply);
 
 pub struct GetModifierMappingReply { base:  base::Reply<get_modifier_mapping_reply> }
 fn mk_reply_get_modifier_mapping_reply(reply:*mut get_modifier_mapping_reply) -> GetModifierMappingReply { GetModifierMappingReply { base : base::mk_reply(reply) } }
@@ -7516,7 +7516,7 @@ impl GetModifierMappingReply {
   }
 
 }
-impl_reply_cookie!(GetModifierMappingCookie<'s>, mk_reply_get_modifier_mapping_reply, GetModifierMappingReply, xcb_get_modifier_mapping_reply)
+impl_reply_cookie!(GetModifierMappingCookie<'s>, mk_reply_get_modifier_mapping_reply, GetModifierMappingReply, xcb_get_modifier_mapping_reply);
 
 pub fn NoOperationChecked<'r> (c : &'r Connection) -> base::VoidCookie<'r> {
   unsafe {

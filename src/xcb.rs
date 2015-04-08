@@ -32,7 +32,6 @@ DEALINGS IN THE SOFTWARE.
        uuid="ef466d26-0620-4f5f-a1d2-1bb9c628e101",
        url= "https://github.com/Aatch/rust-xcb")]
 
-#![license = "MIT"]
 #![crate_type="lib"]
 #![feature(globs)]
 #![feature(macro_rules)]

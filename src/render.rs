@@ -748,7 +748,7 @@ impl QueryVersionReply {
   }
 
 }
-impl_reply_cookie!(QueryVersionCookie<'s>, mk_reply_query_version_reply, QueryVersionReply, xcb_render_query_version_reply)
+impl_reply_cookie!(QueryVersionCookie<'s>, mk_reply_query_version_reply, QueryVersionReply, xcb_render_query_version_reply);
 
 pub struct QueryPictFormatsReply { base:  base::Reply<query_pict_formats_reply> }
 fn mk_reply_query_pict_formats_reply(reply:*mut query_pict_formats_reply) -> QueryPictFormatsReply { QueryPictFormatsReply { base : base::mk_reply(reply) } }
@@ -787,7 +787,7 @@ impl QueryPictFormatsReply {
   }
 
 }
-impl_reply_cookie!(QueryPictFormatsCookie<'s>, mk_reply_query_pict_formats_reply, QueryPictFormatsReply, xcb_render_query_pict_formats_reply)
+impl_reply_cookie!(QueryPictFormatsCookie<'s>, mk_reply_query_pict_formats_reply, QueryPictFormatsReply, xcb_render_query_pict_formats_reply);
 
 pub struct QueryPictIndexValuesReply { base:  base::Reply<query_pict_index_values_reply> }
 fn mk_reply_query_pict_index_values_reply(reply:*mut query_pict_index_values_reply) -> QueryPictIndexValuesReply { QueryPictIndexValuesReply { base : base::mk_reply(reply) } }
@@ -814,7 +814,7 @@ impl QueryPictIndexValuesReply {
   }
 
 }
-impl_reply_cookie!(QueryPictIndexValuesCookie<'s>, mk_reply_query_pict_index_values_reply, QueryPictIndexValuesReply, xcb_render_query_pict_index_values_reply)
+impl_reply_cookie!(QueryPictIndexValuesCookie<'s>, mk_reply_query_pict_index_values_reply, QueryPictIndexValuesReply, xcb_render_query_pict_index_values_reply);
 
 pub fn CreatePictureChecked<'r> (c : &'r Connection,
                              pid : Picture,
@@ -1613,7 +1613,7 @@ impl QueryFiltersReply {
   }
 
 }
-impl_reply_cookie!(QueryFiltersCookie<'s>, mk_reply_query_filters_reply, QueryFiltersReply, xcb_render_query_filters_reply)
+impl_reply_cookie!(QueryFiltersCookie<'s>, mk_reply_query_filters_reply, QueryFiltersReply, xcb_render_query_filters_reply);
 
 pub fn SetPictureFilterChecked<'r> (c : &'r Connection,
                                 picture : Picture,

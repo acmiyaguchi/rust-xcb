@@ -40,6 +40,7 @@ use std::option::Option;
 
 use std::{num,ptr,vec,str,mem};
 use std::num::*;
+use std::cmp::Ordering;
 
 use xproto;
 
@@ -103,7 +104,7 @@ impl<'s> Connection {
         unsafe {
             let setup = ffi::base::xcb_get_setup(self.c);
             if setup.is_null() {
-                fail!("NULL setup on connection")
+                panic!("NULL setup on connection")
             } else {
                xproto::Setup { base : Struct { strct : *(setup as *mut ffi::xproto::setup) } }
             }
@@ -142,21 +143,21 @@ impl<'s> Connection {
     }
 
     #[inline]
-    pub fn connect() -> (Connection, int) {
+    pub fn connect() -> (Connection, i32) {
         let mut screen : c_int = 0;
         unsafe {
-            let conn = ffi::base::xcb_connect(ptr::mut_null(), &mut screen);
+            let conn = ffi::base::xcb_connect(ptr::null_mut(), &mut screen);
             if conn.is_null() {
-                fail!("Couldn't connect")
+                panic!("Couldn't connect")
             } else {
                 ffi::base::xcb_prefetch_maximum_request_length(conn);
-                (Connection {c:conn}, screen as int)
+                (Connection {c:conn}, screen as i32)
             }
         }
     }
 
     #[inline]
-    pub fn connect_to_display(display:&str) -> Option<(Connection, int)> {
+    pub fn connect_to_display(display:&str) -> Option<(Connection, i32)> {
         let mut screen : c_int = 0;
         unsafe {
             let conn = {
@@ -167,13 +168,13 @@ impl<'s> Connection {
                 None
             } else {
                 ffi::base::xcb_prefetch_maximum_request_length(conn);
-                Some((Connection {c:conn}, screen as int))
+                Some((Connection {c:conn}, screen as i32))
             }
         }
     }
 
     #[inline]
-    pub fn connect_with_auth(display:&str, auth_info: &AuthInfo) -> Option<(Connection, int)> {
+    pub fn connect_with_auth(display:&str, auth_info: &AuthInfo) -> Option<(Connection, i32)> {
         let mut screen : c_int = 0;
         unsafe {
             let conn = {
@@ -185,14 +186,14 @@ impl<'s> Connection {
                 None
             } else {
                 ffi::base::xcb_prefetch_maximum_request_length(conn);
-                Some((Connection {c:conn}, screen as int))
+                Some((Connection {c:conn}, screen as i32))
             }
         }
     }
 
     pub unsafe fn from_raw_conn(conn:*mut connection) -> Connection {
         if conn.is_null() {
-            fail!("Cannot construct from null pointer");
+            panic!("Cannot construct from null pointer");
         }
 
         Connection {c:conn}
@@ -326,10 +327,10 @@ pub fn pack_bitfield<T:Ord+Zero+NumCast+Copy,L:Copy>(bf : &mut Vec<(T,L)>) -> (T
 	bf.sort_by(|a,b| {
         let &(a, _) = a;
         let &(b, _) = b;
-        if a < b { Less } else if a > b { Greater } else { Equal }       
+        if a < b { Ordering::Less } else if a > b { Ordering::Greater } else { Ordering::Equal }       
         });
     
-    let mut mask = 0u;
+    let mut mask = 0;
     let mut list : Vec<L> = Vec::new();
 
     for el in bf.iter() {

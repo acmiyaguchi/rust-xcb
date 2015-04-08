@@ -31,8 +31,8 @@ pub struct extension;
 
 pub struct generic_iterator {
     data : *mut u8,
-    rem : int,
-    index : int
+    rem : i32,
+    index : i32
 }
 
 pub struct generic_reply {
@@ -74,13 +74,13 @@ pub struct generic_error {
 }
 
 pub struct void_cookie {
-    sequence : int
+    sequence : i32
 }
 
 pub struct auth_info {
-    namelen : int,
+    namelen : i32,
     name : *mut u8,
-    datalen : int,
+    datalen : i32,
     data : *mut u8
 }
 
