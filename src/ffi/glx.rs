@@ -132,7 +132,7 @@ pub struct generic_error {
      pub bad_value :       u32,
      pub minor_opcode :    u16,
      pub major_opcode :    u8,
-     pub pad0 :            [u8,..21]
+     pub pad0 :            [u8;..21]
 }
 
 
@@ -193,7 +193,7 @@ pub struct pbuffer_clobber_event {
      pub width :           u16,
      pub height :          u16,
      pub count :           u16,
-     pub pad1 :            [u8,..4]
+     pub pad1 :            [u8;..4]
 }
 
 
@@ -228,7 +228,7 @@ pub struct create_context_request {
      pub screen :         u32,
      pub share_list :     context,
      pub is_direct :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -262,7 +262,7 @@ pub struct make_current_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_tag :     context_tag,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -285,7 +285,7 @@ pub struct is_direct_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub is_direct :       u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -310,7 +310,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -399,7 +399,7 @@ pub struct get_visual_configs_reply {
      pub length :           u32,
      pub num_visuals :      u32,
      pub num_properties :   u32,
-     pub pad1 :             [u8,..16]
+     pub pad1 :             [u8;..16]
 }
 
 
@@ -442,7 +442,7 @@ pub struct vendor_private_with_reply_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub retval :          u32,
-     pub data1 :           [u8,..24]
+     pub data1 :           [u8;..24]
 }
 
 
@@ -464,9 +464,9 @@ pub struct query_extensions_string_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
-     pub pad2 :            [u8,..16]
+     pub pad2 :            [u8;..16]
 }
 
 
@@ -489,9 +489,9 @@ pub struct query_server_string_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub str_len :         u32,
-     pub pad2 :            [u8,..16]
+     pub pad2 :            [u8;..16]
 }
 
 
@@ -526,7 +526,7 @@ pub struct get_fb_configs_reply {
      pub length :           u32,
      pub num_FB_configs :   u32,
      pub num_properties :   u32,
-     pub pad1 :             [u8,..16]
+     pub pad1 :             [u8;..16]
 }
 
 
@@ -563,7 +563,7 @@ pub struct create_new_context_request {
      pub render_type :    u32,
      pub share_list :     context,
      pub is_direct :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -586,7 +586,7 @@ pub struct query_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_attribs :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -612,7 +612,7 @@ pub struct make_context_current_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_tag :     context_tag,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -656,7 +656,7 @@ pub struct get_drawable_attributes_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_attribs :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -715,7 +715,7 @@ pub struct create_context_attribs_arb_request {
      pub screen :         u32,
      pub share_list :     context,
      pub is_direct :      u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub num_attribs :    u32
 }
 
@@ -830,7 +830,7 @@ pub struct render_mode_reply {
      pub ret_val :         u32,
      pub n :               u32,
      pub new_mode :        u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -903,7 +903,7 @@ pub struct read_pixels_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -926,10 +926,10 @@ pub struct get_booleanv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           u8,
-     pub pad2 :            [u8,..15]
+     pub pad2 :            [u8;..15]
 }
 
 
@@ -952,7 +952,7 @@ pub struct get_clip_plane_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -975,10 +975,10 @@ pub struct get_doublev_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float64,
-     pub pad2 :            [u8,..8]
+     pub pad2 :            [u8;..8]
 }
 
 
@@ -1023,10 +1023,10 @@ pub struct get_floatv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1049,10 +1049,10 @@ pub struct get_integerv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1076,10 +1076,10 @@ pub struct get_lightfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1103,10 +1103,10 @@ pub struct get_lightiv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1130,10 +1130,10 @@ pub struct get_mapdv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float64,
-     pub pad2 :            [u8,..8]
+     pub pad2 :            [u8;..8]
 }
 
 
@@ -1157,10 +1157,10 @@ pub struct get_mapfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1184,10 +1184,10 @@ pub struct get_mapiv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1211,10 +1211,10 @@ pub struct get_materialfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1238,10 +1238,10 @@ pub struct get_materialiv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1264,10 +1264,10 @@ pub struct get_pixel_mapfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1290,10 +1290,10 @@ pub struct get_pixel_mapuiv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           u32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1316,10 +1316,10 @@ pub struct get_pixel_mapusv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           u16,
-     pub pad2 :            [u8,..16]
+     pub pad2 :            [u8;..16]
 }
 
 
@@ -1342,7 +1342,7 @@ pub struct get_polygon_stipple_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -1365,9 +1365,9 @@ pub struct get_string_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
-     pub pad2 :            [u8,..16]
+     pub pad2 :            [u8;..16]
 }
 
 
@@ -1391,10 +1391,10 @@ pub struct get_tex_envfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1418,10 +1418,10 @@ pub struct get_tex_enviv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1445,10 +1445,10 @@ pub struct get_tex_gendv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float64,
-     pub pad2 :            [u8,..8]
+     pub pad2 :            [u8;..8]
 }
 
 
@@ -1472,10 +1472,10 @@ pub struct get_tex_genfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1499,10 +1499,10 @@ pub struct get_tex_geniv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1529,11 +1529,11 @@ pub struct get_tex_image_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub width :           i32,
      pub height :          i32,
      pub depth :           i32,
-     pub pad2 :            [u8,..4]
+     pub pad2 :            [u8;..4]
 }
 
 
@@ -1557,10 +1557,10 @@ pub struct get_tex_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1584,10 +1584,10 @@ pub struct get_tex_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1612,10 +1612,10 @@ pub struct get_tex_level_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1640,10 +1640,10 @@ pub struct get_tex_level_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1699,7 +1699,7 @@ pub struct are_textures_resident_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub ret_val :         bool32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -1732,7 +1732,7 @@ pub struct gen_textures_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -1781,9 +1781,9 @@ pub struct get_color_table_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub width :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1807,10 +1807,10 @@ pub struct get_color_table_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1834,10 +1834,10 @@ pub struct get_color_table_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1863,10 +1863,10 @@ pub struct get_convolution_filter_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub width :           i32,
      pub height :          i32,
-     pub pad2 :            [u8,..8]
+     pub pad2 :            [u8;..8]
 }
 
 
@@ -1890,10 +1890,10 @@ pub struct get_convolution_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1917,10 +1917,10 @@ pub struct get_convolution_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -1946,10 +1946,10 @@ pub struct get_separable_filter_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub row_w :           i32,
      pub col_h :           i32,
-     pub pad2 :            [u8,..8]
+     pub pad2 :            [u8;..8]
 }
 
 
@@ -1976,9 +1976,9 @@ pub struct get_histogram_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub width :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2002,10 +2002,10 @@ pub struct get_histogram_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2029,10 +2029,10 @@ pub struct get_histogram_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2059,7 +2059,7 @@ pub struct get_minmax_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -2083,10 +2083,10 @@ pub struct get_minmax_parameterfv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           float32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2110,10 +2110,10 @@ pub struct get_minmax_parameteriv_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2137,9 +2137,9 @@ pub struct get_compressed_tex_image_arb_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..8],
+     pub pad1 :            [u8;..8],
      pub size :            i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2172,7 +2172,7 @@ pub struct gen_queries_arb_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -2219,10 +2219,10 @@ pub struct get_queryiv_arb_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2246,10 +2246,10 @@ pub struct get_query_objectiv_arb_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           i32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 
@@ -2273,10 +2273,10 @@ pub struct get_query_objectuiv_arb_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..4],
+     pub pad1 :            [u8;..4],
      pub n :               u32,
      pub datum :           u32,
-     pub pad2 :            [u8,..12]
+     pub pad2 :            [u8;..12]
 }
 
 #[link(name="xcb-glx")]

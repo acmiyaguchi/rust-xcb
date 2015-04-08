@@ -64,7 +64,7 @@ pub struct query_version_reply {
      pub uid :              u16,
      pub gid :              u16,
      pub pixmap_format :    u8,
-     pub pad0 :             [u8,..15]
+     pub pad0 :             [u8;..15]
 }
 
 
@@ -76,7 +76,7 @@ pub struct attach_request {
      pub shmseg :         seg,
      pub shmid :          u32,
      pub read_only :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -129,7 +129,7 @@ pub struct get_image_request {
      pub height :         u16,
      pub plane_mask :     u32,
      pub format :         u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub shmseg :         seg,
      pub offset :         u32
 }
@@ -155,7 +155,7 @@ pub struct create_pixmap_request {
      pub width :          u16,
      pub height :         u16,
      pub depth :          u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub shmseg :         seg,
      pub offset :         u32
 }

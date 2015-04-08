@@ -1151,7 +1151,7 @@ def _c_complex(self):
             if field.c_subscript == 1:
                 ftype = field.c_field_type
             else:
-                ftype = "[%s,..%d]" % (field.c_field_type, field.c_subscript)
+                ftype = "[%s;..%d]" % (field.c_field_type, field.c_subscript)
             _h(' %s    pub %s : %s  %s%s', space, field.c_field_name, spacing, ftype, comma)
         else:
             ftype = field.c_field_type
@@ -1212,7 +1212,7 @@ def c_union(self, name):
     _h_setlevel(0)
     _h('')
     _h('pub struct %s {', self.c_type)
-    _h('    data : [u8,..%d]', field_size)
+    _h('    data : [u8; %d]', field_size)
     _h('}')
 
     self.wrap_type = 'Struct'
@@ -1623,7 +1623,7 @@ def c_event(self, name):
             fty = field.type
             ftype = field.r_field_type;
             if fty.is_list:
-                ftype = '[%s,..%d]' % (ftype, fty.nmemb)
+                ftype = '[%s; %d]' % (ftype, fty.nmemb)
 
             new_params.append('%s : %s' % (field.c_field_name, ftype))
 

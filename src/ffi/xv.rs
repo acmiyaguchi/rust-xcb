@@ -55,7 +55,7 @@ pub struct rational_iterator {
 pub struct format {
      pub visual :   ffi::xproto::visualid,
      pub depth :    u8,
-     pub pad0 :     [u8,..3]
+     pub pad0 :     [u8;..3]
 }
 
 /**
@@ -92,7 +92,7 @@ pub struct encoding_info {
      pub name_size :   u16,
      pub width :       u16,
      pub height :      u16,
-     pub pad0 :        [u8,..2],
+     pub pad0 :        [u8;..2],
      pub rate :        rational
 }
 
@@ -145,18 +145,18 @@ pub struct image_format_info {
      pub id :                u32,
      pub type_ :             u8,
      pub byte_order :        u8,
-     pub pad0 :              [u8,..2],
-     pub guid :              [u8,..16],
+     pub pad0 :              [u8;..2],
+     pub guid :              [u8;..16],
      pub bpp :               u8,
      pub num_planes :        u8,
-     pub pad1 :              [u8,..2],
+     pub pad1 :              [u8;..2],
      pub depth :             u8,
-     pub pad2 :              [u8,..3],
+     pub pad2 :              [u8;..3],
      pub red_mask :          u32,
      pub green_mask :        u32,
      pub blue_mask :         u32,
      pub format :            u8,
-     pub pad3 :              [u8,..3],
+     pub pad3 :              [u8;..3],
      pub y_sample_bits :     u32,
      pub u_sample_bits :     u32,
      pub v_sample_bits :     u32,
@@ -166,9 +166,9 @@ pub struct image_format_info {
      pub vvert_y_period :    u32,
      pub vvert_u_period :    u32,
      pub vvert_v_period :    u32,
-     pub vcomp_order :       [u8,..32],
+     pub vcomp_order :       [u8;..32],
      pub vscanline_order :   u8,
-     pub pad4 :              [u8,..11]
+     pub pad4 :              [u8;..11]
 }
 
 /**
@@ -269,7 +269,7 @@ pub struct query_adaptors_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_adaptors :    u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -292,7 +292,7 @@ pub struct query_encodings_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_encodings :   u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -421,7 +421,7 @@ pub struct select_video_notify_request {
      pub length :         u16,
      pub drawable :       ffi::xproto::drawable,
      pub onoff :          u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -432,7 +432,7 @@ pub struct select_port_notify_request {
      pub length :         u16,
      pub port :           port,
      pub onoff :          u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -451,7 +451,7 @@ pub struct query_best_size_request {
      pub drw_w :          u16,
      pub drw_h :          u16,
      pub motion :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -519,7 +519,7 @@ pub struct query_port_attributes_reply {
      pub length :           u32,
      pub num_attributes :   u32,
      pub text_size :        u32,
-     pub pad1 :             [u8,..16]
+     pub pad1 :             [u8;..16]
 }
 
 
@@ -542,7 +542,7 @@ pub struct list_image_formats_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_formats :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -571,7 +571,7 @@ pub struct query_image_attributes_reply {
      pub data_size :       u32,
      pub width :           u16,
      pub height :          u16,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -619,7 +619,7 @@ pub struct shm_put_image_request {
      pub width :          u16,
      pub height :         u16,
      pub send_event :     u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 #[link(name="xcb-xv")]

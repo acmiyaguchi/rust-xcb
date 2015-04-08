@@ -37,7 +37,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -64,7 +64,7 @@ pub struct selection_notify_event {
      pub selection :             ffi::xproto::atom,
      pub timestamp :             ffi::xproto::timestamp,
      pub selection_timestamp :   ffi::xproto::timestamp,
-     pub pad0 :                  [u8,..8]
+     pub pad0 :                  [u8;..8]
 }
 
 
@@ -88,7 +88,7 @@ pub struct cursor_notify_event {
      pub cursor_serial :   u32,
      pub timestamp :       ffi::xproto::timestamp,
      pub name :            ffi::xproto::atom,
-     pub pad0 :            [u8,..12]
+     pub pad0 :            [u8;..12]
 }
 
 
@@ -126,7 +126,7 @@ pub struct get_cursor_image_reply {
      pub xhot :            u16,
      pub yhot :            u16,
      pub cursor_serial :   u32,
-     pub pad1 :            [u8,..8]
+     pub pad1 :            [u8;..8]
 }
 
 
@@ -176,7 +176,7 @@ pub struct create_region_from_window_request {
      pub region :         region,
      pub window :         ffi::xproto::window,
      pub kind :           ffi::shape::kind,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -312,7 +312,7 @@ pub struct fetch_region_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub extents :         ffi::xproto::rectangle,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -335,7 +335,7 @@ pub struct set_window_shape_region_request {
      pub length :         u16,
      pub dest :           ffi::xproto::window,
      pub dest_kind :      ffi::shape::kind,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub x_offset :       i16,
      pub y_offset :       i16,
      pub region :         region
@@ -361,7 +361,7 @@ pub struct set_cursor_name_request {
      pub length :         u16,
      pub cursor :         ffi::xproto::cursor,
      pub nbytes :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -385,7 +385,7 @@ pub struct get_cursor_name_reply {
      pub length :          u32,
      pub atom :            ffi::xproto::atom,
      pub nbytes :          u16,
-     pub pad1 :            [u8,..18]
+     pub pad1 :            [u8;..18]
 }
 
 
@@ -415,7 +415,7 @@ pub struct get_cursor_image_and_name_reply {
      pub cursor_serial :   u32,
      pub cursor_atom :     ffi::xproto::atom,
      pub nbytes :          u16,
-     pub pad1 :            [u8,..2]
+     pub pad1 :            [u8;..2]
 }
 
 
@@ -436,7 +436,7 @@ pub struct change_cursor_by_name_request {
      pub length :         u16,
      pub src :            ffi::xproto::cursor,
      pub nbytes :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 

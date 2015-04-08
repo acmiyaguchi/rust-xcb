@@ -46,7 +46,7 @@ pub struct generic_event {
     pub response_type : u8,
     pad0 : u8,
     sequence : u16,
-    pad : [u32,..7],
+    pad : [u32; 7],
     full_sequence : u32
 }
 
@@ -57,7 +57,7 @@ pub struct ge_event {
     length : u32,
     event_type : u16,
     pad1 : u16,
-    pad : [u32,..5],
+    pad : [u32; 5],
     full_sequence : u32
 }
 
@@ -69,7 +69,7 @@ pub struct generic_error {
     minor_code : u16,
     major_code : u8,
     pad0 : u8,
-    pad : [u32,..5],
+    pad : [u32; 5],
     full_sequence : u32
 }
 

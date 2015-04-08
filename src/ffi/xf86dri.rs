@@ -96,7 +96,7 @@ pub struct open_connection_reply {
      pub sarea_handle_low :    u32,
      pub sarea_handle_high :   u32,
      pub bus_id_len :          u32,
-     pub pad1 :                [u8,..12]
+     pub pad1 :                [u8;..12]
 }
 
 
@@ -131,7 +131,7 @@ pub struct get_client_driver_name_reply {
      pub client_driver_minor_version :   u32,
      pub client_driver_patch_version :   u32,
      pub client_driver_name_len :        u32,
-     pub pad1 :                          [u8,..8]
+     pub pad1 :                          [u8;..8]
 }
 
 

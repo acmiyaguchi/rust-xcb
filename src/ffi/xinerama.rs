@@ -164,7 +164,7 @@ pub struct query_screens_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub number :          u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 #[link(name="xcb-xinerama")]

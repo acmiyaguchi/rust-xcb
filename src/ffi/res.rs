@@ -86,7 +86,7 @@ pub struct query_clients_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_clients :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -109,7 +109,7 @@ pub struct query_client_resources_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_types :       u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 

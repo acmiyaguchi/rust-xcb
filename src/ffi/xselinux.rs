@@ -65,7 +65,7 @@ pub struct get_device_create_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -98,7 +98,7 @@ pub struct get_device_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -129,7 +129,7 @@ pub struct get_window_create_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -152,7 +152,7 @@ pub struct get_window_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -199,7 +199,7 @@ pub struct get_property_create_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -230,7 +230,7 @@ pub struct get_property_use_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -254,7 +254,7 @@ pub struct get_property_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -278,7 +278,7 @@ pub struct get_property_data_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -301,7 +301,7 @@ pub struct list_properties_reply {
      pub sequence :         u16,
      pub length :           u32,
      pub properties_len :   u32,
-     pub pad1 :             [u8,..20]
+     pub pad1 :             [u8;..20]
 }
 
 
@@ -332,7 +332,7 @@ pub struct get_selection_create_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -363,7 +363,7 @@ pub struct get_selection_use_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -386,7 +386,7 @@ pub struct get_selection_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -409,7 +409,7 @@ pub struct get_selection_data_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -431,7 +431,7 @@ pub struct list_selections_reply {
      pub sequence :         u16,
      pub length :           u32,
      pub selections_len :   u32,
-     pub pad1 :             [u8,..20]
+     pub pad1 :             [u8;..20]
 }
 
 
@@ -454,7 +454,7 @@ pub struct get_client_context_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub context_len :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 #[link(name="xcb-xselinux")]

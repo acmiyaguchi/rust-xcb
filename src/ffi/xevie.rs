@@ -34,7 +34,7 @@ pub struct query_version_reply {
      pub length :                 u32,
      pub server_major_version :   u16,
      pub server_minor_version :   u16,
-     pub pad1 :                   [u8,..20]
+     pub pad1 :                   [u8;..20]
 }
 
 
@@ -56,7 +56,7 @@ pub struct start_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -78,12 +78,12 @@ pub struct end_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
 pub struct event {
-     pub pad0 :   [u8,..32]
+     pub pad0 :   [u8;..32]
 }
 
 /**
@@ -107,7 +107,7 @@ pub struct send_request {
      pub length :         u16,
      pub event :          event,
      pub data_type :      u32,
-     pub pad0 :           [u8,..64]
+     pub pad0 :           [u8;..64]
 }
 
 
@@ -116,7 +116,7 @@ pub struct send_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -138,7 +138,7 @@ pub struct select_input_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 #[link(name="xcb-xevie")]

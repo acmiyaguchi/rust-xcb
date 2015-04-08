@@ -93,7 +93,7 @@ pub struct print_get_printer_list_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub listCount :       u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -246,7 +246,7 @@ pub struct print_get_document_data_reply {
      pub status_code :     u32,
      pub finished_flag :   u32,
      pub dataLen :         u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -265,7 +265,7 @@ pub struct print_end_page_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub cancel :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -313,7 +313,7 @@ pub struct print_get_attributes_request {
      pub length :         u16,
      pub context :        pcontext,
      pub pool :           u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -323,7 +323,7 @@ pub struct print_get_attributes_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub stringLen :       u32,
-     pub pad1 :            [u8,..20],
+     pub pad1 :            [u8;..20],
      pub attributes :      string8
 }
 
@@ -340,7 +340,7 @@ pub struct print_get_one_attributes_request {
      pub context :        pcontext,
      pub nameLen :        u32,
      pub pool :           u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -350,7 +350,7 @@ pub struct print_get_one_attributes_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub valueLen :        u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -363,7 +363,7 @@ pub struct print_set_attributes_request {
      pub stringLen :      u32,
      pub pool :           u8,
      pub rule :           u8,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -412,7 +412,7 @@ pub struct print_query_screens_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub listCount :       u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 

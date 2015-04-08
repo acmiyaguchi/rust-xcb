@@ -55,7 +55,7 @@ pub struct capable_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub capable :         u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -79,7 +79,7 @@ pub struct get_timeouts_reply {
      pub standby_timeout :   u16,
      pub suspend_timeout :   u16,
      pub off_timeout :       u16,
-     pub pad1 :              [u8,..18]
+     pub pad1 :              [u8;..18]
 }
 
 
@@ -138,7 +138,7 @@ pub struct info_reply {
      pub length :          u32,
      pub power_level :     u16,
      pub state :           u8,
-     pub pad1 :            [u8,..21]
+     pub pad1 :            [u8;..21]
 }
 
 #[link(name="xcb-dpms")]

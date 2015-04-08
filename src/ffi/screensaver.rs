@@ -25,7 +25,7 @@ pub struct query_version_request {
      pub length :                 u16,
      pub client_major_version :   u8,
      pub client_minor_version :   u8,
-     pub pad0 :                   [u8,..2]
+     pub pad0 :                   [u8;..2]
 }
 
 
@@ -36,7 +36,7 @@ pub struct query_version_reply {
      pub length :                 u32,
      pub server_major_version :   u16,
      pub server_minor_version :   u16,
-     pub pad1 :                   [u8,..20]
+     pub pad1 :                   [u8;..20]
 }
 
 
@@ -63,7 +63,7 @@ pub struct query_info_reply {
      pub ms_since_user_input :   u32,
      pub event_mask :            u32,
      pub kind :                  u8,
-     pub pad0 :                  [u8,..7]
+     pub pad0 :                  [u8;..7]
 }
 
 
@@ -110,7 +110,7 @@ pub struct suspend_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub suspend :        u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -127,7 +127,7 @@ pub struct notify_event {
      pub window :            ffi::xproto::window,
      pub kind :              u8,
      pub forced :            u8,
-     pub pad1 :              [u8,..14]
+     pub pad1 :              [u8;..14]
 }
 
 #[link(name="xcb-screensaver")]

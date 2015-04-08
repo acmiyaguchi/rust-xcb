@@ -124,7 +124,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -143,7 +143,7 @@ pub struct set_screen_config_request {
      pub sizeID :             u16,
      pub rotation :           u16,
      pub rate :               u16,
-     pub pad0 :               [u8,..2]
+     pub pad0 :               [u8;..2]
 }
 
 
@@ -156,7 +156,7 @@ pub struct set_screen_config_reply {
      pub config_timestamp :   ffi::xproto::timestamp,
      pub root :               ffi::xproto::window,
      pub subpixel_order :     u16,
-     pub pad0 :               [u8,..10]
+     pub pad0 :               [u8;..10]
 }
 
 
@@ -167,7 +167,7 @@ pub struct select_input_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub enable :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -197,7 +197,7 @@ pub struct get_screen_info_reply {
      pub rotation :           u16,
      pub rate :               u16,
      pub nInfo :              u16,
-     pub pad0 :               [u8,..2]
+     pub pad0 :               [u8;..2]
 }
 
 
@@ -223,7 +223,7 @@ pub struct get_screen_size_range_reply {
      pub min_height :      u16,
      pub max_width :       u16,
      pub max_height :      u16,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -290,7 +290,7 @@ pub struct get_screen_resources_reply {
      pub num_outputs :        u16,
      pub num_modes :          u16,
      pub names_len :          u16,
-     pub pad1 :               [u8,..8]
+     pub pad1 :               [u8;..8]
 }
 
 
@@ -346,7 +346,7 @@ pub struct list_output_properties_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_atoms :       u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -372,7 +372,7 @@ pub struct query_output_property_reply {
      pub pending :         u8,
      pub range :           u8,
      pub immutable :       u8,
-     pub pad1 :            [u8,..21]
+     pub pad1 :            [u8;..21]
 }
 
 
@@ -385,7 +385,7 @@ pub struct configure_output_property_request {
      pub property :       ffi::xproto::atom,
      pub pending :        u8,
      pub range :          u8,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -399,7 +399,7 @@ pub struct change_output_property_request {
      pub type_ :          ffi::xproto::atom,
      pub format :         u8,
      pub mode :           u8,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub num_units :      u32
 }
 
@@ -430,7 +430,7 @@ pub struct get_output_property_request {
      pub long_length :    u32,
      pub delete :         u8,
      pub pending :        u8,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -442,7 +442,7 @@ pub struct get_output_property_reply {
      pub type_ :           ffi::xproto::atom,
      pub bytes_after :     u32,
      pub num_items :       u32,
-     pub pad0 :            [u8,..12]
+     pub pad0 :            [u8;..12]
 }
 
 
@@ -466,7 +466,7 @@ pub struct create_mode_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub mode :            mode,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -547,7 +547,7 @@ pub struct set_crtc_config_request {
      pub y :                  i16,
      pub mode :               mode,
      pub rotation :           u16,
-     pub pad0 :               [u8,..2]
+     pub pad0 :               [u8;..2]
 }
 
 
@@ -557,7 +557,7 @@ pub struct set_crtc_config_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub timestamp :       ffi::xproto::timestamp,
-     pub pad0 :            [u8,..20]
+     pub pad0 :            [u8;..20]
 }
 
 
@@ -580,7 +580,7 @@ pub struct get_crtc_gamma_size_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub size :            u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -603,7 +603,7 @@ pub struct get_crtc_gamma_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub size :            u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -614,7 +614,7 @@ pub struct set_crtc_gamma_request {
      pub length :         u16,
      pub crtc :           crtc,
      pub size :           u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -642,7 +642,7 @@ pub struct get_screen_resources_current_reply {
      pub num_outputs :        u16,
      pub num_modes :          u16,
      pub names_len :          u16,
-     pub pad1 :               [u8,..8]
+     pub pad1 :               [u8;..8]
 }
 
 
@@ -654,7 +654,7 @@ pub struct set_crtc_transform_request {
      pub crtc :           crtc,
      pub transform :      ffi::render::transform,
      pub filter_len :     u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -678,9 +678,9 @@ pub struct get_crtc_transform_reply {
      pub length :              u32,
      pub pending_transform :   ffi::render::transform,
      pub has_transforms :      u8,
-     pub pad1 :                [u8,..3],
+     pub pad1 :                [u8;..3],
      pub current_transform :   ffi::render::transform,
-     pub pad2 :                [u8,..4],
+     pub pad2 :                [u8;..4],
      pub pending_len :         u16,
      pub pending_nparams :     u16,
      pub current_len :         u16,
@@ -813,7 +813,7 @@ pub struct crtc_change {
      pub crtc :        crtc,
      pub mode :        mode,
      pub rotation :    u16,
-     pub pad0 :        [u8,..2],
+     pub pad0 :        [u8;..2],
      pub x :           i16,
      pub y :           i16,
      pub width :       u16,
@@ -858,7 +858,7 @@ pub struct output_property {
      pub atom :        ffi::xproto::atom,
      pub timestamp :   ffi::xproto::timestamp,
      pub status :      u8,
-     pub pad0 :        [u8,..11]
+     pub pad0 :        [u8;..11]
 }
 
 /**
@@ -872,7 +872,7 @@ pub struct output_property_iterator {
 
 
 pub struct notify_data {
-    data : [u8,..28]
+    data : [u8; 28]
 }
 /**
  * @brief notify_data_iterator

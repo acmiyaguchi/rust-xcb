@@ -34,7 +34,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u16,
      pub minor_version :   u16,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 extern "C" {

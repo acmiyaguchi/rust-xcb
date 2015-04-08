@@ -57,7 +57,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -69,7 +69,7 @@ pub struct create_request {
      pub damage :         damage,
      pub drawable :       ffi::xproto::drawable,
      pub level :          u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 

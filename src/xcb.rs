@@ -84,7 +84,7 @@ pub mod ffi {
 }
 
 pub mod base;
-pub mod macro;
+pub mod macros;
 
 pub mod xproto;
 

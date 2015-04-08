@@ -78,7 +78,7 @@ pub struct get_xid_list_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub ids_len :         u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 extern "C" {

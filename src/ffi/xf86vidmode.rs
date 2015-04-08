@@ -46,9 +46,9 @@ pub struct mode_info {
      pub vsyncstart :   u16,
      pub vsyncend :     u16,
      pub vtotal :       u16,
-     pub pad0 :         [u8,..4],
+     pub pad0 :         [u8;..4],
      pub flags :        u32,
-     pub pad1 :         [u8,..12],
+     pub pad1 :         [u8;..12],
      pub privsize :     u32
 }
 
@@ -94,7 +94,7 @@ pub struct get_mode_line_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -113,9 +113,9 @@ pub struct get_mode_line_reply {
      pub vsyncstart :      u16,
      pub vsyncend :        u16,
      pub vtotal :          u16,
-     pub pad1 :            [u8,..2],
+     pub pad1 :            [u8;..2],
      pub flags :           u32,
-     pub pad2 :            [u8,..12],
+     pub pad2 :            [u8;..12],
      pub privsize :        u32
 }
 
@@ -135,9 +135,9 @@ pub struct mod_mode_line_request {
      pub vsyncstart :     u16,
      pub vsyncend :       u16,
      pub vtotal :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub flags :          u32,
-     pub pad1 :           [u8,..12],
+     pub pad1 :           [u8;..12],
      pub privsize :       u32
 }
 
@@ -162,7 +162,7 @@ pub struct get_monitor_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -175,7 +175,7 @@ pub struct get_monitor_reply {
      pub model_length :    u8,
      pub num_hsync :       u8,
      pub num_vsync :       u8,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -199,7 +199,7 @@ pub struct get_all_mode_lines_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -209,7 +209,7 @@ pub struct get_all_mode_lines_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub modecount :       u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -229,9 +229,9 @@ pub struct add_mode_line_request {
      pub vsyncstart :         u16,
      pub vsyncend :           u16,
      pub vtotal :             u16,
-     pub pad0 :               [u8,..2],
+     pub pad0 :               [u8;..2],
      pub flags :              u32,
-     pub pad1 :               [u8,..12],
+     pub pad1 :               [u8;..12],
      pub privsize :           u32,
      pub after_dotclock :     dotclock,
      pub after_hdisplay :     u16,
@@ -243,9 +243,9 @@ pub struct add_mode_line_request {
      pub after_vsyncstart :   u16,
      pub after_vsyncend :     u16,
      pub after_vtotal :       u16,
-     pub pad2 :               [u8,..2],
+     pub pad2 :               [u8;..2],
      pub after_flags :        u32,
-     pub pad3 :               [u8,..12]
+     pub pad3 :               [u8;..12]
 }
 
 
@@ -265,9 +265,9 @@ pub struct delete_mode_line_request {
      pub vsyncstart :     u16,
      pub vsyncend :       u16,
      pub vtotal :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub flags :          u32,
-     pub pad1 :           [u8,..12],
+     pub pad1 :           [u8;..12],
      pub privsize :       u32
 }
 
@@ -292,9 +292,9 @@ pub struct validate_mode_line_request {
      pub vsyncstart :     u16,
      pub vsyncend :       u16,
      pub vtotal :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub flags :          u32,
-     pub pad1 :           [u8,..12],
+     pub pad1 :           [u8;..12],
      pub privsize :       u32
 }
 
@@ -305,7 +305,7 @@ pub struct validate_mode_line_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -325,9 +325,9 @@ pub struct switch_to_mode_request {
      pub vsyncstart :     u16,
      pub vsyncend :       u16,
      pub vtotal :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub flags :          u32,
-     pub pad1 :           [u8,..12],
+     pub pad1 :           [u8;..12],
      pub privsize :       u32
 }
 
@@ -342,7 +342,7 @@ pub struct get_view_port_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -353,7 +353,7 @@ pub struct get_view_port_reply {
      pub length :          u32,
      pub x :               u32,
      pub y :               u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -363,7 +363,7 @@ pub struct set_view_port_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub x :              u32,
      pub y :              u32
 }
@@ -379,7 +379,7 @@ pub struct get_dot_clocks_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -391,7 +391,7 @@ pub struct get_dot_clocks_reply {
      pub flags :           u32,
      pub clocks :          u32,
      pub maxclocks :       u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -411,11 +411,11 @@ pub struct set_gamma_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub red :            u32,
      pub green :          u32,
      pub blue :           u32,
-     pub pad1 :           [u8,..12]
+     pub pad1 :           [u8;..12]
 }
 
 
@@ -429,7 +429,7 @@ pub struct get_gamma_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..26]
+     pub pad0 :           [u8;..26]
 }
 
 
@@ -441,7 +441,7 @@ pub struct get_gamma_reply {
      pub red :             u32,
      pub green :           u32,
      pub blue :            u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -465,7 +465,7 @@ pub struct get_gamma_ramp_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub size :            u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -489,7 +489,7 @@ pub struct get_gamma_ramp_size_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -499,7 +499,7 @@ pub struct get_gamma_ramp_size_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub size :            u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -513,7 +513,7 @@ pub struct get_permissions_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub screen :         u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -523,7 +523,7 @@ pub struct get_permissions_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub permissions :     u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 

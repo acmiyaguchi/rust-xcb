@@ -134,7 +134,7 @@ pub struct pictforminfo {
      pub id :         pictformat,
      pub type_ :      u8,
      pub depth :      u8,
-     pub pad0 :       [u8,..2],
+     pub pad0 :       [u8;..2],
      pub direct :     directformat,
      pub colormap :   ffi::xproto::colormap
 }
@@ -168,7 +168,7 @@ pub struct pictdepth {
      pub depth :         u8,
      pub pad0 :          u8,
      pub num_visuals :   u16,
-     pub pad1 :          [u8,..4]
+     pub pad1 :          [u8;..4]
 }
 
 /**
@@ -334,7 +334,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -360,7 +360,7 @@ pub struct query_pict_formats_reply {
      pub num_depths :      u32,
      pub num_visuals :     u32,
      pub num_subpixel :    u32,
-     pub pad1 :            [u8,..4]
+     pub pad1 :            [u8;..4]
 }
 
 
@@ -383,7 +383,7 @@ pub struct query_pict_index_values_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_values :      u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -435,7 +435,7 @@ pub struct composite_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub mask :           picture,
      pub dst :            picture,
@@ -456,7 +456,7 @@ pub struct trapezoids_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -471,7 +471,7 @@ pub struct triangles_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -486,7 +486,7 @@ pub struct tri_strip_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -501,7 +501,7 @@ pub struct tri_fan_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -564,7 +564,7 @@ pub struct composite_glyphs_8_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -580,7 +580,7 @@ pub struct composite_glyphs_16_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -596,7 +596,7 @@ pub struct composite_glyphs_32_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub src :            picture,
      pub dst :            picture,
      pub mask_format :    pictformat,
@@ -612,7 +612,7 @@ pub struct fill_rectangles_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub op :             u8,
-     pub pad0 :           [u8,..3],
+     pub pad0 :           [u8;..3],
      pub dst :            picture,
      pub color :          color
 }
@@ -682,7 +682,7 @@ pub struct query_filters_reply {
      pub length :          u32,
      pub num_aliases :     u32,
      pub num_filters :     u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -693,7 +693,7 @@ pub struct set_picture_filter_request {
      pub length :         u16,
      pub picture :        picture,
      pub filter_len :     u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 

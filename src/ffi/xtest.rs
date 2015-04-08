@@ -67,13 +67,13 @@ pub struct fake_input_request {
      pub length :         u16,
      pub type_ :          u8,
      pub detail :         u8,
-     pub pad0 :           [u8,..2],
+     pub pad0 :           [u8;..2],
      pub time :           u32,
      pub root :           ffi::xproto::window,
-     pub pad1 :           [u8,..8],
+     pub pad1 :           [u8;..8],
      pub rootX :          i16,
      pub rootY :          i16,
-     pub pad2 :           [u8,..7],
+     pub pad2 :           [u8;..7],
      pub deviceid :       u8
 }
 
@@ -84,7 +84,7 @@ pub struct grab_control_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub impervious :     u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 #[link(name="xcb-xtest")]

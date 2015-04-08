@@ -153,7 +153,7 @@ pub struct initialize_reply {
      pub length :          u32,
      pub major_version :   u8,
      pub minor_version :   u8,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -175,7 +175,7 @@ pub struct list_system_counters_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub counters_len :    u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -299,7 +299,7 @@ pub struct query_alarm_reply {
      pub delta :           int64,
      pub events :          u8,
      pub state :           u8,
-     pub pad1 :            [u8,..2]
+     pub pad1 :            [u8;..2]
 }
 
 
@@ -392,7 +392,7 @@ pub struct query_fence_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub triggered :       u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -429,7 +429,7 @@ pub struct alarm_notify_event {
      pub alarm_value :     int64,
      pub timestamp :       ffi::xproto::timestamp,
      pub state :           u8,
-     pub pad0 :            [u8,..3]
+     pub pad0 :            [u8;..3]
 }
 
 #[link(name="xcb-sync")]

@@ -38,7 +38,7 @@ pub struct query_version_reply {
      pub length :          u32,
      pub major_version :   u32,
      pub minor_version :   u32,
-     pub pad1 :            [u8,..16]
+     pub pad1 :            [u8;..16]
 }
 
 
@@ -49,7 +49,7 @@ pub struct redirect_window_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub update :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -60,7 +60,7 @@ pub struct redirect_subwindows_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub update :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -71,7 +71,7 @@ pub struct unredirect_window_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub update :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -82,7 +82,7 @@ pub struct unredirect_subwindows_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub update :         u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -125,7 +125,7 @@ pub struct get_overlay_window_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub overlay_win :     ffi::xproto::window,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 

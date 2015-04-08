@@ -112,7 +112,7 @@ pub struct list_surface_types_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num :             u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -142,7 +142,7 @@ pub struct create_context_reply {
      pub width_actual :    u16,
      pub height_actual :   u16,
      pub flags_return :    u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -174,7 +174,7 @@ pub struct create_surface_reply {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub length :          u32,
-     pub pad1 :            [u8,..24]
+     pub pad1 :            [u8;..24]
 }
 
 
@@ -213,8 +213,8 @@ pub struct create_subpicture_reply {
      pub height_actual :         u16,
      pub num_palette_entries :   u16,
      pub entry_bytes :           u16,
-     pub component_order :       [u8,..4],
-     pub pad1 :                  [u8,..12]
+     pub component_order :       [u8;..4],
+     pub pad1 :                  [u8;..12]
 }
 
 
@@ -247,7 +247,7 @@ pub struct list_subpicture_types_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num :             u32,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 #[link(name="xcb-xvmc")]

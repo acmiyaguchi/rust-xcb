@@ -168,7 +168,7 @@ pub struct create_context_request {
      pub length :             u16,
      pub context :            context,
      pub element_header :     element_header,
-     pub pad0 :               [u8,..3],
+     pub pad0 :               [u8;..3],
      pub num_client_specs :   u32,
      pub num_ranges :         u32
 }
@@ -181,7 +181,7 @@ pub struct register_clients_request {
      pub length :             u16,
      pub context :            context,
      pub element_header :     element_header,
-     pub pad0 :               [u8,..3],
+     pub pad0 :               [u8;..3],
      pub num_client_specs :   u32,
      pub num_ranges :         u32
 }
@@ -216,9 +216,9 @@ pub struct get_context_reply {
      pub sequence :                  u16,
      pub length :                    u32,
      pub element_header :            element_header,
-     pub pad0 :                      [u8,..3],
+     pub pad0 :                      [u8;..3],
      pub num_intercepted_clients :   u32,
-     pub pad1 :                      [u8,..16]
+     pub pad1 :                      [u8;..16]
 }
 
 
@@ -242,11 +242,11 @@ pub struct enable_context_reply {
      pub length :             u32,
      pub element_header :     element_header,
      pub client_swapped :     u8,
-     pub pad0 :               [u8,..2],
+     pub pad0 :               [u8;..2],
      pub xid_base :           u32,
      pub server_time :        u32,
      pub rec_sequence_num :   u32,
-     pub pad1 :               [u8,..8]
+     pub pad1 :               [u8;..8]
 }
 
 

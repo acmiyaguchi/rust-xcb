@@ -92,7 +92,7 @@ pub struct connect_reply {
      pub length :               u32,
      pub driver_name_length :   u32,
      pub device_name_length :   u32,
-     pub pad1 :                 [u8,..16]
+     pub pad1 :                 [u8;..16]
 }
 
 
@@ -159,7 +159,7 @@ pub struct get_buffers_reply {
      pub width :           u32,
      pub height :          u32,
      pub count :           u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -209,7 +209,7 @@ pub struct get_buffers_with_format_reply {
      pub width :           u32,
      pub height :          u32,
      pub count :           u32,
-     pub pad1 :            [u8,..12]
+     pub pad1 :            [u8;..12]
 }
 
 
@@ -371,7 +371,7 @@ pub struct buffer_swap_complete_event {
      pub pad0 :            u8,
      pub sequence :        u16,
      pub event_type :      u16,
-     pub pad1 :            [u8,..2],
+     pub pad1 :            [u8;..2],
      pub drawable :        ffi::xproto::drawable,
      pub ust_hi :          u32,
      pub ust_lo :          u32,

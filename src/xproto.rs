@@ -2565,7 +2565,7 @@ impl KeymapNotifyEvent {
     unsafe { ((*self.base.event).keys).to_vec() }
   }
 
-  pub fn new(keys : [u8,..31]) -> KeymapNotifyEvent {
+  pub fn new(keys : [u8; 31]) -> KeymapNotifyEvent {
     unsafe {
       let raw = malloc(32u as size_t) as *mut keymap_notify_event;
       (*raw).keys = keys;

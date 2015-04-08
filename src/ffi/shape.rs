@@ -48,7 +48,7 @@ pub struct notify_event {
      pub extents_height :    u16,
      pub server_time :       ffi::xproto::timestamp,
      pub shaped :            u8,
-     pub pad0 :              [u8,..11]
+     pub pad0 :              [u8;..11]
 }
 
 
@@ -96,7 +96,7 @@ pub struct mask_request {
      pub length :               u16,
      pub operation :            op,
      pub destination_kind :     kind,
-     pub pad0 :                 [u8,..2],
+     pub pad0 :                 [u8;..2],
      pub destination_window :   ffi::xproto::window,
      pub x_offset :             i16,
      pub y_offset :             i16,
@@ -126,7 +126,7 @@ pub struct offset_request {
      pub minor_opcode :         u8,
      pub length :               u16,
      pub destination_kind :     kind,
-     pub pad0 :                 [u8,..3],
+     pub pad0 :                 [u8;..3],
      pub destination_window :   ffi::xproto::window,
      pub x_offset :             i16,
      pub y_offset :             i16
@@ -153,7 +153,7 @@ pub struct query_extents_reply {
      pub length :                          u32,
      pub bounding_shaped :                 u8,
      pub clip_shaped :                     u8,
-     pub pad1 :                            [u8,..2],
+     pub pad1 :                            [u8;..2],
      pub bounding_shape_extents_x :        i16,
      pub bounding_shape_extents_y :        i16,
      pub bounding_shape_extents_width :    u16,
@@ -172,7 +172,7 @@ pub struct select_input_request {
      pub length :               u16,
      pub destination_window :   ffi::xproto::window,
      pub enable :               u8,
-     pub pad0 :                 [u8,..3]
+     pub pad0 :                 [u8;..3]
 }
 
 
@@ -208,7 +208,7 @@ pub struct get_rectangles_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub source_kind :    kind,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -218,7 +218,7 @@ pub struct get_rectangles_reply {
      pub sequence :         u16,
      pub length :           u32,
      pub rectangles_len :   u32,
-     pub pad0 :             [u8,..20]
+     pub pad0 :             [u8;..20]
 }
 
 #[link(name="xcb-shape")]

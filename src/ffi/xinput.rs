@@ -46,7 +46,7 @@ pub struct get_extension_version_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub name_len :       u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -58,7 +58,7 @@ pub struct get_extension_version_reply {
      pub server_major :    u16,
      pub server_minor :    u16,
      pub present :         u8,
-     pub pad1 :            [u8,..19]
+     pub pad1 :            [u8;..19]
 }
 
 
@@ -98,7 +98,7 @@ pub struct list_input_devices_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub devices_len :     u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -123,7 +123,7 @@ pub struct key_info {
      pub min_keycode :   key_code,
      pub max_keycode :   key_code,
      pub num_keys :      u16,
-     pub pad0 :          [u8,..2]
+     pub pad0 :          [u8;..2]
 }
 
 /**
@@ -211,7 +211,7 @@ pub struct open_device_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -221,7 +221,7 @@ pub struct open_device_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_classes :     u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -231,7 +231,7 @@ pub struct close_device_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -246,7 +246,7 @@ pub struct set_device_mode_request {
      pub length :         u16,
      pub device_id :      u8,
      pub mode :           u8,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -256,7 +256,7 @@ pub struct set_device_mode_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -267,7 +267,7 @@ pub struct select_extension_event_request {
      pub length :         u16,
      pub window :         ffi::xproto::window,
      pub num_classes :    u16,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -291,7 +291,7 @@ pub struct get_selected_extension_events_reply {
      pub length :             u32,
      pub num_this_classes :   u16,
      pub num_all_classes :    u16,
-     pub pad1 :               [u8,..20]
+     pub pad1 :               [u8;..20]
 }
 
 
@@ -326,7 +326,7 @@ pub struct get_device_dont_propagate_list_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_classes :     u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -353,7 +353,7 @@ pub struct get_device_motion_events_reply {
      pub num_coords :      u32,
      pub num_axes :        u8,
      pub device_mode :     u8,
-     pub pad1 :            [u8,..18]
+     pub pad1 :            [u8;..18]
 }
 
 
@@ -381,7 +381,7 @@ pub struct change_keyboard_device_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -391,7 +391,7 @@ pub struct change_keyboard_device_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -417,7 +417,7 @@ pub struct change_pointer_device_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -437,7 +437,7 @@ pub struct grab_device_request {
      pub other_device_mode :   u8,
      pub owner_events :        u8,
      pub device_id :           u8,
-     pub pad0 :                [u8,..2]
+     pub pad0 :                [u8;..2]
 }
 
 
@@ -447,7 +447,7 @@ pub struct grab_device_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -475,7 +475,7 @@ pub struct grab_device_key_request {
      pub this_device_mode :    u8,
      pub other_device_mode :   u8,
      pub owner_events :        u8,
-     pub pad0 :                [u8,..2]
+     pub pad0 :                [u8;..2]
 }
 
 
@@ -506,7 +506,7 @@ pub struct grab_device_button_request {
      pub other_device_mode :   u8,
      pub button :              u8,
      pub owner_events :        u8,
-     pub pad0 :                [u8,..2]
+     pub pad0 :                [u8;..2]
 }
 
 
@@ -544,7 +544,7 @@ pub struct get_device_focus_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -556,7 +556,7 @@ pub struct get_device_focus_reply {
      pub focus :           ffi::xproto::window,
      pub time :            ffi::xproto::timestamp,
      pub revert_to :       u8,
-     pub pad1 :            [u8,..15]
+     pub pad1 :            [u8;..15]
 }
 
 
@@ -582,7 +582,7 @@ pub struct get_feedback_control_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -592,7 +592,7 @@ pub struct get_feedback_control_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_feedback :    u16,
-     pub pad1 :            [u8,..22]
+     pub pad1 :            [u8;..22]
 }
 
 
@@ -624,7 +624,7 @@ pub struct kbd_feedback_state {
      pub click :                u8,
      pub percent :              u8,
      pub pad0 :                 u8,
-     pub auto_repeats :         [u8,..32]
+     pub auto_repeats :         [u8;..32]
 }
 
 /**
@@ -641,7 +641,7 @@ pub struct ptr_feedback_state {
      pub class_id :      u8,
      pub id :            u8,
      pub len :           u16,
-     pub pad0 :          [u8,..2],
+     pub pad0 :          [u8;..2],
      pub accel_num :     u16,
      pub accel_denom :   u16,
      pub threshold :     u16
@@ -699,7 +699,7 @@ pub struct bell_feedback_state {
      pub id :         u8,
      pub len :        u16,
      pub percent :    u8,
-     pub pad0 :       [u8,..3],
+     pub pad0 :       [u8;..3],
      pub pitch :      u16,
      pub duration :   u16
 }
@@ -776,7 +776,7 @@ pub struct ptr_feedback_ctl {
      pub class_id :    u8,
      pub id :          u8,
      pub len :         u16,
-     pub pad0 :        [u8,..2],
+     pub pad0 :        [u8;..2],
      pub num :         i16,
      pub denom :       i16,
      pub threshold :   i16
@@ -813,7 +813,7 @@ pub struct string_feedback_ctl {
      pub class_id :      u8,
      pub id :            u8,
      pub len :           u16,
-     pub pad0 :          [u8,..2],
+     pub pad0 :          [u8;..2],
      pub num_keysyms :   u16
 }
 
@@ -832,7 +832,7 @@ pub struct bell_feedback_ctl {
      pub id :         u8,
      pub len :        u16,
      pub percent :    i8,
-     pub pad0 :       [u8,..3],
+     pub pad0 :       [u8;..3],
      pub pitch :      i16,
      pub duration :   i16
 }
@@ -886,7 +886,7 @@ pub struct get_device_key_mapping_reply {
      pub sequence :              u16,
      pub length :                u32,
      pub keysyms_per_keycode :   u8,
-     pub pad1 :                  [u8,..23]
+     pub pad1 :                  [u8;..23]
 }
 
 
@@ -912,7 +912,7 @@ pub struct get_device_modifier_mapping_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -922,7 +922,7 @@ pub struct get_device_modifier_mapping_reply {
      pub sequence :                u16,
      pub length :                  u32,
      pub keycodes_per_modifier :   u8,
-     pub pad1 :                    [u8,..23]
+     pub pad1 :                    [u8;..23]
 }
 
 
@@ -947,7 +947,7 @@ pub struct set_device_modifier_mapping_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -961,7 +961,7 @@ pub struct get_device_button_mapping_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -971,7 +971,7 @@ pub struct get_device_button_mapping_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub map_size :        u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -986,7 +986,7 @@ pub struct set_device_button_mapping_request {
      pub length :         u16,
      pub device_id :      u8,
      pub map_size :       u8,
-     pub pad0 :           [u8,..2]
+     pub pad0 :           [u8;..2]
 }
 
 
@@ -996,7 +996,7 @@ pub struct set_device_button_mapping_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -1010,7 +1010,7 @@ pub struct query_device_state_request {
      pub minor_opcode :   u8,
      pub length :         u16,
      pub device_id :      u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -1020,7 +1020,7 @@ pub struct query_device_state_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub num_classes :     u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -1045,7 +1045,7 @@ pub struct key_state {
      pub len :        u8,
      pub num_keys :   u8,
      pub pad0 :       u8,
-     pub keys :       [u8,..32]
+     pub keys :       [u8;..32]
 }
 
 /**
@@ -1063,7 +1063,7 @@ pub struct button_state {
      pub len :           u8,
      pub num_buttons :   u8,
      pub pad0 :          u8,
-     pub buttons :       [u8,..32]
+     pub buttons :       [u8;..32]
 }
 
 /**
@@ -1103,7 +1103,7 @@ pub struct send_extension_event_request {
      pub propagate :      u8,
      pub num_classes :    u16,
      pub num_events :     u8,
-     pub pad0 :           [u8,..3]
+     pub pad0 :           [u8;..3]
 }
 
 
@@ -1141,7 +1141,7 @@ pub struct set_device_valuators_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -1166,7 +1166,7 @@ pub struct get_device_control_reply {
      pub sequence :        u16,
      pub length :          u32,
      pub status :          u8,
-     pub pad1 :            [u8,..23]
+     pub pad1 :            [u8;..23]
 }
 
 
@@ -1250,7 +1250,7 @@ pub struct device_core_state {
      pub len :          u16,
      pub status :       u8,
      pub iscore :       u8,
-     pub pad0 :         [u8,..2]
+     pub pad0 :         [u8;..2]
 }
 
 /**
@@ -1267,7 +1267,7 @@ pub struct device_enable_state {
      pub control_id :   u16,
      pub len :          u16,
      pub enable :       u8,
-     pub pad0 :         [u8,..3]
+     pub pad0 :         [u8;..3]
 }
 
 /**
@@ -1360,7 +1360,7 @@ pub struct device_core_ctrl {
      pub control_id :   u16,
      pub len :          u16,
      pub status :       u8,
-     pub pad0 :         [u8,..3]
+     pub pad0 :         [u8;..3]
 }
 
 /**
@@ -1377,7 +1377,7 @@ pub struct device_enable_ctrl {
      pub control_id :   u16,
      pub len :          u16,
      pub enable :       u8,
-     pub pad0 :         [u8,..3]
+     pub pad0 :         [u8;..3]
 }
 
 /**
@@ -1398,7 +1398,7 @@ pub struct device_valuator_event {
      pub device_state :     u16,
      pub num_valuators :    u8,
      pub first_valuator :   u8,
-     pub valuators :        [i32,..6]
+     pub valuators :        [i32;..6]
 }
 
 
@@ -1448,7 +1448,7 @@ pub struct focus_in_event {
      pub window :          ffi::xproto::window,
      pub mode :            u8,
      pub device_id :       u8,
-     pub pad0 :            [u8,..18]
+     pub pad0 :            [u8;..18]
 }
 
 
@@ -1465,9 +1465,9 @@ pub struct device_state_notify_event {
      pub num_buttons :        u8,
      pub num_valuators :      u8,
      pub classes_reported :   u8,
-     pub buttons :            [u8,..4],
-     pub keys :               [u8,..4],
-     pub valuators :          [u32,..3]
+     pub buttons :            [u8;..4],
+     pub keys :               [u8;..4],
+     pub valuators :          [u32;..3]
 }
 
 
@@ -1481,7 +1481,7 @@ pub struct device_mapping_notify_event {
      pub count :           u8,
      pub pad0 :            u8,
      pub time :            ffi::xproto::timestamp,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
@@ -1492,7 +1492,7 @@ pub struct change_device_notify_event {
      pub sequence :        u16,
      pub time :            ffi::xproto::timestamp,
      pub request :         u8,
-     pub pad0 :            [u8,..23]
+     pub pad0 :            [u8;..23]
 }
 
 
@@ -1501,7 +1501,7 @@ pub struct device_key_state_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
      pub sequence :        u16,
-     pub keys :            [u8,..28]
+     pub keys :            [u8;..28]
 }
 
 
@@ -1510,7 +1510,7 @@ pub struct device_button_state_notify_event {
      pub response_type :   u8,
      pub device_id :       u8,
      pub sequence :        u16,
-     pub buttons :         [u8,..28]
+     pub buttons :         [u8;..28]
 }
 
 
@@ -1523,7 +1523,7 @@ pub struct device_presence_notify_event {
      pub devchange :       u8,
      pub device_id :       u8,
      pub control :         u16,
-     pub pad1 :            [u8,..20]
+     pub pad1 :            [u8;..20]
 }
 
 
